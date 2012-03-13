@@ -1,0 +1,21 @@
+\form#0:$ \pi \left( \mathbf{p}, \mathbf{q} \right) \propto \exp \left( - H \right) $
+\form#1:\[ \hat{H} = \frac{\hat{V}}{2} + \frac{\hat{U}}{2} + \hat{T} + \frac{\hat{U}}{2} + \frac{\hat{V}}{2}, \]
+\form#2:\[ \hat{T} = \frac{ \partial H }{\partial p } \frac{ \partial }{ \partial q } \]
+\form#3:\[ \hat{V} = - \frac{ \partial H }{\partial q } \frac{ \partial }{ \partial p } \]
+\form#4:$\hat{U}$
+\form#5:$ \hat{V} $
+\form#6:$ \log( \exp(a) + \exp(b) ) $
+\form#7:\[ H = \frac{1}{2} p_{i} p_{j} \left(M^{-1}\right)^{ij} + V \! \left( \mathbf{q} \right) \]
+\form#8:\[ \hat{T} = p_{i} \left(M^{-1}\right)^{ij} \frac{ \partial }{ \partial q_{j} } \]
+\form#9:\[ \hat{V} = - \frac{ \partial V }{ \partial q_{i} } \frac{ \partial }{ \partial p_{i} }, \]
+\form#10:$ \pi \left( \mathbf{p} | \mathbf{q} \right) \propto \exp \left( - T \left( \mathbf{p}, \mathbf{q} \right) \right) $
+\form#11:$ \Sigma_{ij} = \sigma_{ij} + \alpha \partial_{i} V \partial_{j} V $
+\form#12:\[ \hat{V} = \sum_{i} \hat{\mathcal{A}}_{i} + \hat{F}, \]
+\form#13:\[ \hat{\mathcal{A}}_{i} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{i} } \]
+\form#14:\[ \hat{F} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }. \]
+\form#15:$\Sigma_{ij} = \sigma_{i} \delta_{ij} + \alpha \partial_{i} V \partial_{j} V$
+\form#16:\[ H = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right) \]
+\form#17:\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} } \]
+\form#18:\[ \hat{V} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }. \]
+\form#19:\[ \hat{\mathcal{A}} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{i} }.\]
+\form#20:\[ \hat{F} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]
