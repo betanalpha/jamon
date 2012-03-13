@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Gather desired files from existing projects into release directory, added if necessary, and then comitting to local directory 
+# before pushing to GitHub.
+#
+# Total hack of proper repository use -- DEAL WITH IT.
+
+dir=~/Documents/Research/Code/Inference/HMC
+
+files=()
+
+files=($files $dir/base/baseHamiltonian.cpp) 
+files=($files $dir/base/baseHamiltonian.h) 
+files=($files $dir/base/chainBundle.cpp) 
+files=($files $dir/base/chainBundle.h)
+
+files=($files $dir/base/constMetric.cpp) 
+files=($files $dir/base/constMetric.h) 
+files=($files $dir/base/denseConstMetric.cpp) 
+files=($files $dir/base/denseConstMetric.h) 
+files=($files $dir/base/diagConstMetric.cpp) 
+files=($files $dir/base/diagConstMetric.h)
+
+files=($files $dir/base/denseDynamMetric.cpp) 
+files=($files $dir/base/denseDynamMetric.h)
+
+files=($files $dir/base/dynamMetric.cpp) 
+files=($files $dir/base/dynamMetric.h) 
+files=($files $dir/base/diagBkgdBsMetric.cpp) 
+files=($files $dir/base/diagBkgdBsMetric.h) 
+files=($files $dir/base/denseBkgdBsMetric.cpp) 
+files=($files $dir/base/denseBkgdBsMetric.h) 
+files=($files $dir/base/denseFisherMetric.cpp) 
+files=($files $dir/base/denseFisherMetric.h)
+
+files=($files $dir/base/plotTrace) 
+files=($files $dir/base/LICENSE.TXT)
+
+
+
