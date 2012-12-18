@@ -125,7 +125,7 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a1a336bac28ef3cc46be4b089f68cc802">fHatT</a> (const double epsilon)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \Lambda^{ij} \frac{ \partial }{ \partial q_{j} }\]" src="form_33.png"/>
+<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \Lambda^{ij} \frac{ \partial }{ \partial q_{j} }\]" src="form_18.png"/>
 </p>
 <p>. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a381eeb5c1f4c95630d68430c5ed018ad">fHatTau</a> (const double epsilon, const int numFixedPoint)</td></tr>
@@ -162,28 +162,28 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="author"><dt><b>Author:</b></dt><dd>Michael Betancourt</dd></dl>
-<p>Abstract base class defining the interface for a Hamiltonian defined on a Riemannian manifold, <img class="formulaInl" alt="$ H = \tau + \phi $" src="form_26.png"/>, where </p>
+<p>Abstract base class defining the interface for a Hamiltonian defined on a Riemannian manifold, <img class="formulaInl" alt="$ H = \tau + \phi $" src="form_11.png"/>, where </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \tau = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) \]" src="form_27.png"/>
+<img class="formulaDsp" alt="\[ \tau = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) \]" src="form_12.png"/>
 </p>
 <p> and </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \frac{1}{2} \log \! \left| \mathbf{\Sigma} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right). \]" src="form_28.png"/>
+<img class="formulaDsp" alt="\[ \frac{1}{2} \log \! \left| \mathbf{\Sigma} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right). \]" src="form_13.png"/>
 </p>
 <p>The Poisson operators are defined as </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{H} = \frac{1}{2} \hat{\phi} + \frac{1}{2} \hat{\tau} + \hat{T} + \frac{1}{2} \hat{\tau} + \frac{1}{2} \hat{\phi}, \]" src="form_29.png"/>
+<img class="formulaDsp" alt="\[ \hat{H} = \frac{1}{2} \hat{\phi} + \frac{1}{2} \hat{\tau} + \hat{T} + \frac{1}{2} \hat{\tau} + \frac{1}{2} \hat{\phi}, \]" src="form_14.png"/>
 </p>
 <p> where </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }, \]" src="form_30.png"/>
+<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }, \]" src="form_15.png"/>
 </p>
  <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} },\]" src="form_31.png"/>
+<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} },\]" src="form_16.png"/>
 </p>
 <p> and </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} }. \]" src="form_32.png"/>
+<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} }. \]" src="form_17.png"/>
 </p>
  </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acb576711498c09d8dab07a4ed33638a1"></a><!-- doxytag: member="dynamMetric::dynamMetric" ref="acb576711498c09d8dab07a4ed33638a1" args="(int dim)" -->
@@ -227,7 +227,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="memdoc">
 <p>Evolve </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]" src="form_35.png"/>
+<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]" src="form_20.png"/>
 </p>
  
 </div>
@@ -258,7 +258,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="memdoc">
 <p>Evolve </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} }.\]" src="form_34.png"/>
+<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} }.\]" src="form_19.png"/>
 </p>
  
 </div>
@@ -323,7 +323,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 12:00:18 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
