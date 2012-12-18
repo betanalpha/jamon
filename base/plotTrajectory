@@ -1,0 +1,55 @@
+#!/bin/bash
+
+prefix=$1
+title=$2
+
+inputFile=${prefix}Trajectory.txt
+
+# Extract integrator parameters
+stepSize=`head -1 $inputFile | awk '{print $1}'`
+nLeapfrog=`head -1 $inputFile | awk '{print $2}'`
+
+############################################################
+#                                                          #
+#                     Get some gnuplot on                  #
+#                                                          #
+############################################################
+
+gnuplot << END
+
+set terminal postscript enhanced eps color font 'Times-Roman, 25' size 5, 5
+set output "${prefix}Flow.eps"
+
+set title '{/Symbol e} = $stepSize, L = $nLeapfrog'
+
+# Find min/max of all energy flows
+set xrange[*:*]
+set yrange[*:*]
+
+stats "$inputFile" using 2 every :::1::2 nooutput
+min = STATS_min
+max = STATS_max
+
+stats "$inputFile" using 3 every :::1::2 nooutput
+min = STATS_min < min ? STATS_min : min
+max = STATS_max > max ? STATS_max : max
+
+stats "$inputFile" using 4 every :::1::2 nooutput
+min = STATS_min < min ? STATS_min : min
+max = STATS_max > max ? STATS_max : max
+
+# Expand min/max for necessary whitespace
+delta = (max - min)
+max = max + 0.5 * delta
+min = min - 0.15 * delta
+
+# Set geometry and plot
+set xlabel 't = {/Symbol e} * n / L'
+set xrange [*:*]
+
+set ylabel ''
+set yrange[min:max]
+
+plot "$inputFile" using ($stepSize * \$1):2 every :::1::2 with lines lt 1 lw 2 linecolor rgb 'blue' title "H", \
+"$inputFile" using ($stepSize * \$1):3 every :::1::2 with lines lt 1 lw 2 linecolor rgb 'red' title "T", \
+"$inputFile" using ($stepSize * \$1):4 every :::1::2 with lines lt 1 lw 2 linecolor rgb 'green' title "V"
