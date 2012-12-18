@@ -1,5 +1,4 @@
-Jamon: An Implementation of Constrained Hamiltonian Monte Carlo
-
+Jamón: An Implementation of Constrained Hamiltonian Monte Carlo
 A suite of classes facilitating generalized Hamiltonian 
 Monte Carlo (both constrained and unconstrainted).
 For details see http://arxiv.org/abs/1112.4118 
@@ -8,7 +7,6 @@ baseHamiltonian defines the interface for the
 target distribution, in particular the kinetic
 energy, the potential energy, the evolution
 of the position and momentum, and any constraints.
-
 chainBundle provides a container of baseHamiltonians,
 including the functionality to perform HMC transitions,
 diagnose convergence, and analyse samples.
@@ -17,19 +15,23 @@ Specifically, the code implements Hamiltonians defined
 on Euclidean and Riemannian manifolds (i.e. with
 kinetic energies given by quadratic forms):
 
-  - constMetric (Euclidean Metrics)
-    - diagConstMetric  (Diagonal)
-    - denseConstMetric (Dense)
+    - constMetric (Euclidean Metrics)
+        - diagConstMetric  (Diagonal)
+        - denseConstMetric (Dense)
 
-  - dynamMetric (Riemannian Metrics)
+    - dynamMetric (Riemannian Metrics)
 
-    - denseDynamMetric (Dense)
-      - diagBkgdBsMetric  (Dense Background-Score with Diagonal Background Metric)
-      - denseBkgdBsMetric (Dense Background-Score with Dense Background Metric)
-      - denseFisherMetric (Dense Fisher-Rao)
+        - denseFisherMetric (Dense Fisher-Rao)
+        - softAbsMetric (Dense SoftAbs)
+
+            - Approximations to the SoftAbs Metric
+                - diagSoftAbsMetric (Diagonal)
+                - outerSoftAbsMetric (Outer-Product)
+                - diagOuterSoftAbsMetric (Diagonal Outer-Product)
 
 Example implementations include a multivariate Gaussian
-and Neal's infamous "funnel" distribution.
+and Neal's "funnel" distribution.
+
 
 Matrix operations are performed with the Eigen
 template library: http://eigen.tuxfamily.org/
@@ -39,6 +41,9 @@ randomlib library: http://randomlib.sourceforge.net/
 
 Option plotting available with gnuplot:
 http://www.gnuplot.info/
+
+Copyright Michael Betancourt 2012
+betanalpha@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a 
 copy of this software and associated documentation files (the "Software"), 
@@ -57,4 +62,3 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
 OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
