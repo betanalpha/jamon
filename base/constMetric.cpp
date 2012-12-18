@@ -5,10 +5,10 @@
 
 constMetric::constMetric(int dim): 
 baseHamiltonian(dim),
-mAux(VectorXd::Zero(mDim))
+mAuxVector(VectorXd::Zero(mDim))
 {}
 
-void constMetric::fEvolveP(double epsilon) 
+void constMetric::fEvolveP(const double epsilon) 
 {
     mP -= epsilon * gradV();
 }

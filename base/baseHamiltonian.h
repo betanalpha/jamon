@@ -35,13 +35,16 @@ using RandomLib::Random;
 ///
 ///     - dynamMetric (Riemannian Metrics)
 ///
-///         - denseDynamMetric (Dense)
-///             - diagBkgdBsMetric  (Dense Background-Score with Diagonal Background Metric)
-///             - denseBkgdBsMetric (Dense Background-Score with Dense Background Metric)
-///             - denseFisherMetric (Dense Fisher-Rao)
+///         - denseFisherMetric (Dense Fisher-Rao)
+///         - softAbsMetric (Dense SoftAbs)
+///
+///             - Approximations to the SoftAbs Metric
+///                 - diagSoftAbsMetric (Diagonal)
+///                 - outerSoftAbsMetric (Outer-Product)
+///                 - diagOuterSoftAbsMetric (Diagonal Outer-Product)
 ///
 ///  Example implementations include a multivariate Gaussian
-///  and Neal's infamous "funnel" distribution.
+///  and Neal's "funnel" distribution.
 ///
 ///
 ///  Matrix operations are performed with the Eigen
@@ -52,6 +55,9 @@ using RandomLib::Random;
 ///
 ///  Option plotting available with gnuplot:
 ///  http://www.gnuplot.info/
+///
+///  Copyright Michael Betancourt 2012
+///  betanalpha@gmail.com
 ///
 ///  Permission is hereby granted, free of charge, to any person obtaining a 
 ///  copy of this software and associated documentation files (the "Software"), 
@@ -72,11 +78,8 @@ using RandomLib::Random;
 ///  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ///
 
-///  \example examples/multiVarGauss/main.cpp
-/// Sample from an ill-conditioned multivariate Gaussian distribution.
-
-///  \example examples/funnel/main.cpp
-/// Sample from a Neal's "funnel" distribution.
+///  \example examples/main.cpp
+/// Neal's "funnel" distribution and logistic regression.
 
 ///  \author Michael Betancourt
 ///
@@ -106,10 +109,15 @@ class baseHamiltonian
     
         double H() { return T() + V(); }           ///< Return the Hamiltonian
     
-        VectorXd& q() { return mQ; }               ///< Return the current position of the chain
-        VectorXd& p() { return mP; }               ///< Return the current momentum of the chain
+        VectorXd& q() { return mQ; }               ///< Return the current position
+        double q(int i) { return mQ(i); }          ///< Return the ith component of the current position
+        VectorXd& p() { return mP; }               ///< Return the current momentum
+        double p(int i) { return mP(i); }          ///< Return the ith component of the current momentum
     
-        virtual void evolveQ(double epsilon) = 0;  ///< Evolve the position through some time epsilon
+        VectorXd& acceptQ() { return mAcceptQ; }   ///< Return the currect accept window sample
+        VectorXd& rejectQ() { return mRejectQ; }   ///< Return the currect reject window sample
+    
+        virtual void evolveQ(const double epsilon) = 0;  ///< Evolve the position through some time epsilon
     
         //////////////////////////////////////////////////
         //                   Mutators                   //
@@ -120,10 +128,10 @@ class baseHamiltonian
         virtual void prepareEvolution() {};
     
         /// Evolve the momenta through an initial half step of time epsilon
-        virtual void beginEvolveP(double epsilon) = 0;
+        virtual void beginEvolveP(const double epsilon) = 0;
         
         /// Evolve the momenta through a final half step of time epsilon
-        virtual void finishEvolveP(double epsilon) = 0;  
+        virtual void finishEvolveP(const double epsilon) = 0;  
         
         /// Evolve the momentum through a bounce off of a constraint surface
         /// \param normal Vector normal to constraint surface
@@ -147,18 +155,20 @@ class baseHamiltonian
         void saveAsAcceptSample() { mAcceptQ = mQ; }
         
         /// Select between the reject and accept windows
-        void sampleWindows(bool accept) { accept ? mQ = mAcceptQ : mQ = mRejectQ; }
+        void sampleWindows(const bool accept) { accept ? mQ = mAcceptQ : mQ = mRejectQ; }
     
         /// Set moving average decay rate
-        void setAverageDecay(double alpha) { mMovingAlpha = alpha; }
+        void setAverageDecay(const double alpha) { mMovingAlpha = alpha; }
     
-        void updateMetroStats(double a);
+        void updateMetroStats(const bool b, const double a);
     
         void clearHistory();
     
         //////////////////////////////////////////////////
         //              Auxiliary Functions             //
         //////////////////////////////////////////////////
+    
+        bool isNaN();
     
         /// Is the chain within the support of the distribution?
         virtual bool supportViolated() { return false; }
@@ -167,7 +177,7 @@ class baseHamiltonian
         virtual VectorXd& supportNormal() { return mN; }
     
         /// Comparing the evolution implementations with finite differences
-        virtual void checkEvolution(double epsilon = 1e-6);
+        virtual void checkEvolution(const double epsilon = 1e-6);
     
         /// Metropolis accept rate over the history of the chains
         double acceptRate() { return mNumAccept / (mNumAccept + mNumReject); }

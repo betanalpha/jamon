@@ -24,7 +24,7 @@ class denseConstMetric: public constMetric
         
         double T();
         
-        void evolveQ(double epsilon);
+        void evolveQ(const double epsilon);
         
         void bounceP(const VectorXd& normal);
         

@@ -12,22 +12,22 @@ mMassInv(VectorXd::Ones(mDim))
 
 double diagConstMetric::T()
 {
-    mAux.noalias() = mMassInv.asDiagonal() * mP;
-    return 0.5 * mP.dot(mAux);
+    mAuxVector.noalias() = mMassInv.asDiagonal() * mP;
+    return 0.5 * mP.dot(mAuxVector);
 }
 
-void diagConstMetric::evolveQ(double epsilon)
+void diagConstMetric::evolveQ(const double epsilon)
 {
-    mAux.noalias() = mMassInv.asDiagonal() * mP;
-    mQ += epsilon * mAux;
+    mAuxVector.noalias() = mMassInv.asDiagonal() * mP;
+    mQ += epsilon * mAuxVector;
 }
 
 void diagConstMetric::bounceP(const VectorXd& normal)
 {
     
-    mAux.noalias() = mMassInv.asDiagonal() * normal;
-    double C = -2.0 * mP.dot(mAux);
-    C /= normal.dot(mAux);
+    mAuxVector.noalias() = mMassInv.asDiagonal() * normal;
+    double C = -2.0 * mP.dot(mAuxVector);
+    C /= normal.dot(mAuxVector);
     
     mP += C * normal;
     

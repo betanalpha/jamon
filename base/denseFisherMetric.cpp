@@ -9,106 +9,34 @@
 /// \param dim Dimension of the target space    
 
 denseFisherMetric::denseFisherMetric(int dim): 
-denseDynamMetric(dim),
+dynamMetric(dim),
 mG(MatrixXd::Identity(mDim, mDim)),
 mGradG(MatrixXd::Identity(mDim, mDim)),
 mC(VectorXd::Zero(mDim)),
-mGL(dim),
-mLogDetG(0)
+mGL(dim)
 {}
 
 double denseFisherMetric::T()
 {
-    fComputeCholeskyG();
-    mAux = mGL.solve(mP);
-    return 0.5 * mP.transpose() * mAux + 0.5 * mLogDetG;
+    fComputeMetric();
+    mAuxVector = mGL.solve(mP);
+    return 0.5 * mP.transpose() * mAuxVector + 0.5 * mLogDetMetric;
 }
 
-void denseFisherMetric::evolveQ(double epsilon)
+double denseFisherMetric::tau()
 {
-    
-    mB = mGL.solve(mP);
-    mB = mQ + 0.5 * epsilon * mB;
-    
-    for(int i = 0; i < mNumFixedPoint; ++i)
-    {
-        mAux = mGL.solve(mP);
-        mAux *= 0.5 * epsilon;
-        mQ = mB + mAux;
-        fComputeCholeskyG();
-    }
-    
-}
-
-void denseFisherMetric::beginEvolveP(double epsilon)
-{
-    
-    /*
-    mC = mP;
-
-    for(int i = 0; i < mNumFixedPoint; ++i)
-    {
-    
-        for(int j = 0; j < mDim; ++j)
-        {
-            
-            fComputeGradG(j);
-       
-            mB = mGL.solve(mP);
-            mAux(j) = 0.5 * mB.transpose() * mGradG * mB;
-            
-            mAux(j) += - 0.5 * mGL.solve(mGradG).trace();
-            
-        }
-        
-        mP = mC + epsilon * (mAux - mGradV);
-        
-    }
-     */
-    
-    // \hat{F}
-    fHatF(epsilon);
-    
-    // \hat{\mathbb{A}}
-    fHatA(epsilon);
-    
-}
-
-void denseFisherMetric::finishEvolveP(double epsilon)
-{
-    
-    /*
-    for(int j = 0; j < mDim; ++j)
-    {
-        
-        fComputeGradG(j);
-        
-        mB = mGL.solve(mP);
-        mAux(j) = 0.5 * mB.transpose() * mGradG * mB;
-        
-        mAux(j) += - 0.5 * mGL.solve(mGradG).trace();
-        
-    }
-    
-    mP += epsilon * (mAux - mGradV);
-    */
-    
-    // \hat{\mathbb{A}}
-    fHatA(epsilon);
-    
-    // \hat{F}
-    fHatF(epsilon);
-    
+    fComputeMetric();
+    mAuxVector = mGL.solve(mP);
+    return 0.5 * mP.transpose() * mAuxVector;
 }
 
 void denseFisherMetric::bounceP(const VectorXd& normal)
 {
     
-    fComputeCholeskyG();
-    mAux = mGL.solve(normal);
+    mAuxVector = mGL.solve(normal);
     
-    double C = -2.0 * mP.dot(mAux);
-    C /= normal.dot(mAux);
+    double C = -2.0 * mP.dot(mAuxVector);
+    C /= normal.dot(mAuxVector);
     
     mP += C * normal;
     
@@ -121,16 +49,16 @@ void denseFisherMetric::bounceP(const VectorXd& normal)
 void denseFisherMetric::sampleP(Random& random)
 {
     
-    fComputeCholeskyG();
+    fComputeMetric();
     
     RandomLib::NormalDistribution<> g;
-    for(int i = 0; i < mDim; ++i) mAux(i) = g(random, 0.0, 1.0);
+    for(int i = 0; i < mDim; ++i) mAuxVector(i) = g(random, 0.0, 1.0);
     
-    mP.noalias() = mGL.matrixL() * mAux;
+    mP.noalias() = mGL.matrixL() * mAuxVector;
     
 }
 
-void denseFisherMetric::checkEvolution(double epsilon)
+void denseFisherMetric::checkEvolution(const double epsilon)
 {
     
     baseHamiltonian::checkEvolution(epsilon);
@@ -140,7 +68,7 @@ void denseFisherMetric::checkEvolution(double epsilon)
     int width = 12;
     int nColumn = 6;
     
-    std::cout << "Gradient of the Fisher-Rao metric:" << std::endl;
+    std::cout << "Gradient of the Fisher-Rao metric (dG^{jk}/dq^{i}):" << std::endl;
     std::cout << "    " << std::setw(nColumn * width) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
     std::cout << "    "
               << std::setw(width) << std::left << "Component"
@@ -151,9 +79,9 @@ void denseFisherMetric::checkEvolution(double epsilon)
               << std::setw(width) << std::left << "Delta /"
               << std::endl;
     std::cout << "    "
-              << std::setw(width) << std::left << ""
-              << std::setw(width) << std::left << ""
-              << std::setw(width) << std::left << ""
+              << std::setw(width) << std::left << "(i)"
+              << std::setw(width) << std::left << "(j)"
+              << std::setw(width) << std::left << "(k)"
               << std::setw(width) << std::left << "Derivative"
               << std::setw(width) << std::left << "Difference"
               << std::setw(width) << std::left << "Stepsize^{2}"
@@ -204,11 +132,11 @@ void denseFisherMetric::checkEvolution(double epsilon)
     
     // Hamiltonian
     fComputeCholeskyG();
-    mB = mGL.solve(mP);
+    mC = mGL.solve(mP);
     
     gradV();
     
-    std::cout << "pDot (-dH/dq_{i}):" << std::endl;
+    std::cout << "pDot (-dH/dq^{i}):" << std::endl;
     std::cout << "    " << std::setw(nColumn * width) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
     std::cout << "    "
               << std::setw(width) << std::left << "Component"
@@ -217,7 +145,7 @@ void denseFisherMetric::checkEvolution(double epsilon)
               << std::setw(width) << std::left << "Delta /"
               << std::endl;
     std::cout << "    "
-              << std::setw(width) << std::left << ""
+              << std::setw(width) << std::left << "(i)"
               << std::setw(width) << std::left << "Derivative"
               << std::setw(width) << std::left << "Difference"
               << std::setw(width) << std::left << "Stepsize^{2}"
@@ -243,8 +171,8 @@ void denseFisherMetric::checkEvolution(double epsilon)
         
         double minusGradH = -0.5 * mGL.solve(mGradG).trace();
 
-        mAux = mGradG * mB;
-        minusGradH += 0.5 * mB.dot(mAux);
+        mAuxVector = mGradG * mC;
+        minusGradH += 0.5 * mC.dot(mAuxVector);
         
         minusGradH -= mGradV(i);
         
@@ -305,150 +233,44 @@ void denseFisherMetric::fComputeCholeskyG()
     fComputeG();
     mGL.compute(mG);
     
-    mLogDetG = 0;
-    for(int i = 0; i < mDim; ++i) mLogDetG += 2.0 * log(mGL.matrixL()(i, i));
+    mLogDetMetric = 0;
+    for(int i = 0; i < mDim; ++i) mLogDetMetric += 2.0 * log(mGL.matrixL()(i, i));
 
 }
 
-void denseFisherMetric::fHatA(double epsilon)
+VectorXd& denseFisherMetric::dTaudp()
+{
+    mAuxVector = mGL.solve(mP);
+    return mAuxVector;
+}
+
+VectorXd& denseFisherMetric::dTaudq()
 {
     
-    double alpha = 0;
-    double beta = 0;
-    double gamma = 0;
+    mC = mGL.solve(mP);
     
-    for(int i = 0; i < mDim - 1; ++i) 
+    for(int i = 0; i < mDim; ++i)
     {
-        
-        mB.setZero();
-        mB(i) = mP(i);
-        
-        mC = mGL.solve(mB);
-        mB = mGL.solve(mP);
-        
         fComputeGradG(i);
-        
-        mAux = mGradG * mC;
-        alpha = mC.dot(mAux);
-        
-        mAux = mGradG * mB;
-        beta = 2.0 * (mC.dot(mAux) - alpha);
-        
-        gamma = mB.dot(mAux) - alpha - beta;
-        
-        alpha /= 2.0 * mP(i) * mP(i);
-        beta /= 2.0 * mP(i);
-        gamma /= 2.0;
-        
-        // \hat{\gamma}
-        mP(i) += 0.25 * epsilon * gamma;
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.25 * epsilon * alpha * mP(i) );
-        
-        // \hat{\beta}
-        mP(i) *= exp( 0.5 * epsilon * beta );
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.25 * epsilon * alpha * mP(i) );
-        
-        // \hat{\gamma}
-        mP(i) += 0.25 * epsilon * gamma;
-        
+        mAuxVector(i) = 0.5 * mC.transpose() * mGradG * mC;
     }
     
-    {
-        
-        int i = mDim - 1;
-        
-        mB.setZero();
-        mB(i) = mP(i);
-        
-        mC = mGL.solve(mB);
-        mB = mGL.solve(mP);
-        
-        fComputeGradG(i);
-        
-        mAux = mGradG * mC;
-        alpha = mC.dot(mAux);
-        
-        mAux = mGradG * mB;
-        beta = 2.0 * (mC.dot(mAux) - alpha);
-        
-        gamma = mB.dot(mAux) - alpha - beta;
-        
-        alpha /= 2.0 * mP(i) * mP(i);
-        beta /= 2.0 * mP(i);
-        gamma /= 2.0;
-        
-        // \hat{\gamma}
-        mP(i) += 0.5 * epsilon * gamma;
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.5 * epsilon * alpha * mP(i) );
-        
-        // \hat{\beta}
-        mP(i) *= exp( epsilon * beta );
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.5 * epsilon * alpha * mP(i) );
-        
-        // \hat{\gamma}
-        mP(i) += 0.5 * epsilon * gamma;
-        
-    }
-    
-    for(int i = mDim - 2; i >= 0; --i) 
-    {
-        
-        mB.setZero();
-        mB(i) = mP(i);
-        
-        mC = mGL.solve(mB);
-        mB = mGL.solve(mP);
-        
-        fComputeGradG(i);
-        
-        mAux = mGradG * mC;
-        alpha = mC.dot(mAux);
-        
-        mAux = mGradG * mB;
-        beta = 2.0 * (mC.dot(mAux) - alpha);
-        
-        gamma = mB.dot(mAux) - alpha - beta;
-        
-        alpha /= 2.0 * mP(i) * mP(i);
-        beta /= 2.0 * mP(i);
-        gamma /= 2.0;
-        
-        // \hat{\gamma}
-        mP(i) += 0.25 * epsilon * gamma;
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.25 * epsilon * alpha * mP(i) );
-        
-        // \hat{\beta}
-        mP(i) *= exp( 0.5 * epsilon * beta );
-        
-        // \hat{\alpha}
-        mP(i) /= (1 - 0.25 * epsilon * alpha * mP(i) );
-        
-        // \hat{\gamma}
-        mP(i) += 0.25 * epsilon * gamma;
-        
-    }
+    return mAuxVector;
     
 }
 
-void denseFisherMetric::fHatF(double epsilon)
+VectorXd& denseFisherMetric::dPhidq()
 {
     
     for(int i = 0; i < mDim; ++i)
     {
         fComputeGradG(i);
-        mAux(i) = - 0.5 * mGL.solve(mGradG).trace();
+        mAuxVector(i) = mGL.solve(mGradG).trace();
     }
     
-    mP += epsilon * (mAux - mGradV);
+    mAuxVector *= 0.5;
+    mAuxVector += mGradV;
+    
+    return mAuxVector;
     
 }

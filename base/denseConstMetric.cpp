@@ -25,22 +25,22 @@ mMassL(dim)
 
 double denseConstMetric::T()
 {
-    mAux.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * mP;
-    return 0.5 * mP.dot(mAux);
+    mAuxVector.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * mP;
+    return 0.5 * mP.dot(mAuxVector);
 }
 
-void denseConstMetric::evolveQ(double epsilon)
+void denseConstMetric::evolveQ(const double epsilon)
 {
-    mAux.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * mP;
-    mQ += epsilon * mAux;
+    mAuxVector.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * mP;
+    mQ += epsilon * mAuxVector;
 }
 
 void denseConstMetric::bounceP(const VectorXd& normal)
 {
     
-    mAux.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * normal;
-    double C = -2.0 * mP.dot(mAux);
-    C /= normal.dot(mAux);
+    mAuxVector.noalias() = mMassInv.selfadjointView<Eigen::Lower>() * normal;
+    double C = -2.0 * mP.dot(mAuxVector);
+    C /= normal.dot(mAuxVector);
     
     mP += C * normal;
     
@@ -54,9 +54,9 @@ void denseConstMetric::sampleP(Random& random)
 {
     
     RandomLib::NormalDistribution<> g;
-    for(int i = 0; i < mDim; ++i) mAux(i) = g(random, 0.0, 1.0);
+    for(int i = 0; i < mDim; ++i) mAuxVector(i) = g(random, 0.0, 1.0);
     
-    mP.noalias() = mMassL.matrixL() * mAux;
+    mP.noalias() = mMassL.matrixL() * mAuxVector;
     
 }
 

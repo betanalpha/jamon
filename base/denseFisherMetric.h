@@ -2,7 +2,7 @@
 
 #include <Eigen/Cholesky>
 
-#include "denseDynamMetric.h"
+#include "dynamMetric.h"
 
 ///  \author Michael Betancourt
 ///
@@ -10,7 +10,7 @@
 /// for a Hamiltonian defined on a Riemannian manifold
 /// with a dense Fisher-Rao metric.
 
-class denseFisherMetric: public denseDynamMetric
+class denseFisherMetric: public dynamMetric
 {
     
     public:
@@ -23,12 +23,7 @@ class denseFisherMetric: public denseDynamMetric
         //////////////////////////////////////////////////
         
         double T();
-
-        void evolveQ(double epsilon);
-
-        void beginEvolveP(double epsilon);
-
-        void finishEvolveP(double epsilon);  
+        double tau();
 
         void bounceP(const VectorXd& normal);
     
@@ -48,7 +43,7 @@ class denseFisherMetric: public denseDynamMetric
         //              Auxiliary Functions             //
         //////////////////////////////////////////////////
         
-        void checkEvolution(double epsilon = 1e-6);
+        void checkEvolution(const double epsilon = 1e-6);
         
         void displayState();
         
@@ -60,19 +55,20 @@ class denseFisherMetric: public denseDynamMetric
         MatrixXd mGradG;      ///< Component of the gradient of the denseFisher-Rao metric
         LLT<MatrixXd> mGL;    ///< Cholesky decomposition of the denseFisher-Rao metric
         VectorXd mC;          ///< Additional auxiliary vector for efficient matrix computations
-        
-        double mLogDetG;      ///< Log determinant of the denseFisher-Rao metric
-    
-        /// Compute the denseFisher-Rao metric at the current position
-        virtual void fComputeG() = 0;
 
-        /// Compute the ith component of the gradient of the denseFisher-Rao metric
+        void fComputeMetric() {  fComputeCholeskyG(); }
+    
+        /// Compute the Fisher-Rao metric
+        virtual void fComputeG() = 0;
+    
+        /// Compute the ith component of the gradient of the Fisher-Rao metric
         virtual void fComputeGradG(int i) = 0;
     
         void fComputeCholeskyG();
-
-        void fHatA(double epsilon);
-        void fHatF(double epsilon);
+    
+        VectorXd& dTaudp();
+        VectorXd& dTaudq();
+        VectorXd& dPhidq();
     
 };
  

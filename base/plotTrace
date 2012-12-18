@@ -8,39 +8,30 @@
 function createTrace
 {
 
-    rm -f $tmpPlotFile
-    touch $tmpPlotFile
+gnuplot --persist << END
 
-    echo "# Text" >> $tmpPlotFile
-    echo "set title 'Chain History'" >> $tmpPlotFile
-    echo "set xlabel 'Sample'" >> $tmpPlotFile
-    echo "set ylabel '$name'" >> $tmpPlotFile
-    echo "unset key" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "# Calculate minimum and maximum" >> $tmpPlotFile
-    echo "plot \"$tmpDataFile\" using 1:$c with points pt 7 lt 1 ps 1" >> $tmpPlotFile
-    echo "minY = GPVAL_DATA_Y_MIN" >> $tmpPlotFile
-    echo "maxY = GPVAL_DATA_Y_MAX" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "# Calculate mean and standard deviation" >> $tmpPlotFile
-    echo "set fit logfile '/dev/null'" >> $tmpPlotFile
-    echo "f(x) = muY" >> $tmpPlotFile
-    echo "fit f(x) '$tmpDataFile' using 1:$c via muY" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "sigmaY = sqrt(FIT_WSSR / (FIT_NDF + 1 ))" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "# Plot mean and standard deviation bounds" >> $tmpPlotFile
-    echo "set label 1 gprintf('Mean = %g', muY) at $left, minY-sigmaY" >> $tmpPlotFile
-    echo "set label 2 gprintf('Standard Deviation = %g', sigmaY) at $left, minY-1.5*sigmaY" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "plot muY-sigmaY with filledcurves y1=muY+sigmaY lt 1 lc rgb '#bbbbdd', \\" >> $tmpPlotFile
-    echo "muY with lines lt 3 lw 2, \\" >> $tmpPlotFile
-    echo "'$tmpDataFile' using 1:$c with points pt 7 lt 1 ps 1.25" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "set yrange[minY-2*sigmaY:maxY+2*sigmaY]" >> $tmpPlotFile
-    echo "replot " >> $tmpPlotFile
+set title 'Chain Trace'
+unset key
 
-    gnuplot $tmpPlotFile --persist
+set xlabel 'Sample'
+set xtics nomirror
+
+set ylabel '$name'
+set ytics nomirror
+
+stats "$inputFile" using $c every :::1::2 nooutput
+set yrange[STATS_min - 2 * STATS_stddev : STATS_max + 2 * STATS_stddev]
+
+# Plot mean and standard deviation bounds
+set label 1 gprintf('Mean = %g', STATS_mean) at graph 0.05, first STATS_min - STATS_stddev
+set label 2 gprintf('Standard Deviation = %g', STATS_stddev) at graph 0.05, first STATS_min - 1.5 * STATS_stddev
+
+# Plot trace with summary statistics
+plot STATS_mean - STATS_stddev with filledcurves y1=STATS_mean+STATS_stddev lt 1 lc rgb '#bbbbdd', \\
+STATS_mean with lines lt 3 lw 2, \\
+'$inputFile' using 1:$c every :::1::2 with points pt 7 lt 1 ps 1.25
+
+END
 
 }
 
@@ -48,35 +39,30 @@ function createTrace
 function createAutocorr
 {
 
-    rm -f $tmpPlotFile
-    touch $tmpPlotFile
+gnuplot --persist << END
 
-    #set term postscript enhanced color
-    #set output '$name.trace.eps'
+set title '$name'
+unset key
 
-    echo "# Text" >> $tmpPlotFile
-    echo "set title 'Autocorrelation'" >> $tmpPlotFile
-    echo "set xlabel 'Lag'" >> $tmpPlotFile
-    echo "set ylabel '$name'" >> $tmpPlotFile
-    echo "unset key" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "whitenoise = $whitenoise" >> $tmpPlotFile
-    echo "w(x) = whitenoise" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "# Plot sample autocorrelation with white noise estimate" >> $tmpPlotFile
-    echo "plot -whitenoise with filledcurves y1=whitenoise lt 1 lc rgb '#bbbbdd', \\" >> $tmpPlotFile
-    echo "0 with lines lt 3 lw 2 lc rgb 'blue', \\" >> $tmpPlotFile
-    echo "'$tmpDataFile' using 1:(\$$c>w(\$$c) && \$1>0 ? \$$c : 1/0) with points pt 7 lt 1 ps 1.5 lc rgb 'red', \\" >> $tmpPlotFile
-    echo "'$tmpDataFile' using 1:(\$$c>w(\$$c) && \$1>0 ? \$$c : 1/0) with points pt 6 lt 1 ps 2.5 lc rgb 'red', \\" >> $tmpPlotFile
-    echo "'$tmpDataFile' using 1:(\$$c<=w(\$$c) || \$1==0 ? \$$c : 1/0) with points pt 7 lt 1 ps 1.5 lc rgb 'red'" >> $tmpPlotFile
-    echo "" >> $tmpPlotFile
-    echo "minX = GPVAL_DATA_X_MIN" >> $tmpPlotFile
-    echo "maxX = GPVAL_DATA_X_MAX" >> $tmpPlotFile
-    echo "set xrange [minX-1:maxX+1]" >> $tmpPlotFile
-    echo "set yrange [-2*whitenoise:1.2]" >> $tmpPlotFile
-    echo "replot" >> $tmpPlotFile
+set xlabel 'Lag'
+set xtics nomirror
 
-    gnuplot $tmpPlotFile --persist
+set ylabel 'Autocorrelation'
+set ytics nomirror
+
+w = $whitenoise
+
+# Plot sample autocorrelation with white noise estimate
+plot -w with filledcurves y1=w lt 1 lc rgb '#bbbbdd', \\
+0 with lines lt 3 lw 2 lc rgb 'blue', \\
+'$inputFile' using 1:$c every :::2::3 with points pt 7 lt 1 ps 1.5 lc rgb 'red', \\
+'$inputFile' using 1:(\$$c>w && \$1>0 ? \$$c : 1/0) every :::2::3 with points pt 6 lt 1 ps 2.5 lc rgb 'red'
+
+set xrange [GPVAL_DATA_X_MIN - 1 : GPVAL_DATA_X_MAX + 1]
+set yrange [GPVAL_DATA_Y_MIN < -2 * w ? 1.2 * GPVAL_DATA_Y_MIN : -2 * w: 1.2 * GPVAL_DATA_Y_MAX]
+replot
+
+END
 
 }
 
@@ -84,64 +70,45 @@ function createAutocorr
 inputFile=$1
 
 if [ "$inputFile" == "" ]; then
-    echo "Input file not specified!"
-    exit
+echo "Input file not specified!"
+exit
 fi
 
 if [ ! -e $inputFile ]; then
-    echo "Input file \"$inputFile\" not found!"
-    exit
+echo "Input file \"$inputFile\" not found!"
+exit
 fi
 
 # Check for gnuplot
 if [ "`which gnuplot`" == "" ]; then
-    echo "gnuplot not found in $PATH!"
-    exit
+echo "gnuplot not found in $PATH!"
+exit
 fi
-
-# Temporary files
-tmpDataFile=tmp.data.dat
-tmpPlotFile=tmp.plot.plt
 
 # Parse trace info and create plots
 dim=`grep 'DIM' $inputFile | sed 's,^DIM ,,'`
 
-sampleStart=`grep -n BEGINSAMPLES $inputFile | sed 's,:BEGINSAMPLES$,,'`
-sampleEnd=`grep -n ENDSAMPLES $inputFile | sed 's,:ENDSAMPLES$,,'`; let sampleEnd--
-let diff=sampleEnd-sampleStart
-left=$(echo "scale=9; 0.05 * $diff" | bc)
-
-head -$sampleEnd $inputFile | tail -$diff > $tmpDataFile
 name=Potential
 c=2
 createTrace
 
 i=0
 while [ $i -lt $dim ]; do
-    name=Variable$i
-    let c=$i+3
-    createTrace
-    let ++i
+name=Variable$i
+let c=$i+3  
+createTrace
+let ++i
 done
 
 # Parse autocorrelation info and create plots
 whitenoise=`grep 'WHITENOISE' $inputFile | sed 's,^WHITENOISE ,,'`
 
-autocorrStart=`grep -n BEGINAUTOCORR $inputFile | sed 's,:BEGINAUTOCORR$,,'`
-autocorrEnd=`grep -n ENDAUTOCORR $inputFile | sed 's,:ENDAUTOCORR$,,'`; let autocorrEnd--
-let diff=autocorrEnd-autocorrStart
-
-head -$autocorrEnd $inputFile | tail -$diff > $tmpDataFile    
-
 i=0
 while [ $i -lt $dim ]; do
-    name=Variable$i
-    let c=$i+2
-    createAutocorr
-    let ++i
+name=Variable$i
+let c=$i+2
+createAutocorr
+let ++i
 done
-
-rm -f $tmpDataFile
-rm -f $tmpPlotFile
 
 exit

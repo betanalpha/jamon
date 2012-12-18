@@ -22,16 +22,16 @@ class constMetric: public baseHamiltonian
         explicit constMetric(int dim);
         virtual ~constMetric() {};
         
-        void beginEvolveP(double epsilon) { fEvolveP(epsilon); }
-        void finishEvolveP(double epsilon) { fEvolveP(epsilon); }
+        void beginEvolveP(const double epsilon) { fEvolveP(epsilon); }
+        void finishEvolveP(const double epsilon) { fEvolveP(epsilon); }
     
     protected:
     
         /// Auxiliary vector for efficient matrix computations
-        VectorXd mAux;
+        VectorXd mAuxVector;
     
         /// Unified evolution for both intital and final steps
-        void fEvolveP(double epsilon);
+        void fEvolveP(const double epsilon);
 
 };
 

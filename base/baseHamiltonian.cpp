@@ -32,11 +32,11 @@ mMovingAlpha(0.5)
 
 /// Update Metroplis accept rate statistics
 
-void baseHamiltonian::updateMetroStats(double a)
+void baseHamiltonian::updateMetroStats(const bool b, const double a)
 {
     
-    mNumAccept += a;
-    mNumReject += !a;
+    mNumAccept += b;
+    mNumReject += !b;
     
     mAcceptRateBar = mMovingAlpha * mEffN * mAcceptRateBar + a;
     mEffN = mMovingAlpha * mEffN + 1.0;
@@ -61,7 +61,7 @@ void baseHamiltonian::clearHistory()
 /// implementations with finite differences
 /// \param epsilon Size of finite difference step
 
-void baseHamiltonian::checkEvolution(double epsilon)
+void baseHamiltonian::checkEvolution(const double epsilon)
 {
 
     std::cout.precision(6);
@@ -71,7 +71,7 @@ void baseHamiltonian::checkEvolution(double epsilon)
     // Potential energy gradient
     const VectorXd& dVdq = gradV();
     
-    std::cout << "Potential Gradient (dV/dq):" << std::endl;
+    std::cout << "Potential Gradient (dV/dq^{i}):" << std::endl;
     std::cout << "    " << std::setw(nColumn * width) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
     std::cout << "    "
               << std::setw(width) << std::left << "Component" 
@@ -80,7 +80,7 @@ void baseHamiltonian::checkEvolution(double epsilon)
               << std::setw(width) << std::left << "Delta / "
               << std::endl;
     std::cout << "    "
-              << std::setw(width) << std::left << "" 
+              << std::setw(width) << std::left << "(i)" 
               << std::setw(width) << std::left << "Derivative"
               << std::setw(width) << std::left << "Difference"
               << std::setw(width) << std::left << "Stepsize^{2}"
@@ -114,14 +114,27 @@ void baseHamiltonian::checkEvolution(double epsilon)
         
 }
 
-/// Display the current state of the chain
+/// Check if the position of the chain is well defined
+
+bool baseHamiltonian::isNaN()
+{
+    bool nan = false;
+    
+    for(int i = 0; i < mDim; ++i)
+    {
+        if(mQ(i) != mQ(i)) nan |= true;
+    }
+    
+    return nan;
+    
+}
 
 void baseHamiltonian::displayState()
 {
     
     std::cout.precision(6);
     int width = 12;
-    int nColumn = 3;
+    int nColumn = 4;
     
     std::cout << "\tH = " << H() << ", T = " << T() << ", V = " << V() << std::endl;
     std::cout << std::endl;
@@ -130,8 +143,11 @@ void baseHamiltonian::displayState()
               << std::setw(width) << std::left << "Component"
               << std::setw(width) << std::left << "Position"
               << std::setw(width) << std::left << "Momentum"
+              << std::setw(width) << std::left << "Gradient"
               << std::endl;
     std::cout << "    " << std::setw(nColumn * width) << std::setfill('-') << "" << std::setfill(' ') << std::endl;
+    
+    gradV();
     
     for(int i = 0; i < mDim; ++i)
     {
@@ -139,6 +155,7 @@ void baseHamiltonian::displayState()
                   << std::setw(width) << std::left << i
                   << std::setw(width) << std::left << mQ(i)
                   << std::setw(width) << std::left << mP(i)
+                  << std::setw(width) << std::left << mGradV(i)
                   << std::endl;
     }
     
