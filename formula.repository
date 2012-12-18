@@ -19,3 +19,18 @@
 \form#18:\[ \hat{V} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }. \]
 \form#19:\[ \hat{\mathcal{A}} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{i} }.\]
 \form#20:\[ \hat{F} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]
+\form#21:$ \Sigma_{ij} = \sqrt{ \left|dV\right|_{V} \right) \left( \sigma_{ij} + \beta \partial_{i} V \partial_{j} V \right) $
+\form#22:$ \beta^{-1} = 1 + \frac{\alpha}{1 + \alpha} \left|dV\right|_{V} $
+\form#23:$ \left|dV\right|_{V} = \left(1 + \alpha \right) \cdot \left(1 + \partial_{q} V \partial_{r} V \lambda^{qr} \right). $
+\form#24:\[ \hat{W} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }. \]
+\form#25:$ \Sigma_{ij} = \sqrt{ \left|dV\right|_{V} \right) \left( \sigma_{i} \delta_{ij} + \beta \partial_{i} V \partial_{j} V \right) $
+\form#26:$ H = \tau + \phi $
+\form#27:\[ \tau = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) \]
+\form#28:\[ \frac{1}{2} \log \! \left| \mathbf{\Sigma} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right). \]
+\form#29:\[ \hat{H} = \frac{1}{2} \hat{\phi} + \frac{1}{2} \hat{\tau} + \hat{T} + \frac{1}{2} \hat{\tau} + \frac{1}{2} \hat{\phi}, \]
+\form#30:\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }, \]
+\form#31:\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} },\]
+\form#32:\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} }. \]
+\form#33:\[ \hat{T} = p_{i} \Lambda^{ij} \frac{ \partial }{ \partial q_{j} }\]
+\form#34:\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} }.\]
+\form#35:\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]

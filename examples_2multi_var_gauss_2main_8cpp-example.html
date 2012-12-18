@@ -54,128 +54,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <p>Sample from an ill-conditioned multivariate Gaussian distribution.</p>
-<div class="fragment"><pre class="fragment"><span class="preprocessor">#include &lt;iostream&gt;</span>
-<span class="preprocessor">#include &lt;fstream&gt;</span>
-
-<span class="preprocessor">#include &lt;Eigen/Core&gt;</span>
-<span class="preprocessor">#include &lt;Eigen/Cholesky&gt;</span>
-
-<span class="preprocessor">#include &lt;RandomLib/Random.hpp&gt;</span>
-<span class="preprocessor">#include &lt;RandomLib/NormalDistribution.hpp&gt;</span>
-
-<span class="preprocessor">#include &quot;chainBundle.h&quot;</span>
-<span class="preprocessor">#include &quot;bsMultiVarGauss.h&quot;</span>
-
-<span class="keyword">using namespace </span>Eigen;
-<span class="keyword">using namespace </span>std;
-
-<span class="keywordtype">int</span> main (<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> * argv[])
-{
-
-    <span class="comment">//       Prepare data and model parameters      //</span>
-<span class="comment"></span>    
-    <span class="keywordtype">int</span> N = 10;
-    
-    RandomLib::Random random;
-    random.Reseed();
-    
-    <span class="comment">// Mean</span>
-    VectorXd mu = VectorXd::Zero(N);
-    
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> n = 0; n &lt; N; ++n)
-    {
-        <span class="keywordflow">if</span>(random.Prob&lt;<span class="keywordtype">double</span>&gt;(0.5)) mu(n) = +10.0;
-        <span class="keywordflow">else</span>                         mu(n) = -10.0;
-    }
-    
-    <span class="comment">// Covariance</span>
-    MatrixXd sigma = MatrixXd::Zero(N, N);
-    
-    <span class="keywordtype">double</span> condNumber = 1000;
-    
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> n = 0; n &lt; N; ++n)
-    {
-        sigma(n, n) = (condNumber - 1) * (<span class="keywordtype">double</span>)n / (double)(N - 1) + 1;
-    }
-    
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> n = 1; n &lt; N; ++n)
-    {
-        
-        <span class="keywordtype">double</span> a = sigma(0, 0);
-        <span class="keywordtype">double</span> b = sigma(0, n);
-        <span class="keywordtype">double</span> c = sigma(n, n);
-        
-        sigma(0, 0) = 0.5 * (a - 2 * b + c);
-        sigma(0, n) = 0.5 * (a - c);
-        sigma(n, 0) = 0.5 * (a - c);
-        sigma(n, n) = 0.5 * (a + 2 * b + c);
-        
-    }
-    
-    LLT&lt;MatrixXd&gt; L;
-    L.compute(sigma.selfadjointView&lt;Eigen::Lower&gt;());
-    
-    MatrixXd lambda = L.solve(MatrixXd::Identity(N, N));
-    
-    <span class="comment">//            Build Chains and Sample           //</span>
-<span class="comment"></span>    
-    <a name="_a0"></a><a class="code" href="classchain_bundle.html">chainBundle</a> bundle(random);
-    bundle.<a name="a1"></a><a class="code" href="classchain_bundle.html#acf4b753be07423051c4f069c280cb6cc" title="Set valid step size jitter, as a fraction of the stepsize.">setProbStepSizeJerk</a>(0);
-    
-    bundle.<a name="a2"></a><a class="code" href="classchain_bundle.html#a06800385c504ac94b7718635a424cd20" title="Add a new chain to the bundle.">addChain</a>(<span class="keyword">new</span> <a name="_a3"></a><a class="code" href="classbs_multi_var_gauss.html">bsMultiVarGauss</a>(mu, lambda));
-    
-    bundle.<a name="a4"></a><a class="code" href="classchain_bundle.html#a7a55b70341a7af52d4c40f422db89504">seed</a>(-10, 10);
-    bundle.<a name="a5"></a><a class="code" href="classchain_bundle.html#a12abcf5bbf597e8bda283213aa56a76b" title="Set stepsize.">setStepSize</a>(5e-1);
-    bundle.<a name="a6"></a><a class="code" href="classchain_bundle.html#a352340fb9277d248c99c43d702c9360b" title="Set number of leapfrog steps.">setNumLeapfrog</a>(250);
-    bundle.<a name="a7"></a><a class="code" href="classchain_bundle.html#a47255fea90bedcde07971541f29e14ae" title="Set reject/accept window size.">setWindowSize</a>(25);
-    
-    <span class="comment">// Check implemenation</span>
-    bundle.<a name="a8"></a><a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a name="a9"></a><a class="code" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">prepareEvolution</a>();
-    bundle.<a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a name="a10"></a><a class="code" href="classbase_hamiltonian.html#a97c5518eab863579bebce29856958999">sampleP</a>(random);
-    <span class="comment">//bundle.chain(0)-&gt;checkEvolution();</span>
-    
-    bundle.<a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a class="code" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">prepareEvolution</a>();
-    <span class="comment">//bundle.verboseEvolve(bundle.chain(0), 1e-1);</span>
-    
-    <span class="comment">//bundle.checkIntError(0, 50);</span>
-    
-    <span class="comment">// Warm-Up</span>
-    cout &lt;&lt; <span class="stringliteral">&quot;Warm Up:&quot;</span> &lt;&lt; endl;
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 500; ++i) 
-    {
-        <span class="keywordflow">if</span>(i % 10 == 0) cout &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; flush;
-        bundle.<a name="a11"></a><a class="code" href="classchain_bundle.html#a0572c3125739ae4850b9934478d70525" title="Transition all chains currently in the bundle.">transition</a>(0);
-    }
-    cout &lt;&lt; endl;
-
-    std::ofstream warmOut; warmOut.open(<span class="stringliteral">&quot;/Users/betan/Desktop/bsMultiVarGaussWarm.txt&quot;</span>);
-
-    bundle.<a name="a12"></a><a class="code" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats</a>(1, <span class="keyword">true</span>, &amp;warmOut);
-
-    warmOut.close();
-    
-    <span class="comment">// Posterior sampling</span>
-    bundle.<a name="a13"></a><a class="code" href="classchain_bundle.html#a0b58c46d9a17d2f44d7736046974d522" title="Clear all stored samples.">clearSamples</a>();
-    
-    cout &lt;&lt; <span class="stringliteral">&quot;Posterior Sampling:&quot;</span> &lt;&lt; endl;
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 5000; ++i) 
-    {
-        <span class="keywordflow">if</span>(i % 10 == 0) cout &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; flush;
-        bundle.<a class="code" href="classchain_bundle.html#a0572c3125739ae4850b9934478d70525" title="Transition all chains currently in the bundle.">transition</a>(0);
-    }
-    cout &lt;&lt; endl;
-    
-    std::ofstream out; out.open(<span class="stringliteral">&quot;/Users/betan/Desktop/bsMultiVarGauss.txt&quot;</span>);
-    
-    bundle.<a class="code" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats</a>(1, <span class="keyword">true</span>, &amp;out);
-    
-    out.close();
-    
-    <span class="keywordflow">return</span> 0;
-    
-}
-
-</pre></div> </div>
+<div class="fragment"><pre class="fragment"></pre></div> </div>
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -191,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Nov 25 2012 23:35:35 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

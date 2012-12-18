@@ -68,17 +68,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><a class="el" href="classdynam_metric.html">dynamMetric</a> (Riemannian Metrics)</li>
 </ul>
 <ul>
-<li><a class="el" href="classdense_dynam_metric.html">denseDynamMetric</a> (Dense)<ul>
-<li><a class="el" href="classdiag_bkgd_bs_metric.html">diagBkgdBsMetric</a> (Dense Background-Score with Diagonal Background Metric)</li>
-<li><a class="el" href="classdense_bkgd_bs_metric.html">denseBkgdBsMetric</a> (Dense Background-Score with Dense Background Metric)</li>
 <li><a class="el" href="classdense_fisher_metric.html">denseFisherMetric</a> (Dense Fisher-Rao)</li>
+<li><a class="el" href="classsoft_abs_metric.html">softAbsMetric</a> (Dense SoftAbs)</li>
+</ul>
+<ul>
+<li>Approximations to the SoftAbs Metric<ul>
+<li><a class="el" href="classdiag_soft_abs_metric.html">diagSoftAbsMetric</a> (Diagonal)</li>
+<li><a class="el" href="classouter_soft_abs_metric.html">outerSoftAbsMetric</a> (Outer-Product)</li>
+<li><a class="el" href="classdiag_outer_soft_abs_metric.html">diagOuterSoftAbsMetric</a> (Diagonal Outer-Product)</li>
 </ul>
 </li>
 </ul>
-<p>Example implementations include a multivariate Gaussian and Neal's infamous "funnel" distribution.</p>
+<p>Example implementations include a multivariate Gaussian and Neal's "funnel" distribution.</p>
 <p>Matrix operations are performed with the Eigen template library: <a href="http://eigen.tuxfamily.org/">http://eigen.tuxfamily.org/</a></p>
 <p>Random number generation is handled with the randomlib library: <a href="http://randomlib.sourceforge.net/">http://randomlib.sourceforge.net/</a></p>
 <p>Option plotting available with gnuplot: <a href="http://www.gnuplot.info/">http://www.gnuplot.info/</a></p>
+<p>Copyright Michael Betancourt 2012 <a href="mailto:betanalpha@gmail.com">betanalpha@gmail.com</a></p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
@@ -97,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

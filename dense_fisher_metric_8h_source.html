@@ -61,10 +61,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00002"></a>00002 <span class="preprocessor"></span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &lt;Eigen/Cholesky&gt;</span>
 <a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;denseDynamMetric.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;dynamMetric.h&quot;</span>
 <a name="l00006"></a>00006 
 <a name="l00012"></a>00012 
-<a name="l00013"></a><a class="code" href="classdense_fisher_metric.html">00013</a> <span class="keyword">class </span><a class="code" href="classdense_fisher_metric.html">denseFisherMetric</a>: <span class="keyword">public</span> <a class="code" href="classdense_dynam_metric.html">denseDynamMetric</a>
+<a name="l00013"></a><a class="code" href="classdense_fisher_metric.html">00013</a> <span class="keyword">class </span><a class="code" href="classdense_fisher_metric.html">denseFisherMetric</a>: <span class="keyword">public</span> <a class="code" href="classdynam_metric.html">dynamMetric</a>
 <a name="l00014"></a>00014 {
 <a name="l00015"></a>00015     
 <a name="l00016"></a>00016     <span class="keyword">public</span>:
@@ -75,53 +75,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00022"></a>00022         <span class="comment">//                   Accessors                  //</span>
 <a name="l00024"></a>00024 <span class="comment"></span>        
 <a name="l00025"></a>00025         <span class="keywordtype">double</span> <a class="code" href="classdense_fisher_metric.html#a52d1a3ef52d4b71f84fad7313f2448ee" title="Return the kinetic energy.">T</a>();
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#aa20bffd4c8df3753131289189a87c234" title="Evolve the position through some time epsilon.">evolveQ</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#aab015360e3cef5ac28b64e33908531e6" title="Evolve the momenta through an initial half step of time epsilon.">beginEvolveP</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#ab0dffc748e1c6fe00c5fc91ead738ad1" title="Evolve the momenta through a final half step of time epsilon.">finishEvolveP</a>(<span class="keywordtype">double</span> epsilon);  
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a211ae2303ce5cd6514cbda55a23ffc19">bounceP</a>(<span class="keyword">const</span> VectorXd&amp; normal);
-<a name="l00034"></a>00034     
-<a name="l00036"></a><a class="code" href="classdense_fisher_metric.html#ab188d3ce5c3da23960983cdfb271222c">00036</a>         MatrixXd&amp; <a class="code" href="classdense_fisher_metric.html#ab188d3ce5c3da23960983cdfb271222c" title="Return the Fisher-Rao metric.">G</a>() { <span class="keywordflow">return</span> <a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a" title="denseFisher-Rao metric">mG</a>; }
-<a name="l00037"></a>00037     
-<a name="l00039"></a><a class="code" href="classdense_fisher_metric.html#aac65decdd8befae1297b9f4527304c31">00039</a>         LLT&lt;MatrixXd&gt;&amp; <a class="code" href="classdense_fisher_metric.html#aac65decdd8befae1297b9f4527304c31" title="Return the Cholesky decompositio of the Fisher-Rao metric.">GL</a>() { <span class="keywordflow">return</span> <a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c" title="Cholesky decomposition of the denseFisher-Rao metric.">mGL</a>; }
-<a name="l00040"></a>00040         
-<a name="l00042"></a>00042         <span class="comment">//                   Mutators                   //</span>
-<a name="l00044"></a>00044 <span class="comment"></span>        
-<a name="l00045"></a>00045         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0c4e917fe90a9d601a74fdcbe76ff63b">sampleP</a>(Random&amp; random);
-<a name="l00046"></a>00046         
-<a name="l00048"></a>00048         <span class="comment">//              Auxiliary Functions             //</span>
-<a name="l00050"></a>00050 <span class="comment"></span>        
-<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a825e0fda4cf512e5186abfc54be03dc8" title="Comparing the evolution implementations with finite differences.">checkEvolution</a>(<span class="keywordtype">double</span> epsilon = 1e-6);
-<a name="l00052"></a>00052         
-<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a6e96b40a1bf96661995a1a8fec39e0f4" title="Display current state.">displayState</a>();
-<a name="l00054"></a>00054         
-<a name="l00055"></a><a class="code" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">00055</a>         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">prepareEvolution</a>() { <a class="code" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a>(); }
-<a name="l00056"></a>00056         
-<a name="l00057"></a>00057     <span class="keyword">protected</span>:
-<a name="l00058"></a>00058     
-<a name="l00059"></a><a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a">00059</a>         MatrixXd <a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a" title="denseFisher-Rao metric">mG</a>;          
-<a name="l00060"></a><a class="code" href="classdense_fisher_metric.html#ac7d2d34d9e64b5fec16cddf615701f56">00060</a>         MatrixXd <a class="code" href="classdense_fisher_metric.html#ac7d2d34d9e64b5fec16cddf615701f56" title="Component of the gradient of the denseFisher-Rao metric.">mGradG</a>;      
-<a name="l00061"></a><a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c">00061</a>         LLT&lt;MatrixXd&gt; <a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c" title="Cholesky decomposition of the denseFisher-Rao metric.">mGL</a>;    
-<a name="l00062"></a><a class="code" href="classdense_fisher_metric.html#a7af4f66d83228caff454fdba303488ce">00062</a>         VectorXd <a class="code" href="classdense_fisher_metric.html#a7af4f66d83228caff454fdba303488ce" title="Additional auxiliary vector for efficient matrix computations.">mC</a>;          
-<a name="l00063"></a>00063         
-<a name="l00064"></a><a class="code" href="classdense_fisher_metric.html#a093a0a637a7410ca214814a5e1978868">00064</a>         <span class="keywordtype">double</span> <a class="code" href="classdense_fisher_metric.html#a093a0a637a7410ca214814a5e1978868" title="Log determinant of the denseFisher-Rao metric.">mLogDetG</a>;      
-<a name="l00065"></a>00065     
-<a name="l00067"></a>00067         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0943299c463eb6b88b97f95291cda523" title="Compute the denseFisher-Rao metric at the current position.">fComputeG</a>() = 0;
-<a name="l00068"></a>00068 
-<a name="l00070"></a>00070         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#aaae9bb8e62cbbdea5b45c32b66aaa9ae" title="Compute the ith component of the gradient of the denseFisher-Rao metric.">fComputeGradG</a>(<span class="keywordtype">int</span> i) = 0;
-<a name="l00071"></a>00071     
-<a name="l00072"></a>00072         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a>();
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a4175e9d461c5ec0a744624845b297785">fHatA</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a9db27462d36b540b4d6a464532646188">fHatF</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00076"></a>00076     
-<a name="l00077"></a>00077 };
-<a name="l00078"></a>00078  
-<a name="l00079"></a>00079 <span class="preprocessor">#define _BETA_DENSEFISHERMETRIC_</span>
-<a name="l00080"></a>00080 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00026"></a>00026         <span class="keywordtype">double</span> <a class="code" href="classdense_fisher_metric.html#a32d6a080c8ab1302f632ffedbe100827" title="Return the quadratic form of the kinetic energy.">tau</a>();
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a211ae2303ce5cd6514cbda55a23ffc19">bounceP</a>(<span class="keyword">const</span> VectorXd&amp; normal);
+<a name="l00029"></a>00029     
+<a name="l00031"></a><a class="code" href="classdense_fisher_metric.html#ab188d3ce5c3da23960983cdfb271222c">00031</a>         MatrixXd&amp; <a class="code" href="classdense_fisher_metric.html#ab188d3ce5c3da23960983cdfb271222c" title="Return the Fisher-Rao metric.">G</a>() { <span class="keywordflow">return</span> <a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a" title="denseFisher-Rao metric">mG</a>; }
+<a name="l00032"></a>00032     
+<a name="l00034"></a><a class="code" href="classdense_fisher_metric.html#aac65decdd8befae1297b9f4527304c31">00034</a>         LLT&lt;MatrixXd&gt;&amp; <a class="code" href="classdense_fisher_metric.html#aac65decdd8befae1297b9f4527304c31" title="Return the Cholesky decompositio of the Fisher-Rao metric.">GL</a>() { <span class="keywordflow">return</span> <a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c" title="Cholesky decomposition of the denseFisher-Rao metric.">mGL</a>; }
+<a name="l00035"></a>00035         
+<a name="l00037"></a>00037         <span class="comment">//                   Mutators                   //</span>
+<a name="l00039"></a>00039 <span class="comment"></span>        
+<a name="l00040"></a>00040         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0c4e917fe90a9d601a74fdcbe76ff63b">sampleP</a>(Random&amp; random);
+<a name="l00041"></a>00041         
+<a name="l00043"></a>00043         <span class="comment">//              Auxiliary Functions             //</span>
+<a name="l00045"></a>00045 <span class="comment"></span>        
+<a name="l00046"></a>00046         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#adc5acd61ed94a60fc55e3d53457c2094" title="Comparing the evolution implementations with finite differences.">checkEvolution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon = 1e-6);
+<a name="l00047"></a>00047         
+<a name="l00048"></a>00048         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a6e96b40a1bf96661995a1a8fec39e0f4" title="Display current state.">displayState</a>();
+<a name="l00049"></a>00049         
+<a name="l00050"></a><a class="code" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">00050</a>         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">prepareEvolution</a>() { <a class="code" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a>(); }
+<a name="l00051"></a>00051         
+<a name="l00052"></a>00052     <span class="keyword">protected</span>:
+<a name="l00053"></a>00053     
+<a name="l00054"></a><a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a">00054</a>         MatrixXd <a class="code" href="classdense_fisher_metric.html#a8016a0c0c46d014c812634a4306db24a" title="denseFisher-Rao metric">mG</a>;          
+<a name="l00055"></a><a class="code" href="classdense_fisher_metric.html#ac7d2d34d9e64b5fec16cddf615701f56">00055</a>         MatrixXd <a class="code" href="classdense_fisher_metric.html#ac7d2d34d9e64b5fec16cddf615701f56" title="Component of the gradient of the denseFisher-Rao metric.">mGradG</a>;      
+<a name="l00056"></a><a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c">00056</a>         LLT&lt;MatrixXd&gt; <a class="code" href="classdense_fisher_metric.html#a606509052409c46ddecf6ff38c30ff9c" title="Cholesky decomposition of the denseFisher-Rao metric.">mGL</a>;    
+<a name="l00057"></a><a class="code" href="classdense_fisher_metric.html#a7af4f66d83228caff454fdba303488ce">00057</a>         VectorXd <a class="code" href="classdense_fisher_metric.html#a7af4f66d83228caff454fdba303488ce" title="Additional auxiliary vector for efficient matrix computations.">mC</a>;          
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="classdense_fisher_metric.html#accafabf0847cd582b62cf701104fd8a3">00059</a>         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#accafabf0847cd582b62cf701104fd8a3" title="Compute the metric at the current position.">fComputeMetric</a>() {  <a class="code" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a>(); }
+<a name="l00060"></a>00060     
+<a name="l00062"></a>00062         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a0943299c463eb6b88b97f95291cda523" title="Compute the Fisher-Rao metric.">fComputeG</a>() = 0;
+<a name="l00063"></a>00063     
+<a name="l00065"></a>00065         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#aaae9bb8e62cbbdea5b45c32b66aaa9ae" title="Compute the ith component of the gradient of the Fisher-Rao metric.">fComputeGradG</a>(<span class="keywordtype">int</span> i) = 0;
+<a name="l00066"></a>00066     
+<a name="l00067"></a>00067         <span class="keywordtype">void</span> <a class="code" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a>();
+<a name="l00068"></a>00068     
+<a name="l00069"></a>00069         VectorXd&amp; <a class="code" href="classdense_fisher_metric.html#a24eb87475c95ee4b88a9dbeb441717ca" title="Gradient of the quadrtic form with respect to the momenta.">dTaudp</a>();
+<a name="l00070"></a>00070         VectorXd&amp; <a class="code" href="classdense_fisher_metric.html#ab4efb5c036d42966a8edb6fb24d652fa" title="Gradient of the quadratic form with respect to the position.">dTaudq</a>();
+<a name="l00071"></a>00071         VectorXd&amp; <a class="code" href="classdense_fisher_metric.html#aa2477cc0dc7b6f3f5ef603f5cf9bdae9" title="Gradient of the psuedo-potential with respect to the momenta.">dPhidq</a>();
+<a name="l00072"></a>00072     
+<a name="l00073"></a>00073 };
+<a name="l00074"></a>00074  
+<a name="l00075"></a>00075 <span class="preprocessor">#define _BETA_DENSEFISHERMETRIC_</span>
+<a name="l00076"></a>00076 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -138,7 +134,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

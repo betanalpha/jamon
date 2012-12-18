@@ -72,16 +72,19 @@ Inheritance diagram for baseHamiltonian:</div>
  <div class="center">
   <img src="classbase_hamiltonian.png" usemap="#baseHamiltonian_map" alt=""/>
   <map id="baseHamiltonian_map" name="baseHamiltonian_map">
-<area href="classconst_metric.html" alt="constMetric" shape="rect" coords="67,56,191,80"/>
-<area href="classdynam_metric.html" alt="dynamMetric" shape="rect" coords="268,56,392,80"/>
-<area href="classdense_const_metric.html" alt="denseConstMetric" shape="rect" coords="0,112,124,136"/>
-<area href="classdiag_const_metric.html" alt="diagConstMetric" shape="rect" coords="134,112,258,136"/>
-<area href="classdense_dynam_metric.html" alt="denseDynamMetric" shape="rect" coords="268,112,392,136"/>
-<area href="classdense_bkgd_bs_metric.html" alt="denseBkgdBsMetric" shape="rect" coords="134,168,258,192"/>
-<area href="classdense_fisher_metric.html" alt="denseFisherMetric" shape="rect" coords="268,168,392,192"/>
-<area href="classdiag_bkgd_bs_metric.html" alt="diagBkgdBsMetric" shape="rect" coords="402,168,526,192"/>
-<area href="classbs_funnel.html" alt="bsFunnel" shape="rect" coords="335,224,459,248"/>
-<area href="classbs_multi_var_gauss.html" alt="bsMultiVarGauss" shape="rect" coords="469,224,593,248"/>
+<area href="classconst_metric.html" alt="constMetric" shape="rect" coords="79,56,227,80"/>
+<area href="classdynam_metric.html" alt="dynamMetric" shape="rect" coords="632,56,780,80"/>
+<area href="classdense_const_metric.html" alt="denseConstMetric" shape="rect" coords="0,112,148,136"/>
+<area href="classdiag_const_metric.html" alt="diagConstMetric" shape="rect" coords="158,112,306,136"/>
+<area href="classdense_fisher_metric.html" alt="denseFisherMetric" shape="rect" coords="316,112,464,136"/>
+<area href="classdiag_outer_soft_abs_metric.html" alt="diagOuterSoftAbsMetric" shape="rect" coords="474,112,622,136"/>
+<area href="classdiag_soft_abs_metric.html" alt="diagSoftAbsMetric" shape="rect" coords="632,112,780,136"/>
+<area href="classouter_soft_abs_metric.html" alt="outerSoftAbsMetric" shape="rect" coords="790,112,938,136"/>
+<area href="classsoft_abs_metric.html" alt="softAbsMetric" shape="rect" coords="948,112,1096,136"/>
+<area href="classflat_funnel.html" alt="flatFunnel" shape="rect" coords="158,168,306,192"/>
+<area href="classfisher_bayes_log_reg.html" alt="fisherBayesLogReg" shape="rect" coords="316,168,464,192"/>
+<area href="classsoft_abs_bayes_log_reg.html" alt="softAbsBayesLogReg" shape="rect" coords="869,168,1017,192"/>
+<area href="classsoft_abs_funnel.html" alt="softAbsFunnel" shape="rect" coords="1027,168,1175,192"/>
 </map>
  </div></div>
 
@@ -107,19 +110,31 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Hamiltonian. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1c8948cf4ae590a10d62e45e5a8a337"></a><!-- doxytag: member="baseHamiltonian::q" ref="ac1c8948cf4ae590a10d62e45e5a8a337" args="()" -->
 VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#ac1c8948cf4ae590a10d62e45e5a8a337">q</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current position of the chain. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current position. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8939a290fa970c9e25d629048a5cb888"></a><!-- doxytag: member="baseHamiltonian::q" ref="a8939a290fa970c9e25d629048a5cb888" args="(int i)" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a8939a290fa970c9e25d629048a5cb888">q</a> (int i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ith component of the current position. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a31690bb23b6d6d194ea1bd35b5f224"></a><!-- doxytag: member="baseHamiltonian::p" ref="a3a31690bb23b6d6d194ea1bd35b5f224" args="()" -->
 VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a3a31690bb23b6d6d194ea1bd35b5f224">p</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current momentum of the chain. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2426ca4ef2f5ebfdfa792f29d14475c"></a><!-- doxytag: member="baseHamiltonian::evolveQ" ref="ae2426ca4ef2f5ebfdfa792f29d14475c" args="(double epsilon)=0" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#ae2426ca4ef2f5ebfdfa792f29d14475c">evolveQ</a> (double epsilon)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current momentum. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50034ab49e37ff306ba43fb3b6dc0134"></a><!-- doxytag: member="baseHamiltonian::p" ref="a50034ab49e37ff306ba43fb3b6dc0134" args="(int i)" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a50034ab49e37ff306ba43fb3b6dc0134">p</a> (int i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ith component of the current momentum. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8375183e96563b53e5ff2e5d4177490b"></a><!-- doxytag: member="baseHamiltonian::acceptQ" ref="a8375183e96563b53e5ff2e5d4177490b" args="()" -->
+VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a8375183e96563b53e5ff2e5d4177490b">acceptQ</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the currect accept window sample. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3238a23d1cf02d01632ca8a3dfe352c5"></a><!-- doxytag: member="baseHamiltonian::rejectQ" ref="a3238a23d1cf02d01632ca8a3dfe352c5" args="()" -->
+VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a3238a23d1cf02d01632ca8a3dfe352c5">rejectQ</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the currect reject window sample. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab507c8bac36f1f5c5316e7d97337323"></a><!-- doxytag: member="baseHamiltonian::evolveQ" ref="aab507c8bac36f1f5c5316e7d97337323" args="(const double epsilon)=0" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#aab507c8bac36f1f5c5316e7d97337323">evolveQ</a> (const double epsilon)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the position through some time epsilon. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">prepareEvolution</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37bffd11648ae91382f0fdeb832a0c23"></a><!-- doxytag: member="baseHamiltonian::beginEvolveP" ref="a37bffd11648ae91382f0fdeb832a0c23" args="(double epsilon)=0" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a37bffd11648ae91382f0fdeb832a0c23">beginEvolveP</a> (double epsilon)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aedd339526153a9756389148c4a936cc0"></a><!-- doxytag: member="baseHamiltonian::beginEvolveP" ref="aedd339526153a9756389148c4a936cc0" args="(const double epsilon)=0" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#aedd339526153a9756389148c4a936cc0">beginEvolveP</a> (const double epsilon)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through an initial half step of time epsilon. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33e8b5e11d9f1ac64582fe56f30fc241"></a><!-- doxytag: member="baseHamiltonian::finishEvolveP" ref="a33e8b5e11d9f1ac64582fe56f30fc241" args="(double epsilon)=0" -->
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a33e8b5e11d9f1ac64582fe56f30fc241">finishEvolveP</a> (double epsilon)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98333abf82a598ad25c062f19fc60837"></a><!-- doxytag: member="baseHamiltonian::finishEvolveP" ref="a98333abf82a598ad25c062f19fc60837" args="(const double epsilon)=0" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a98333abf82a598ad25c062f19fc60837">finishEvolveP</a> (const double epsilon)=0</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through a final half step of time epsilon. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a39bb781dc988899bc98ff4df2ab320e9">bounceP</a> (const VectorXd &amp;normal)=0</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a97c5518eab863579bebce29856958999">sampleP</a> (Random &amp;random)=0</td></tr>
@@ -135,34 +150,38 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f7f8c5b1f976be5d13a02b1f7f9fe4c"></a><!-- doxytag: member="baseHamiltonian::saveAsAcceptSample" ref="a9f7f8c5b1f976be5d13a02b1f7f9fe4c" args="()" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a9f7f8c5b1f976be5d13a02b1f7f9fe4c">saveAsAcceptSample</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Save current position as a sample from the accept window. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a687b46dba61b63a75f8324816d8515"></a><!-- doxytag: member="baseHamiltonian::sampleWindows" ref="a8a687b46dba61b63a75f8324816d8515" args="(bool accept)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a8a687b46dba61b63a75f8324816d8515">sampleWindows</a> (bool accept)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a760893cb2711c1ff1e204d3b90d59fe8"></a><!-- doxytag: member="baseHamiltonian::sampleWindows" ref="a760893cb2711c1ff1e204d3b90d59fe8" args="(const bool accept)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a760893cb2711c1ff1e204d3b90d59fe8">sampleWindows</a> (const bool accept)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select between the reject and accept windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a611e9fa136cbfd2fd5332bbfd34fab75"></a><!-- doxytag: member="baseHamiltonian::setAverageDecay" ref="a611e9fa136cbfd2fd5332bbfd34fab75" args="(double alpha)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a611e9fa136cbfd2fd5332bbfd34fab75">setAverageDecay</a> (double alpha)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d07ec4a65c0e895cece4fee7c7477dc"></a><!-- doxytag: member="baseHamiltonian::setAverageDecay" ref="a1d07ec4a65c0e895cece4fee7c7477dc" args="(const double alpha)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a1d07ec4a65c0e895cece4fee7c7477dc">setAverageDecay</a> (const double alpha)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set moving average decay rate. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50766ba59fc4fe667fc133f10b5f835e"></a><!-- doxytag: member="baseHamiltonian::updateMetroStats" ref="a50766ba59fc4fe667fc133f10b5f835e" args="(double a)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a50766ba59fc4fe667fc133f10b5f835e">updateMetroStats</a> (double a)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8189383433f71852f9756b528c41e8f"></a><!-- doxytag: member="baseHamiltonian::updateMetroStats" ref="ac8189383433f71852f9756b528c41e8f" args="(const bool b, const double a)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#ac8189383433f71852f9756b528c41e8f">updateMetroStats</a> (const bool b, const double a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Update Metroplis accept rate statistics. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7be96a17695c9de269142f7d9522c174"></a><!-- doxytag: member="baseHamiltonian::clearHistory" ref="a7be96a17695c9de269142f7d9522c174" args="()" -->
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a7be96a17695c9de269142f7d9522c174">clearHistory</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all convergence diagnostic statistics. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06ecd33fe917180e234341c57c605a23"></a><!-- doxytag: member="baseHamiltonian::isNaN" ref="a06ecd33fe917180e234341c57c605a23" args="()" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a06ecd33fe917180e234341c57c605a23">isNaN</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the position of the chain is well defined. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a651b8c73d33f720ef135e0fe2870d5e4"></a><!-- doxytag: member="baseHamiltonian::supportViolated" ref="a651b8c73d33f720ef135e0fe2870d5e4" args="()" -->
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a651b8c73d33f720ef135e0fe2870d5e4">supportViolated</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Is the chain within the support of the distribution? <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af85f3717069d4040e3b3befc2bb631ff"></a><!-- doxytag: member="baseHamiltonian::supportNormal" ref="af85f3717069d4040e3b3befc2bb631ff" args="()" -->
 virtual VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#af85f3717069d4040e3b3befc2bb631ff">supportNormal</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normal to the support boundary. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a5488a439ad5b55e245b9023fc633d752">checkEvolution</a> (double epsilon=1e-6)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparing the evolution implementations with finite differences.  <a href="#a5488a439ad5b55e245b9023fc633d752"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a0981e5dd5fb245721a5b1b46f61610b0">checkEvolution</a> (const double epsilon=1e-6)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparing the evolution implementations with finite differences.  <a href="#a0981e5dd5fb245721a5b1b46f61610b0"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad42f44cca58f1b25ee6fd8ff68c79c57"></a><!-- doxytag: member="baseHamiltonian::acceptRate" ref="ad42f44cca58f1b25ee6fd8ff68c79c57" args="()" -->
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#ad42f44cca58f1b25ee6fd8ff68c79c57">acceptRate</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Metropolis accept rate over the history of the chains. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0336c93d2219dce37fb95a77da696875"></a><!-- doxytag: member="baseHamiltonian::movingAcceptRate" ref="a0336c93d2219dce37fb95a77da696875" args="()" -->
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a0336c93d2219dce37fb95a77da696875">movingAcceptRate</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving expectation of the Metropolis accept rate. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a67fbb40853af9edefdc4a4fc75f23a76">displayState</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display current state.  <a href="#a67fbb40853af9edefdc4a4fc75f23a76"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a67fbb40853af9edefdc4a4fc75f23a76"></a><!-- doxytag: member="baseHamiltonian::displayState" ref="a67fbb40853af9edefdc4a4fc75f23a76" args="()" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbase_hamiltonian.html#a67fbb40853af9edefdc4a4fc75f23a76">displayState</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display current state. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22e2237a094edc72377673d7214636fa"></a><!-- doxytag: member="baseHamiltonian::mDim" ref="a22e2237a094edc72377673d7214636fa" args="" -->
@@ -259,18 +278,18 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classdense_bkgd_bs_metric.html#aff36d992fa920b1e87bcdb5839b0175a">denseBkgdBsMetric</a>, <a class="el" href="classdense_const_metric.html#af95809e61fe3288bae68cef86c3e7dbf">denseConstMetric</a>, <a class="el" href="classdense_fisher_metric.html#a211ae2303ce5cd6514cbda55a23ffc19">denseFisherMetric</a>, <a class="el" href="classdiag_bkgd_bs_metric.html#a6373f67087a4480bbb1bafd427bdf7c6">diagBkgdBsMetric</a>, and <a class="el" href="classdiag_const_metric.html#add0fdd403188ae5ba0a419220be0a176">diagConstMetric</a>.</p>
+<p>Implemented in <a class="el" href="classdense_const_metric.html#af95809e61fe3288bae68cef86c3e7dbf">denseConstMetric</a>, <a class="el" href="classdense_fisher_metric.html#a211ae2303ce5cd6514cbda55a23ffc19">denseFisherMetric</a>, <a class="el" href="classdiag_const_metric.html#add0fdd403188ae5ba0a419220be0a176">diagConstMetric</a>, <a class="el" href="classdiag_outer_soft_abs_metric.html#a8f0d9f0bf5abe4e478fa5bc938a146da">diagOuterSoftAbsMetric</a>, <a class="el" href="classdiag_soft_abs_metric.html#a99f838a2fb1bdedf41fa831354ab9e17">diagSoftAbsMetric</a>, <a class="el" href="classouter_soft_abs_metric.html#a5a4fe2cf4f318c5623836e3e11524a91">outerSoftAbsMetric</a>, and <a class="el" href="classsoft_abs_metric.html#a1e20c3229be1bfc408751a5064621e15">softAbsMetric</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5488a439ad5b55e245b9023fc633d752"></a><!-- doxytag: member="baseHamiltonian::checkEvolution" ref="a5488a439ad5b55e245b9023fc633d752" args="(double epsilon=1e&#45;6)" -->
+<a class="anchor" id="a0981e5dd5fb245721a5b1b46f61610b0"></a><!-- doxytag: member="baseHamiltonian::checkEvolution" ref="a0981e5dd5fb245721a5b1b46f61610b0" args="(const double epsilon=1e&#45;6)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void baseHamiltonian::checkEvolution </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>epsilon</em> = <code>1e-6</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -287,28 +306,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classdense_bkgd_bs_metric.html#a62e0b3b7fa7b7d76929e82b9cd086f47">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a825e0fda4cf512e5186abfc54be03dc8">denseFisherMetric</a>, and <a class="el" href="classdiag_bkgd_bs_metric.html#aa6528e10a008747711b20f7a2a7a503f">diagBkgdBsMetric</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a67fbb40853af9edefdc4a4fc75f23a76"></a><!-- doxytag: member="baseHamiltonian::displayState" ref="a67fbb40853af9edefdc4a4fc75f23a76" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void baseHamiltonian::displayState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Display current state. </p>
-<p>Display the current state of the chain. </p>
-
-<p>Reimplemented in <a class="el" href="classdense_bkgd_bs_metric.html#ae5e6fa3537dabc577914291a54a458a7">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a6e96b40a1bf96661995a1a8fec39e0f4">denseFisherMetric</a>, and <a class="el" href="classdiag_bkgd_bs_metric.html#aa315d9a923c118508e8e0d0b11127566">diagBkgdBsMetric</a>.</p>
+<p>Reimplemented in <a class="el" href="classdense_fisher_metric.html#adc5acd61ed94a60fc55e3d53457c2094">denseFisherMetric</a>, <a class="el" href="classdiag_outer_soft_abs_metric.html#a2b611bbd5155373c98215c719d83b35d">diagOuterSoftAbsMetric</a>, <a class="el" href="classdiag_soft_abs_metric.html#a800ba4a92249d86ccd43193bf98657c7">diagSoftAbsMetric</a>, <a class="el" href="classouter_soft_abs_metric.html#af98047a624cecad18766a0594d7cab40">outerSoftAbsMetric</a>, and <a class="el" href="classsoft_abs_metric.html#a5419fd1c1a766c070ecae53087b8726c">softAbsMetric</a>.</p>
 
 </div>
 </div>
@@ -327,8 +325,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="memdoc">
 <p>Perform any necessary calculations before simulation Hamiltonian dynamics </p>
 
-<p>Reimplemented in <a class="el" href="classdense_bkgd_bs_metric.html#a72a48ac25ac3d17fd8b5cfa28256a6e1">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">denseFisherMetric</a>, <a class="el" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">diagBkgdBsMetric</a>, and <a class="el" href="classdynam_metric.html#aaaf5ce1b0fd46b197a9ce9cc32459c55">dynamMetric</a>.</p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2funnel_2main_8cpp-example.html#a10">examples/funnel/main.cpp</a>, and <a class="el" href="examples_2multi_var_gauss_2main_8cpp-example.html#a9">examples/multiVarGauss/main.cpp</a>.</dd>
+<p>Reimplemented in <a class="el" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">denseFisherMetric</a>, <a class="el" href="classdynam_metric.html#a3f60a5d4db2b1c1cf0a9f69d503c3e02">dynamMetric</a>, and <a class="el" href="classouter_soft_abs_metric.html#a00ebaf515cfe854deb81e499816d4ad8">outerSoftAbsMetric</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2main_8cpp-example.html#a11">examples/main.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -354,9 +352,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="classdense_bkgd_bs_metric.html#ac6a57f1b56355b318cb9cbb8c8d8cb9f">denseBkgdBsMetric</a>, <a class="el" href="classdense_const_metric.html#ac4fc8f763232386554c55540ca30d5b4">denseConstMetric</a>, <a class="el" href="classdense_fisher_metric.html#a0c4e917fe90a9d601a74fdcbe76ff63b">denseFisherMetric</a>, <a class="el" href="classdiag_bkgd_bs_metric.html#a6c2d9a82bb2ec4f303f01be4650d5ed5">diagBkgdBsMetric</a>, and <a class="el" href="classdiag_const_metric.html#a9a9210437e5b2c3bd98978928cad8a6f">diagConstMetric</a>.</p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2funnel_2main_8cpp-example.html#a11">examples/funnel/main.cpp</a>, and <a class="el" href="examples_2multi_var_gauss_2main_8cpp-example.html#a10">examples/multiVarGauss/main.cpp</a>.</dd>
-</dl>
+<p>Implemented in <a class="el" href="classdense_const_metric.html#ac4fc8f763232386554c55540ca30d5b4">denseConstMetric</a>, <a class="el" href="classdense_fisher_metric.html#a0c4e917fe90a9d601a74fdcbe76ff63b">denseFisherMetric</a>, <a class="el" href="classdiag_const_metric.html#a9a9210437e5b2c3bd98978928cad8a6f">diagConstMetric</a>, <a class="el" href="classdiag_outer_soft_abs_metric.html#a594c912c535a72ae01a9c3b73a0bf3e2">diagOuterSoftAbsMetric</a>, <a class="el" href="classdiag_soft_abs_metric.html#a0a763afd7d04098a36cfa1195f3fe6bd">diagSoftAbsMetric</a>, <a class="el" href="classouter_soft_abs_metric.html#a0842330ac1d12b8aebadf10d55a3f81c">outerSoftAbsMetric</a>, and <a class="el" href="classsoft_abs_metric.html#a4d2530ca42c2984eba797982d26d54b3">softAbsMetric</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -378,7 +375,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

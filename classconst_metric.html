@@ -76,6 +76,7 @@ Inheritance diagram for constMetric:</div>
 <area href="classbase_hamiltonian.html" alt="baseHamiltonian" shape="rect" coords="62,0,176,24"/>
 <area href="classdense_const_metric.html" alt="denseConstMetric" shape="rect" coords="0,112,114,136"/>
 <area href="classdiag_const_metric.html" alt="diagConstMetric" shape="rect" coords="124,112,238,136"/>
+<area href="classflat_funnel.html" alt="flatFunnel" shape="rect" coords="124,168,238,192"/>
 </map>
  </div></div>
 
@@ -84,21 +85,21 @@ Inheritance diagram for constMetric:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a527b3b36eafbf3df8c23c90c531f42ae">constMetric</a> (int dim)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21b7bada3502b1df550d7dab28c48448"></a><!-- doxytag: member="constMetric::beginEvolveP" ref="a21b7bada3502b1df550d7dab28c48448" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a21b7bada3502b1df550d7dab28c48448">beginEvolveP</a> (double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af179b8d76b773bc83aa64fc6e1b2056c"></a><!-- doxytag: member="constMetric::beginEvolveP" ref="af179b8d76b773bc83aa64fc6e1b2056c" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#af179b8d76b773bc83aa64fc6e1b2056c">beginEvolveP</a> (const double epsilon)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through an initial half step of time epsilon. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a252f350bbe7bd4a547aa7da8f0db39ab"></a><!-- doxytag: member="constMetric::finishEvolveP" ref="a252f350bbe7bd4a547aa7da8f0db39ab" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a252f350bbe7bd4a547aa7da8f0db39ab">finishEvolveP</a> (double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaacb2f88a38e58b5bc5dca9c96775526"></a><!-- doxytag: member="constMetric::finishEvolveP" ref="aaacb2f88a38e58b5bc5dca9c96775526" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#aaacb2f88a38e58b5bc5dca9c96775526">finishEvolveP</a> (const double epsilon)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through a final half step of time epsilon. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba55c957ee564a23ea21bcd4f24ae442"></a><!-- doxytag: member="constMetric::fEvolveP" ref="aba55c957ee564a23ea21bcd4f24ae442" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#aba55c957ee564a23ea21bcd4f24ae442">fEvolveP</a> (double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35da691f95270ba9c43c1e921714da35"></a><!-- doxytag: member="constMetric::fEvolveP" ref="a35da691f95270ba9c43c1e921714da35" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a35da691f95270ba9c43c1e921714da35">fEvolveP</a> (const double epsilon)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unified evolution for both intital and final steps. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b7538618852aa98a5f45a125a0105fb"></a><!-- doxytag: member="constMetric::mAux" ref="a1b7538618852aa98a5f45a125a0105fb" args="" -->
-VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a1b7538618852aa98a5f45a125a0105fb">mAux</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c9f486da9e174228b52e02c83f77c94"></a><!-- doxytag: member="constMetric::mAuxVector" ref="a2c9f486da9e174228b52e02c83f77c94" args="" -->
+VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconst_metric.html#a2c9f486da9e174228b52e02c83f77c94">mAuxVector</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary vector for efficient matrix computations. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -160,7 +161,7 @@ VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

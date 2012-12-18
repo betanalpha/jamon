@@ -61,33 +61,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00002"></a>00002 <span class="preprocessor"></span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &quot;baseHamiltonian.h&quot;</span>
 <a name="l00004"></a>00004 
-<a name="l00018"></a>00018 
-<a name="l00019"></a><a class="code" href="classdynam_metric.html">00019</a> <span class="keyword">class </span><a class="code" href="classdynam_metric.html">dynamMetric</a>: <span class="keyword">public</span> <a class="code" href="classbase_hamiltonian.html">baseHamiltonian</a>
-<a name="l00020"></a>00020 {
-<a name="l00021"></a>00021     
-<a name="l00022"></a>00022     <span class="keyword">public</span>:
-<a name="l00023"></a>00023         
-<a name="l00024"></a>00024         <span class="keyword">explicit</span> <a class="code" href="classdynam_metric.html#acb576711498c09d8dab07a4ed33638a1">dynamMetric</a>(<span class="keywordtype">int</span> <a class="code" href="classbase_hamiltonian.html#addd5dde7abd473ffb9425f394154c34f" title="Return the dimensionality of the target space.">dim</a>);
-<a name="l00025"></a>00025         <span class="keyword">virtual</span> ~<a class="code" href="classdynam_metric.html">dynamMetric</a>() {};
-<a name="l00026"></a>00026         
-<a name="l00027"></a>00027         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#aaaf5ce1b0fd46b197a9ce9cc32459c55">prepareEvolution</a>() = 0;
-<a name="l00028"></a>00028     
-<a name="l00030"></a><a class="code" href="classdynam_metric.html#aa372754e2940aafab592ec71c534180a">00030</a>         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#aa372754e2940aafab592ec71c534180a" title="Set the number of fixed point iterations for spatial updates.">setNumFixedPoint</a>(<span class="keywordtype">int</span> n) { <a class="code" href="classdynam_metric.html#a2d9fa7374238eb3dd105c2b340cb0d33" title="Number of fixed point iterations for spatial updates.">mNumFixedPoint</a> = n; }
-<a name="l00031"></a>00031     
-<a name="l00032"></a>00032     <span class="keyword">protected</span>:
-<a name="l00033"></a>00033 
-<a name="l00035"></a><a class="code" href="classdynam_metric.html#a2d9fa7374238eb3dd105c2b340cb0d33">00035</a>         <span class="keywordtype">int</span> <a class="code" href="classdynam_metric.html#a2d9fa7374238eb3dd105c2b340cb0d33" title="Number of fixed point iterations for spatial updates.">mNumFixedPoint</a>; 
-<a name="l00036"></a>00036     
-<a name="l00038"></a><a class="code" href="classdynam_metric.html#ac475c9894dc8fb2d3aff0c1a3aaf946b">00038</a>         VectorXd <a class="code" href="classdynam_metric.html#ac475c9894dc8fb2d3aff0c1a3aaf946b" title="Auxiliary vector for efficient matrix computations.">mAux</a>;
-<a name="l00039"></a>00039 
-<a name="l00045"></a>00045         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#ad85ec21dd93feade188748989edf8071">fHatA</a>(<span class="keywordtype">double</span> epsilon) = 0;
-<a name="l00046"></a>00046     
-<a name="l00050"></a>00050         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a35570971a3b115b5b5f7189a86ae2b19">fHatF</a>(<span class="keywordtype">double</span> epsilon) = 0;
-<a name="l00051"></a>00051     
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="preprocessor">#define _BETA_DYNAMMETRIC_</span>
-<a name="l00055"></a>00055 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a><a class="code" href="classdynam_metric.html">00028</a> <span class="keyword">class </span><a class="code" href="classdynam_metric.html">dynamMetric</a>: <span class="keyword">public</span> <a class="code" href="classbase_hamiltonian.html">baseHamiltonian</a>
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030     
+<a name="l00031"></a>00031     <span class="keyword">public</span>:
+<a name="l00032"></a>00032         
+<a name="l00033"></a>00033         <span class="keyword">explicit</span> <a class="code" href="classdynam_metric.html#acb576711498c09d8dab07a4ed33638a1">dynamMetric</a>(<span class="keywordtype">int</span> <a class="code" href="classbase_hamiltonian.html#addd5dde7abd473ffb9425f394154c34f" title="Return the dimensionality of the target space.">dim</a>);
+<a name="l00034"></a>00034         <span class="keyword">virtual</span> ~<a class="code" href="classdynam_metric.html">dynamMetric</a>() {};
+<a name="l00035"></a>00035     
+<a name="l00037"></a>00037         <span class="comment">//                   Accessors                  //</span>
+<a name="l00039"></a>00039 <span class="comment"></span>        
+<a name="l00041"></a>00041         <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="classdynam_metric.html#af42c5cb948fc2b13b67055a9856742a3" title="Return the quadratic form of the kinetic energy.">tau</a>() = 0;
+<a name="l00042"></a>00042     
+<a name="l00044"></a><a class="code" href="classdynam_metric.html#a5497bb07c40671193ce0494db94f04c9">00044</a>         <span class="keywordtype">double</span> <a class="code" href="classdynam_metric.html#a5497bb07c40671193ce0494db94f04c9" title="Return the pseudo-potential.">phi</a>() { <span class="keywordflow">return</span> 0.5 * <a class="code" href="classdynam_metric.html#a367004e3c29d78601fbc7fbc95f87c37" title="Log determinant of the metric.">mLogDetMetric</a> + <a class="code" href="classbase_hamiltonian.html#ae1cc3506d21971a913cea9a222185e87" title="Return the potential energy.">V</a>(); }
+<a name="l00045"></a>00045         
+<a name="l00047"></a>00047         <span class="comment">//                   Mutators                   //</span>
+<a name="l00049"></a>00049 <span class="comment"></span>        
+<a name="l00051"></a><a class="code" href="classdynam_metric.html#a5757e23cb89ea14d86e879ab08bb28dd">00051</a>         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a5757e23cb89ea14d86e879ab08bb28dd" title="Set the maximum number of fixed-point iterations for implicit updates.">setMaxNumFixedPoint</a>(<span class="keywordtype">int</span> n) { <a class="code" href="classdynam_metric.html#a49eb32e6b1260a447a241b46fde56247" title="Maximum number of fixed-point iterations for implicit updates.">mMaxNumFixedPoint</a> = n; }
+<a name="l00052"></a>00052     
+<a name="l00054"></a><a class="code" href="classdynam_metric.html#afa92ec4c42c4e6ffc97666ea31649497">00054</a>         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#afa92ec4c42c4e6ffc97666ea31649497" title="Set the difference threshold for terminating fixed-point iterations.">setFixedPointThreshold</a>(<span class="keywordtype">double</span> t) { <a class="code" href="classdynam_metric.html#a8aff588d73acf11bd505d99bef409ca3" title="Difference threshold for terminating fixed-point iterations.">mFixedPointThreshold</a> = t; }
+<a name="l00055"></a>00055         
+<a name="l00056"></a>00056         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a3fc977c1b8e25ced497632dcd7eba780" title="Evolve the position through some time epsilon.">evolveQ</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a647019d7d6763c7a0e324de735f9ae50" title="Evolve the momenta through an initial half step of time epsilon.">beginEvolveP</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00058"></a>00058         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a953d09f0e46e32fa262bc3105575edf0" title="Evolve the momenta through a final half step of time epsilon.">finishEvolveP</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);  
+<a name="l00059"></a>00059     
+<a name="l00061"></a>00061         <span class="comment">//              Auxiliary Functions             //</span>
+<a name="l00063"></a>00063 <span class="comment"></span>
+<a name="l00064"></a><a class="code" href="classdynam_metric.html#a3f60a5d4db2b1c1cf0a9f69d503c3e02">00064</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a3f60a5d4db2b1c1cf0a9f69d503c3e02">prepareEvolution</a>() { <a class="code" href="classdynam_metric.html#aeb8e11ea888d46c6f0fd4cc07d3e3de4" title="Compute the metric at the current position.">fComputeMetric</a>(); <a class="code" href="classdynam_metric.html#a0c30aa0f32b8822d359cd3b67592e0c4">fPrepareSpatialGradients</a>(); }
+<a name="l00065"></a>00065     
+<a name="l00066"></a>00066     <span class="keyword">protected</span>:
+<a name="l00067"></a>00067 
+<a name="l00069"></a><a class="code" href="classdynam_metric.html#a49eb32e6b1260a447a241b46fde56247">00069</a>         <span class="keywordtype">int</span> <a class="code" href="classdynam_metric.html#a49eb32e6b1260a447a241b46fde56247" title="Maximum number of fixed-point iterations for implicit updates.">mMaxNumFixedPoint</a>; 
+<a name="l00070"></a>00070     
+<a name="l00072"></a><a class="code" href="classdynam_metric.html#a8aff588d73acf11bd505d99bef409ca3">00072</a>         <span class="keywordtype">double</span> <a class="code" href="classdynam_metric.html#a8aff588d73acf11bd505d99bef409ca3" title="Difference threshold for terminating fixed-point iterations.">mFixedPointThreshold</a>;
+<a name="l00073"></a>00073     
+<a name="l00075"></a><a class="code" href="classdynam_metric.html#af01ef6dc3bc6677262fab5b38eba701c">00075</a>         VectorXd <a class="code" href="classdynam_metric.html#af01ef6dc3bc6677262fab5b38eba701c" title="Auxiliary vector for storing various gradients.">mAuxVector</a>;
+<a name="l00076"></a>00076     
+<a name="l00078"></a><a class="code" href="classdynam_metric.html#af0a4692e82ed63f32d546d4d7a35ac2e">00078</a>         VectorXd <a class="code" href="classdynam_metric.html#af0a4692e82ed63f32d546d4d7a35ac2e" title="Auxiliary vector for fixed-point iterations.">mInit</a>; 
+<a name="l00079"></a>00079     
+<a name="l00081"></a><a class="code" href="classdynam_metric.html#a541a03c401b35690e56c71e1d9e4ea93">00081</a>         VectorXd <a class="code" href="classdynam_metric.html#a541a03c401b35690e56c71e1d9e4ea93" title="Auxiliary vector for fixed-point iteration termination criteria.">mDelta</a>;
+<a name="l00082"></a>00082     
+<a name="l00084"></a><a class="code" href="classdynam_metric.html#a367004e3c29d78601fbc7fbc95f87c37">00084</a>         <span class="keywordtype">double</span> <a class="code" href="classdynam_metric.html#a367004e3c29d78601fbc7fbc95f87c37" title="Log determinant of the metric.">mLogDetMetric</a>;
+<a name="l00085"></a>00085 
+<a name="l00087"></a>00087         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#aeb8e11ea888d46c6f0fd4cc07d3e3de4" title="Compute the metric at the current position.">fComputeMetric</a>() = 0;
+<a name="l00088"></a>00088     
+<a name="l00090"></a><a class="code" href="classdynam_metric.html#a8e131bd8b9f7bca21a03a8feab5fc1ab">00090</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a8e131bd8b9f7bca21a03a8feab5fc1ab" title="Update any momenta-dependent auxiliary terms.">fUpdateP</a>() {};
+<a name="l00091"></a>00091     
+<a name="l00094"></a><a class="code" href="classdynam_metric.html#a0c30aa0f32b8822d359cd3b67592e0c4">00094</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a0c30aa0f32b8822d359cd3b67592e0c4">fPrepareSpatialGradients</a>() { <a class="code" href="classbase_hamiltonian.html#a889acd336e706b089bf1e56d2f746945" title="Return the gradient of the potential energy.">gradV</a>(); }
+<a name="l00095"></a>00095         
+<a name="l00097"></a>00097         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a1a336bac28ef3cc46be4b089f68cc802" title="Evolve .">fHatT</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00098"></a>00098     
+<a name="l00102"></a>00102         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#a381eeb5c1f4c95630d68430c5ed018ad">fHatTau</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon, <span class="keyword">const</span> <span class="keywordtype">int</span> numFixedPoint);
+<a name="l00103"></a>00103     
+<a name="l00107"></a>00107         <span class="keywordtype">void</span> <a class="code" href="classdynam_metric.html#ab3bbc68536f477fcdeb855907fbfb113">fHatPhi</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00108"></a>00108     
+<a name="l00110"></a>00110         <span class="keyword">virtual</span> VectorXd&amp; <a class="code" href="classdynam_metric.html#a1450f0e0ac859d5b55f79e56d533e1ab" title="Gradient of the quadrtic form with respect to the momenta.">dTaudp</a>() = 0;
+<a name="l00111"></a>00111     
+<a name="l00113"></a>00113         <span class="keyword">virtual</span> VectorXd&amp; <a class="code" href="classdynam_metric.html#a26afb2340334dd7d428230fe7ffd09ba" title="Gradient of the quadratic form with respect to the position.">dTaudq</a>() = 0;
+<a name="l00114"></a>00114     
+<a name="l00116"></a>00116         <span class="keyword">virtual</span> VectorXd&amp; <a class="code" href="classdynam_metric.html#a4985b116d59f7680413a7ae18d5a18ae" title="Gradient of the psuedo-potential with respect to the momenta.">dPhidq</a>() = 0;
+<a name="l00117"></a>00117     
+<a name="l00118"></a>00118 };
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="preprocessor">#define _BETA_DYNAMMETRIC_</span>
+<a name="l00121"></a>00121 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -104,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

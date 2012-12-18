@@ -61,69 +61,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00002"></a>00002 <span class="preprocessor"></span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &quot;denseDynamMetric.h&quot;</span>
 <a name="l00004"></a>00004 
-<a name="l00012"></a>00012 
-<a name="l00013"></a><a class="code" href="classdiag_bkgd_bs_metric.html">00013</a> <span class="keyword">class </span><a class="code" href="classdiag_bkgd_bs_metric.html">diagBkgdBsMetric</a>: <span class="keyword">public</span> <a class="code" href="classdense_dynam_metric.html">denseDynamMetric</a>
-<a name="l00014"></a>00014 {
-<a name="l00015"></a>00015     
-<a name="l00016"></a>00016     <span class="keyword">public</span>:
-<a name="l00017"></a>00017         
-<a name="l00018"></a>00018         <span class="keyword">explicit</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a3b1f6efd0b9e08aeca2c17e7818837d2">diagBkgdBsMetric</a>(<span class="keywordtype">int</span> <a class="code" href="classbase_hamiltonian.html#addd5dde7abd473ffb9425f394154c34f" title="Return the dimensionality of the target space.">dim</a>);
-<a name="l00019"></a>00019         <span class="keyword">virtual</span> ~<a class="code" href="classdiag_bkgd_bs_metric.html">diagBkgdBsMetric</a>() {};
-<a name="l00020"></a>00020         
-<a name="l00022"></a>00022         <span class="comment">//                   Accessors                  //</span>
-<a name="l00024"></a>00024 <span class="comment"></span>        
-<a name="l00025"></a>00025         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a67b8d716959999d36a37c0e401246f37" title="Return the kinetic energy.">T</a>();
+<a name="l00018"></a>00018 
+<a name="l00019"></a><a class="code" href="classdiag_bkgd_bs_metric.html">00019</a> <span class="keyword">class </span><a class="code" href="classdiag_bkgd_bs_metric.html">diagBkgdBsMetric</a>: <span class="keyword">public</span> <a class="code" href="classdense_dynam_metric.html">denseDynamMetric</a>
+<a name="l00020"></a>00020 {
+<a name="l00021"></a>00021     
+<a name="l00022"></a>00022     <span class="keyword">public</span>:
+<a name="l00023"></a>00023         
+<a name="l00024"></a>00024         <span class="keyword">explicit</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a3b1f6efd0b9e08aeca2c17e7818837d2">diagBkgdBsMetric</a>(<span class="keywordtype">int</span> <a class="code" href="classbase_hamiltonian.html#addd5dde7abd473ffb9425f394154c34f" title="Return the dimensionality of the target space.">dim</a>);
+<a name="l00025"></a>00025         <span class="keyword">virtual</span> ~<a class="code" href="classdiag_bkgd_bs_metric.html">diagBkgdBsMetric</a>() {};
 <a name="l00026"></a>00026         
-<a name="l00027"></a>00027         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a0813cd3ee41117b617a8081204b19b85" title="Evolve the position through some time epsilon.">evolveQ</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00028"></a>00028         
-<a name="l00029"></a>00029         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a9e8450d4e4e1b83b03809b789d70a57f" title="Evolve the momenta through an initial half step of time epsilon.">beginEvolveP</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00030"></a>00030         
-<a name="l00031"></a>00031         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aa561299eccaab0ebe0b4a959abb23ab0" title="Evolve the momenta through a final half step of time epsilon.">finishEvolveP</a>(<span class="keywordtype">double</span> epsilon);  
+<a name="l00028"></a>00028         <span class="comment">//                   Accessors                  //</span>
+<a name="l00030"></a>00030 <span class="comment"></span>        
+<a name="l00031"></a>00031         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a67b8d716959999d36a37c0e401246f37" title="Return the kinetic energy.">T</a>();
 <a name="l00032"></a>00032         
-<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a6373f67087a4480bbb1bafd427bdf7c6">bounceP</a>(<span class="keyword">const</span> VectorXd&amp; normal);
-<a name="l00034"></a>00034     
-<a name="l00035"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a63f2e11762f7c5fefbde06bb6522743e">00035</a>         VectorXd&amp; <a class="code" href="classdiag_bkgd_bs_metric.html#a63f2e11762f7c5fefbde06bb6522743e" title="Return inverse background metric.">lambda</a>() { <span class="keywordflow">return</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73" title="Inverse background metric.">mBackLambda</a>; } 
-<a name="l00036"></a>00036     
-<a name="l00037"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ac18388c4456ff1e0aa0226c9a5698a72">00037</a>         MatrixXd&amp; <a class="code" href="classdiag_bkgd_bs_metric.html#ac18388c4456ff1e0aa0226c9a5698a72" title="Return inverse metric.">Lambda</a>() { <span class="keywordflow">return</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b" title="Inverse induced metric.">mLambda</a>; }     
+<a name="l00033"></a>00033         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a29eac00e59fae8886f417851c84e7c10" title="Evolve the position through some time epsilon.">evolveQ</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00034"></a>00034         
+<a name="l00035"></a>00035         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ab93aa99d34e5be95de435187cbbacfdc" title="Evolve the momenta through an initial half step of time epsilon.">beginEvolveP</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00036"></a>00036         
+<a name="l00037"></a>00037         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#af167fa5a14ba4190f579d8109147c2f3" title="Evolve the momenta through a final half step of time epsilon.">finishEvolveP</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);  
 <a name="l00038"></a>00038         
-<a name="l00040"></a>00040         <span class="comment">//                   Mutators                   //</span>
-<a name="l00042"></a>00042 <span class="comment"></span>        
-<a name="l00043"></a>00043         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a6c2d9a82bb2ec4f303f01be4650d5ed5">sampleP</a>(Random&amp; random);
-<a name="l00044"></a>00044     
-<a name="l00045"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a0b7a2443832e2f1514f5ab3b14b071d6">00045</a>         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a0b7a2443832e2f1514f5ab3b14b071d6" title="Set regularization coefficient.">setAlpha</a>(<span class="keywordtype">double</span> a) { <a class="code" href="classdiag_bkgd_bs_metric.html#a3d9462b86e6aaf3add81b1b62eaee971" title="Regularization coefficient.">mAlpha</a> = a; } 
-<a name="l00046"></a>00046         
-<a name="l00048"></a>00048         <span class="comment">//              Auxiliary Functions             //</span>
-<a name="l00050"></a>00050 <span class="comment"></span>        
-<a name="l00051"></a>00051         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aa6528e10a008747711b20f7a2a7a503f" title="Comparing the evolution implementations with finite differences.">checkEvolution</a>(<span class="keywordtype">double</span> epsilon = 1e-6);
-<a name="l00052"></a>00052     
-<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aa315d9a923c118508e8e0d0b11127566" title="Display current state.">displayState</a>();
-<a name="l00054"></a>00054 
-<a name="l00055"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">00055</a>         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">prepareEvolution</a>() { <a class="code" href="classdiag_bkgd_bs_metric.html#a7636c7b54f30b4e0043b7f81f3008499" title="Compute the inverse metric.">fComputeLambda</a>(); <a class="code" href="classdiag_bkgd_bs_metric.html#a8977f95f8009462917e0224701152f27" title="Compute the gradient of the log determinant of the inverse induced metric.">fComputeGradLogDetLambda</a>(); }
-<a name="l00056"></a>00056         
-<a name="l00057"></a>00057     <span class="keyword">protected</span>:
-<a name="l00058"></a>00058         
-<a name="l00059"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73">00059</a>         VectorXd <a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73" title="Inverse background metric.">mBackLambda</a>;       
-<a name="l00060"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b">00060</a>         MatrixXd <a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b" title="Inverse induced metric.">mLambda</a>;           
-<a name="l00061"></a><a class="code" href="classdiag_bkgd_bs_metric.html#acb63bd708ed98fe4c6b1a18f0d4a130b">00061</a>         MatrixXd <a class="code" href="classdiag_bkgd_bs_metric.html#acb63bd708ed98fe4c6b1a18f0d4a130b" title="Hessian of the potential energy.">mHessianV</a>;         
-<a name="l00062"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a61b01e05024e66064abf418b94e883c8">00062</a>         VectorXd <a class="code" href="classdiag_bkgd_bs_metric.html#a61b01e05024e66064abf418b94e883c8" title="Gradient of the log determinant of Lambda.">mGradLogDetLambda</a>; 
+<a name="l00039"></a>00039         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a6373f67087a4480bbb1bafd427bdf7c6">bounceP</a>(<span class="keyword">const</span> VectorXd&amp; normal);
+<a name="l00040"></a>00040     
+<a name="l00041"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a63f2e11762f7c5fefbde06bb6522743e">00041</a>         VectorXd&amp; <a class="code" href="classdiag_bkgd_bs_metric.html#a63f2e11762f7c5fefbde06bb6522743e" title="Return inverse background metric.">lambda</a>() { <span class="keywordflow">return</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73" title="Inverse background metric.">mBackLambda</a>; } 
+<a name="l00042"></a>00042     
+<a name="l00043"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ac18388c4456ff1e0aa0226c9a5698a72">00043</a>         MatrixXd&amp; <a class="code" href="classdiag_bkgd_bs_metric.html#ac18388c4456ff1e0aa0226c9a5698a72" title="Return inverse metric.">Lambda</a>() { <span class="keywordflow">return</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b" title="Inverse induced metric.">mLambda</a>; }     
+<a name="l00044"></a>00044         
+<a name="l00046"></a>00046         <span class="comment">//                   Mutators                   //</span>
+<a name="l00048"></a>00048 <span class="comment"></span>        
+<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a6c2d9a82bb2ec4f303f01be4650d5ed5">sampleP</a>(Random&amp; random);
+<a name="l00050"></a>00050     
+<a name="l00052"></a><a class="code" href="classdiag_bkgd_bs_metric.html#af8539c927493a37aa32d30a9dcbd5560">00052</a>         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#af8539c927493a37aa32d30a9dcbd5560" title="Set regularization coefficient.">setAlpha</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> a) { <a class="code" href="classdiag_bkgd_bs_metric.html#a0db4318412ea988c1d78d0a585b1a1e3" title="Regularization coefficient.">mAlphaNorm</a> = a &gt; 0 ? a : 0; }
+<a name="l00053"></a>00053     
+<a name="l00054"></a>00054         <span class="keywordtype">void</span> setGamma(<span class="keyword">const</span> <span class="keywordtype">double</span> g) { <a class="code" href="classdiag_bkgd_bs_metric.html#ab613fffd3a649deb061ee3806f6fedad" title="Scaling exponent.">mGammaScale</a> = g; }
+<a name="l00055"></a>00055         
+<a name="l00057"></a>00057         <span class="comment">//              Auxiliary Functions             //</span>
+<a name="l00059"></a>00059 <span class="comment"></span>        
+<a name="l00060"></a>00060         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aaab001163b0f8473800bd1f07fc500c0">logDetLambda</a>();
+<a name="l00061"></a>00061     
+<a name="l00062"></a>00062         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aaf031e823ef071b695074dcf9ce1bf6f" title="Comparing the evolution implementations with finite differences.">checkEvolution</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon = 1e-6);
 <a name="l00063"></a>00063     
-<a name="l00064"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a84a6eb8ca64711161eaccb611d4ade89">00064</a>         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a84a6eb8ca64711161eaccb611d4ade89" title="Determinant of the inverse induced metric.">mDetLambda</a>;          
-<a name="l00065"></a>00065     
-<a name="l00066"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a3d9462b86e6aaf3add81b1b62eaee971">00066</a>         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a3d9462b86e6aaf3add81b1b62eaee971" title="Regularization coefficient.">mAlpha</a>;              
+<a name="l00064"></a>00064         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#aa315d9a923c118508e8e0d0b11127566" title="Display current state.">displayState</a>();
+<a name="l00065"></a>00065 
+<a name="l00066"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">00066</a>         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">prepareEvolution</a>() { <a class="code" href="classdiag_bkgd_bs_metric.html#a7636c7b54f30b4e0043b7f81f3008499" title="Compute the inverse metric.">fComputeLambda</a>(); <a class="code" href="classdiag_bkgd_bs_metric.html#a8977f95f8009462917e0224701152f27" title="Compute the gradient of the log determinant of the inverse induced metric.">fComputeGradLogDetLambda</a>(); }
 <a name="l00067"></a>00067         
-<a name="l00068"></a>00068         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ab681e5b0696a0acb894ec528d667302d" title="Compute the determinant of the inverse metric.">fComputeDetLambda</a>();
-<a name="l00069"></a>00069         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a7636c7b54f30b4e0043b7f81f3008499" title="Compute the inverse metric.">fComputeLambda</a>();
-<a name="l00070"></a>00070         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a8977f95f8009462917e0224701152f27" title="Compute the gradient of the log determinant of the inverse induced metric.">fComputeGradLogDetLambda</a>();
-<a name="l00071"></a>00071     
-<a name="l00072"></a>00072         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a3100997b527ca16e7aceb5d966a72b7b" title="Compute the Hessian matrix of the potential.">fComputeHessianV</a>() = 0; 
-<a name="l00073"></a>00073     
-<a name="l00074"></a>00074         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#abfe3f1e79e5835875f06b19e47961e17">fHatA</a>(<span class="keywordtype">double</span> epsilon);
-<a name="l00075"></a>00075         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a08e87ea49e5dbcff47db66fa9b938722">fHatF</a>(<span class="keywordtype">double</span> epsilon);
+<a name="l00068"></a>00068     <span class="keyword">protected</span>:
+<a name="l00069"></a>00069         
+<a name="l00070"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73">00070</a>         VectorXd <a class="code" href="classdiag_bkgd_bs_metric.html#ae792396301ecb8b6afd2d381e9723d73" title="Inverse background metric.">mBackLambda</a>;        
+<a name="l00071"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b">00071</a>         MatrixXd <a class="code" href="classdiag_bkgd_bs_metric.html#a9527fa723aad829b1f01b816ebed9d6b" title="Inverse induced metric.">mLambda</a>;            
+<a name="l00072"></a><a class="code" href="classdiag_bkgd_bs_metric.html#acb63bd708ed98fe4c6b1a18f0d4a130b">00072</a>         MatrixXd <a class="code" href="classdiag_bkgd_bs_metric.html#acb63bd708ed98fe4c6b1a18f0d4a130b" title="Hessian of the potential energy.">mHessianV</a>;          
+<a name="l00073"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a61b01e05024e66064abf418b94e883c8">00073</a>         VectorXd <a class="code" href="classdiag_bkgd_bs_metric.html#a61b01e05024e66064abf418b94e883c8" title="Gradient of the log determinant of Lambda.">mGradLogDetLambda</a>;  
+<a name="l00074"></a>00074     
+<a name="l00075"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a0538dc6b412387535c4d2271bda878eb">00075</a>         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a0538dc6b412387535c4d2271bda878eb" title="Inverted norm of the the potential gradient on the potential bundle.">mInvBundleNorm</a>;       
 <a name="l00076"></a>00076     
-<a name="l00077"></a>00077 };
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="preprocessor">#define _BETA_DIAGBKGDBSMETRIC_</span>
-<a name="l00080"></a>00080 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00077"></a><a class="code" href="classdiag_bkgd_bs_metric.html#a0db4318412ea988c1d78d0a585b1a1e3">00077</a>         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a0db4318412ea988c1d78d0a585b1a1e3" title="Regularization coefficient.">mAlphaNorm</a>;           
+<a name="l00078"></a><a class="code" href="classdiag_bkgd_bs_metric.html#ab613fffd3a649deb061ee3806f6fedad">00078</a>         <span class="keywordtype">double</span> <a class="code" href="classdiag_bkgd_bs_metric.html#ab613fffd3a649deb061ee3806f6fedad" title="Scaling exponent.">mGammaScale</a>;          
+<a name="l00079"></a>00079         
+<a name="l00080"></a>00080         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a744aae13f8da0d50e1e81606d600f5b9">fComputeInvBundleNorm</a>();
+<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a7636c7b54f30b4e0043b7f81f3008499" title="Compute the inverse metric.">fComputeLambda</a>();
+<a name="l00082"></a>00082         <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a8977f95f8009462917e0224701152f27" title="Compute the gradient of the log determinant of the inverse induced metric.">fComputeGradLogDetLambda</a>();
+<a name="l00083"></a>00083     
+<a name="l00084"></a>00084         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classdiag_bkgd_bs_metric.html#a3100997b527ca16e7aceb5d966a72b7b" title="Compute the Hessian matrix of the potential.">fComputeHessianV</a>() = 0; 
+<a name="l00085"></a>00085     
+<a name="l00086"></a>00086         <span class="keywordtype">void</span> fHatA(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00087"></a>00087         <span class="keywordtype">void</span> fHatW(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon);
+<a name="l00088"></a>00088     
+<a name="l00089"></a>00089 };
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#define _BETA_DIAGBKGDBSMETRIC_</span>
+<a name="l00092"></a>00092 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -140,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Nov 25 2012 23:28:38 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

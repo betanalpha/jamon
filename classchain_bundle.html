@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>chainBundle Class Reference</title>
+<title>chainBundle&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -62,163 +62,253 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">chainBundle Class Reference</div>  </div>
+<div class="title">chainBundle&lt; T &gt; Class Template Reference</div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="chainBundle" -->
-<p><code>#include &lt;<a class="el" href="chain_bundle_8h_source.html">chainBundle.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="chain_bundle_8hpp_source.html">chainBundle.hpp</a>&gt;</code></p>
 
 <p><a href="classchain_bundle-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa839ce230091cc02a71482b7e70db3a7">chainBundle</a> (Random &amp;random)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a068ff6f9d1960790aeee9e4413435c36">~chainBundle</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75c9bd6936f2ff3c71bbbc797b3625bd"></a><!-- doxytag: member="chainBundle::nChains" ref="a75c9bd6936f2ff3c71bbbc797b3625bd" args="()" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a75c9bd6936f2ff3c71bbbc797b3625bd">nChains</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ab78764cae843f7b88742144f4a434375">chainBundle</a> (Random &amp;random)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#af2c90de7ea0d560503d7a2f917a87c57">~chainBundle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa627e3e6c7f96db6e1c05cff9820df4b"></a><!-- doxytag: member="chainBundle::nChains" ref="aa627e3e6c7f96db6e1c05cff9820df4b" args="()" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa627e3e6c7f96db6e1c05cff9820df4b">nChains</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of chains. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49ff1a653914ecf378b61a4f47b6c697"></a><!-- doxytag: member="chainBundle::chain" ref="a49ff1a653914ecf378b61a4f47b6c697" args="(int i)" -->
-<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697">chain</a> (int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a116c4299238c3a17a82e24217225a1df"></a><!-- doxytag: member="chainBundle::chain" ref="a116c4299238c3a17a82e24217225a1df" args="(const int i)" -->
+T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a116c4299238c3a17a82e24217225a1df">chain</a> (const int i)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return pointer to ith chain. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f301113832c4fc90dab02e153813a86"></a><!-- doxytag: member="chainBundle::minESS" ref="a6f301113832c4fc90dab02e153813a86" args="()" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a6f301113832c4fc90dab02e153813a86">minESS</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78103c7106191e7764763e5eef6d8f40"></a><!-- doxytag: member="chainBundle::stepSize" ref="a78103c7106191e7764763e5eef6d8f40" args="()" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a78103c7106191e7764763e5eef6d8f40">stepSize</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current stepsize. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54f9f8c8f2ef2b989f190f7fe995e37b"></a><!-- doxytag: member="chainBundle::nLeapfrog" ref="a54f9f8c8f2ef2b989f190f7fe995e37b" args="()" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a54f9f8c8f2ef2b989f190f7fe995e37b">nLeapfrog</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current number of leapfrog steps. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84510ac1dd4168b566cb5f3027434522"></a><!-- doxytag: member="chainBundle::ESS" ref="a84510ac1dd4168b566cb5f3027434522" args="(int i)" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a84510ac1dd4168b566cb5f3027434522">ESS</a> (int i)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ith effective sample size. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad64d47d0f4803ce73c4ef52c5732b050"></a><!-- doxytag: member="chainBundle::minESS" ref="ad64d47d0f4803ce73c4ef52c5732b050" args="()" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ad64d47d0f4803ce73c4ef52c5732b050">minESS</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the smallest effective sample size. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a55f86b061cbaefa11484216c52b96ab4">setVerbosity</a> (unsigned int v)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a828d967b9681119cf356e14cd56a5c10"></a><!-- doxytag: member="chainBundle::setNumSubsample" ref="a828d967b9681119cf356e14cd56a5c10" args="(int n)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a828d967b9681119cf356e14cd56a5c10">setNumSubsample</a> (int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf849a40253820b3c9e0e028861f332a"></a><!-- doxytag: member="chainBundle::samples" ref="abf849a40253820b3c9e0e028861f332a" args="()" -->
+vector&lt; VectorXd &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#abf849a40253820b3c9e0e028861f332a">samples</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return accumulated samples. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a1d2f4a25b4b1a86659e39c3cdf166682">setVerbosity</a> (const unsigned int v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f2f477c19cfd3572259b84ddffe497f"></a><!-- doxytag: member="chainBundle::setNumSubsample" ref="a3f2f477c19cfd3572259b84ddffe497f" args="(const int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a3f2f477c19cfd3572259b84ddffe497f">setNumSubsample</a> (const int n)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set number of HMC transitions per sample. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a352340fb9277d248c99c43d702c9360b"></a><!-- doxytag: member="chainBundle::setNumLeapfrog" ref="a352340fb9277d248c99c43d702c9360b" args="(int n)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a352340fb9277d248c99c43d702c9360b">setNumLeapfrog</a> (int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa54b5be69cca466fdf5c46b135eaf460"></a><!-- doxytag: member="chainBundle::setNumLeapfrog" ref="aa54b5be69cca466fdf5c46b135eaf460" args="(const int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa54b5be69cca466fdf5c46b135eaf460">setNumLeapfrog</a> (const int n)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set number of leapfrog steps. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47255fea90bedcde07971541f29e14ae"></a><!-- doxytag: member="chainBundle::setWindowSize" ref="a47255fea90bedcde07971541f29e14ae" args="(int n)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a47255fea90bedcde07971541f29e14ae">setWindowSize</a> (int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4f1f4ce7d120254ea37dcd2009f4f4a7"></a><!-- doxytag: member="chainBundle::setWindowSize" ref="a4f1f4ce7d120254ea37dcd2009f4f4a7" args="(const int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a4f1f4ce7d120254ea37dcd2009f4f4a7">setWindowSize</a> (const int n)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set reject/accept window size. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12abcf5bbf597e8bda283213aa56a76b"></a><!-- doxytag: member="chainBundle::setStepSize" ref="a12abcf5bbf597e8bda283213aa56a76b" args="(double s)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a12abcf5bbf597e8bda283213aa56a76b">setStepSize</a> (double s)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a451a3c3df477013de63223ead7137f7b"></a><!-- doxytag: member="chainBundle::setStepSize" ref="a451a3c3df477013de63223ead7137f7b" args="(const double s)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a451a3c3df477013de63223ead7137f7b">setStepSize</a> (const double s)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1560ecc556d2d6c363d9a627fdeb9d51"></a><!-- doxytag: member="chainBundle::setStepSizeJitter" ref="a1560ecc556d2d6c363d9a627fdeb9d51" args="(double j)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a1560ecc556d2d6c363d9a627fdeb9d51">setStepSizeJitter</a> (double j)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acbae0dcddd987009b1e1b3f85fe245de"></a><!-- doxytag: member="chainBundle::setStepSizeJitter" ref="acbae0dcddd987009b1e1b3f85fe245de" args="(const double j)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acbae0dcddd987009b1e1b3f85fe245de">setStepSizeJitter</a> (const double j)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set valid step size jitter, as a fraction of the stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34a0a4bb7e0fee0e653b81ed498fcab6"></a><!-- doxytag: member="chainBundle::setStepSizeJerk" ref="a34a0a4bb7e0fee0e653b81ed498fcab6" args="(double j)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a34a0a4bb7e0fee0e653b81ed498fcab6">setStepSizeJerk</a> (double j)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae49adabe93c4f29ab6f640f611df62c3"></a><!-- doxytag: member="chainBundle::setStepSizeJerk" ref="ae49adabe93c4f29ab6f640f611df62c3" args="(const double j)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ae49adabe93c4f29ab6f640f611df62c3">setStepSizeJerk</a> (const double j)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set valid step size jerk, as a fraction of the stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf4b753be07423051c4f069c280cb6cc"></a><!-- doxytag: member="chainBundle::setProbStepSizeJerk" ref="acf4b753be07423051c4f069c280cb6cc" args="(double p)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acf4b753be07423051c4f069c280cb6cc">setProbStepSizeJerk</a> (double p)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e0f23f1e4ed05c8471a4872d2163b91"></a><!-- doxytag: member="chainBundle::setProbStepSizeJerk" ref="a1e0f23f1e4ed05c8471a4872d2163b91" args="(const double p)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a1e0f23f1e4ed05c8471a4872d2163b91">setProbStepSizeJerk</a> (const double p)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set valid step size jitter, as a fraction of the stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b671173146ba8d1e7111968a1b22a79"></a><!-- doxytag: member="chainBundle::setNumFixedPoint" ref="a7b671173146ba8d1e7111968a1b22a79" args="(int n)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a7b671173146ba8d1e7111968a1b22a79">setNumFixedPoint</a> (int n)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set valid number of fixed step iterations for implicit leapfrog updates. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd856f42fcef1303afc45d10c7ec2f73"></a><!-- doxytag: member="chainBundle::setTemperAlpha" ref="acd856f42fcef1303afc45d10c7ec2f73" args="(double a)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acd856f42fcef1303afc45d10c7ec2f73">setTemperAlpha</a> (double a)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f8affdd8e769cabd8d1f8151ba4fb72"></a><!-- doxytag: member="chainBundle::setTemperAlpha" ref="a7f8affdd8e769cabd8d1f8151ba4fb72" args="(const double a)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a7f8affdd8e769cabd8d1f8151ba4fb72">setTemperAlpha</a> (const double a)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set HMC tempering parameter. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a259681765d13591c8b96bf26753d6d47"></a><!-- doxytag: member="chainBundle::storeSamples" ref="a259681765d13591c8b96bf26753d6d47" args="(bool store=true)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a259681765d13591c8b96bf26753d6d47">storeSamples</a> (bool store=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4731dfa8145b244fd43a82a79e87b9c0"></a><!-- doxytag: member="chainBundle::setAdaptIntTime" ref="a4731dfa8145b244fd43a82a79e87b9c0" args="(double t)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a4731dfa8145b244fd43a82a79e87b9c0">setAdaptIntTime</a> (double t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set target integration time for stepsize adaptation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a363544defaffd2ff9c3ca00d9d8e663d"></a><!-- doxytag: member="chainBundle::setAdaptTargetAccept" ref="a363544defaffd2ff9c3ca00d9d8e663d" args="(double a)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a363544defaffd2ff9c3ca00d9d8e663d">setAdaptTargetAccept</a> (double a)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set target accept rate for stepsize adaptation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8f5c21a7ced7410daac06eb2c6202c2"></a><!-- doxytag: member="chainBundle::setAdaptMaxLeapfrog" ref="ae8f5c21a7ced7410daac06eb2c6202c2" args="(int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ae8f5c21a7ced7410daac06eb2c6202c2">setAdaptMaxLeapfrog</a> (int n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set maximum number of leapfrog steps for stepsize adaptation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acd87fe1c9c835aeac13895a291520dd0"></a><!-- doxytag: member="chainBundle::storeSamples" ref="acd87fe1c9c835aeac13895a291520dd0" args="(const bool store=true)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acd87fe1c9c835aeac13895a291520dd0">storeSamples</a> (const bool store=true)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set sample storage flag. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06800385c504ac94b7718635a424cd20"></a><!-- doxytag: member="chainBundle::addChain" ref="a06800385c504ac94b7718635a424cd20" args="(baseHamiltonian *object)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a06800385c504ac94b7718635a424cd20">addChain</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *object)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8dd855dcf3f96e996f7443de4e32ec1"></a><!-- doxytag: member="chainBundle::setMaxLagDisplay" ref="ad8dd855dcf3f96e996f7443de4e32ec1" args="(int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ad8dd855dcf3f96e996f7443de4e32ec1">setMaxLagDisplay</a> (int n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set maximum displayed lag. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab0f4b4d5d5b0a0fd79d7898c3cd187e"></a><!-- doxytag: member="chainBundle::setMaxLagCalc" ref="aab0f4b4d5d5b0a0fd79d7898c3cd187e" args="(int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aab0f4b4d5d5b0a0fd79d7898c3cd187e">setMaxLagCalc</a> (int n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set maximum calculated lag. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4e75017e641a69f63851394bd1f7235"></a><!-- doxytag: member="chainBundle::useExternalMoments" ref="ae4e75017e641a69f63851394bd1f7235" args="(VectorXd &amp;mean, VectorXd &amp;var)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>useExternalMoments</b> (VectorXd &amp;mean, VectorXd &amp;var)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a01efcad844680e9a5b2c82b135e801e3"></a><!-- doxytag: member="chainBundle::addChain" ref="a01efcad844680e9a5b2c82b135e801e3" args="(T *object)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a01efcad844680e9a5b2c82b135e801e3">addChain</a> (T *object)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new chain to the bundle. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a2d00006b48b864341439ab67b8ae4d02">evolve</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *chain, double epsilon)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa561c8c6c8059bb79189c3a1ac9935ac">verboseEvolve</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *chain, double epsilon)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0572c3125739ae4850b9934478d70525"></a><!-- doxytag: member="chainBundle::transition" ref="a0572c3125739ae4850b9934478d70525" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a0572c3125739ae4850b9934478d70525">transition</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ac6d4baeeaec0bb754987a4443547b40b">evolve</a> (T *chain, const double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a6b229e598543f33ba49d4312bb99d947">verboseEvolve</a> (T *chain, const double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab7aca03b4e6281d15a7b352b2cb2255"></a><!-- doxytag: member="chainBundle::engageAdaptation" ref="aab7aca03b4e6281d15a7b352b2cb2255" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aab7aca03b4e6281d15a7b352b2cb2255">engageAdaptation</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Engage dual-averaging stepsize adaptation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeeb43f183d04c955ce1f1b496a32497"></a><!-- doxytag: member="chainBundle::disengageAdaptation" ref="adeeb43f183d04c955ce1f1b496a32497" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#adeeb43f183d04c955ce1f1b496a32497">disengageAdaptation</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Disengage dual-averaging stepsize adaptation. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a905a02bac8c26e688448feadd1e5eda2">initAdaptation</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a2f07e05153a7d33c86899c9eb3d4b2b6">updateAdaptation</a> (double metropolisProb)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcb8998fd1403bd9098995d478bf3818"></a><!-- doxytag: member="chainBundle::transition" ref="afcb8998fd1403bd9098995d478bf3818" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#afcb8998fd1403bd9098995d478bf3818">transition</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Transition all chains currently in the bundle. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a5edaf3c0654fc1288d4f118886d2a877">transition</a> (int i)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aae420e26e0385d72f0a9b96674f22ce6">transition</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *chain)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a65fad6f26bc27feede045c5a0270c034">checkIntError</a> (int i, int N, int f=1)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a7a55b70341a7af52d4c40f422db89504">seed</a> (double min, double max)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a87791ae455d700f4aff76911347672ba">seed</a> (int i, double min, double max)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a2aeb676e5e9db8347d6713a8ddb270ff">burn</a> (int nBurn=100, int nCheck=100, double minR=1.1, bool verbose=true)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b58c46d9a17d2f44d7736046974d522"></a><!-- doxytag: member="chainBundle::clearSamples" ref="a0b58c46d9a17d2f44d7736046974d522" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a0b58c46d9a17d2f44d7736046974d522">clearSamples</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a94a87fc2624ab41a9c8b024fb446480f">transition</a> (int i)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ad515114b205813ec7c5146e544160733">transition</a> (T *chain)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a53025b5e33718f2fcadbcb2e25c468da">saveTrajectory</a> (std::ofstream &amp;outputFile, const int i=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa017a53e6ddfee646b1a3d7cba24d45e">checkIntError</a> (const int i, const int N, const int f=1)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a40569fdaeb7d7a9d085690d23d8ea2c7">seed</a> (const double min, const double max)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#af59e8fbc4021c7310fdf58f202c417e7">seed</a> (const int i, const double min, const double max)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a5acfa284dd5b026b00f8d28716e7874b">burn</a> (const int nBurn=100, const int nCheck=100, const double minR=1.1, const bool verbose=true)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae88d42fe20e5092cce162773bb1a4070"></a><!-- doxytag: member="chainBundle::clearSamples" ref="ae88d42fe20e5092cce162773bb1a4070" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ae88d42fe20e5092cce162773bb1a4070">clearSamples</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all stored samples. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats</a> (int b, bool verbose=true, std::ofstream *outputFile=NULL)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa828a38cc56f0cc47f6fbd177be5ee2a">computeSummaryStats</a> (const int b, const bool verbose=true, std::ofstream *outputFile=NULL)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fd29bae9b7de8c7a5be60bbe500aa42"></a><!-- doxytag: member="chainBundle::fConstraint" ref="a5fd29bae9b7de8c7a5be60bbe500aa42" args="(baseHamiltonian *chain)" -->
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a5fd29bae9b7de8c7a5be60bbe500aa42">fConstraint</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *chain)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2d0dbff2130fcf7991f7f3f68721a45"></a><!-- doxytag: member="chainBundle::fConstraint" ref="ab2d0dbff2130fcf7991f7f3f68721a45" args="(T *chain)" -->
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ab2d0dbff2130fcf7991f7f3f68721a45">fConstraint</a> (T *chain)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Does the chain satisfy all defined constraints? <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64fb30ba51b460e4a5bb6d096ec9f36c"></a><!-- doxytag: member="chainBundle::fNormal" ref="a64fb30ba51b460e4a5bb6d096ec9f36c" args="(baseHamiltonian *chain)" -->
-virtual const VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a64fb30ba51b460e4a5bb6d096ec9f36c">fNormal</a> (<a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *chain)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f68bcc9e4bfca1b8422cdb229565e78"></a><!-- doxytag: member="chainBundle::fNormal" ref="a6f68bcc9e4bfca1b8422cdb229565e78" args="(T *chain)" -->
+virtual const VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a6f68bcc9e4bfca1b8422cdb229565e78">fNormal</a> (T *chain)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the normal to the constraint surface. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a8f3637d85f96478cb79cf14e76f00b67">fLogSumExp</a> (double a, double b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a4af7263206071c9dbfd41325ff3d7d23">fLogSumExp</a> (double a, double b)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a491d12b7abd1aab051c1ea2d9d962731"></a><!-- doxytag: member="chainBundle::mStoreSamples" ref="a491d12b7abd1aab051c1ea2d9d962731" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a491d12b7abd1aab051c1ea2d9d962731">mStoreSamples</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb465fa8a47d0aeb4b1434640c0757bf"></a><!-- doxytag: member="chainBundle::mStoreSamples" ref="acb465fa8a47d0aeb4b1434640c0757bf" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acb465fa8a47d0aeb4b1434640c0757bf">mStoreSamples</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample storage flag. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf4a85ef102970e87e2e4d735721ed76"></a><!-- doxytag: member="chainBundle::mChar" ref="adf4a85ef102970e87e2e4d735721ed76" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#adf4a85ef102970e87e2e4d735721ed76">mChar</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7195fe135959808cb26d1bea95ba199d"></a><!-- doxytag: member="chainBundle::mAdaptStepSize" ref="a7195fe135959808cb26d1bea95ba199d" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a7195fe135959808cb26d1bea95ba199d">mAdaptStepSize</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Step-size adaptation flag. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59ae262e04d58b0bb1ebd5c74dc5bd58"></a><!-- doxytag: member="chainBundle::mRefStats" ref="a59ae262e04d58b0bb1ebd5c74dc5bd58" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a59ae262e04d58b0bb1ebd5c74dc5bd58">mRefStats</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference statistics flag. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b109739c32e5cc6da8ea947ae543c34"></a><!-- doxytag: member="chainBundle::mChar" ref="a0b109739c32e5cc6da8ea947ae543c34" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a0b109739c32e5cc6da8ea947ae543c34">mChar</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Burn in completion flag. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a4df254efa6dcb1c531fc168772b76a"></a><!-- doxytag: member="chainBundle::mConstraint" ref="a9a4df254efa6dcb1c531fc168772b76a" args="" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a9a4df254efa6dcb1c531fc168772b76a">mConstraint</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1126d36fcee4494b14ef12cb6fb3fd8"></a><!-- doxytag: member="chainBundle::mConstraint" ref="aa1126d36fcee4494b14ef12cb6fb3fd8" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa1126d36fcee4494b14ef12cb6fb3fd8">mConstraint</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constraint satisfaction flag. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf722e2c95517031e1a974d65d15348f"></a><!-- doxytag: member="chainBundle::mVerbosity" ref="abf722e2c95517031e1a974d65d15348f" args="" -->
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#abf722e2c95517031e1a974d65d15348f">mVerbosity</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa84539c2fd867049382d61a7101c7fd"></a><!-- doxytag: member="chainBundle::mUseExternalMoments" ref="afa84539c2fd867049382d61a7101c7fd" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#afa84539c2fd867049382d61a7101c7fd">mUseExternalMoments</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">External moments for autocorrelation calculation flag. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa11f26b66cf1c70e626d428ed95c79db"></a><!-- doxytag: member="chainBundle::mVerbosity" ref="aa11f26b66cf1c70e626d428ed95c79db" args="" -->
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa11f26b66cf1c70e626d428ed95c79db">mVerbosity</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Verbosity level. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7b880164a3d7f83ec92359db275c579"></a><!-- doxytag: member="chainBundle::mRandom" ref="ae7b880164a3d7f83ec92359db275c579" args="" -->
-Random&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ae7b880164a3d7f83ec92359db275c579">mRandom</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae956dd8b8cd4c2ef034b5b8112af163"></a><!-- doxytag: member="chainBundle::mRandom" ref="aae956dd8b8cd4c2ef034b5b8112af163" args="" -->
+Random&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aae956dd8b8cd4c2ef034b5b8112af163">mRandom</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mersenne twistor pseudo-random number generator. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab920e257cfb96ec16cb1c5c907e109ec"></a><!-- doxytag: member="chainBundle::mNumSubsample" ref="ab920e257cfb96ec16cb1c5c907e109ec" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ab920e257cfb96ec16cb1c5c907e109ec">mNumSubsample</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8f259471f8d0221ca9d5ec701774cce"></a><!-- doxytag: member="chainBundle::mNumSubsample" ref="ac8f259471f8d0221ca9d5ec701774cce" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ac8f259471f8d0221ca9d5ec701774cce">mNumSubsample</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of HMC transitions per sample. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb0bef9f1d2fd6e79df0a8616c6076fa"></a><!-- doxytag: member="chainBundle::mNumLeapfrog" ref="adb0bef9f1d2fd6e79df0a8616c6076fa" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#adb0bef9f1d2fd6e79df0a8616c6076fa">mNumLeapfrog</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13506c59d2780eb53317c35726639e8b"></a><!-- doxytag: member="chainBundle::mNumLeapfrog" ref="a13506c59d2780eb53317c35726639e8b" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a13506c59d2780eb53317c35726639e8b">mNumLeapfrog</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of leapfrog steps. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8f8f4c43486b176f1b73419631ba9271"></a><!-- doxytag: member="chainBundle::mWindowSize" ref="a8f8f4c43486b176f1b73419631ba9271" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a8f8f4c43486b176f1b73419631ba9271">mWindowSize</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a651bb7d26c7b9a8c46199d073e44d0df"></a><!-- doxytag: member="chainBundle::mWindowSize" ref="a651bb7d26c7b9a8c46199d073e44d0df" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a651bb7d26c7b9a8c46199d073e44d0df">mWindowSize</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of reject/accept windows. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3bac4b8b6ef85591457969a3a46d2f3a"></a><!-- doxytag: member="chainBundle::mStepSize" ref="a3bac4b8b6ef85591457969a3a46d2f3a" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a3bac4b8b6ef85591457969a3a46d2f3a">mStepSize</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a782871e84e99870987af7679aa0e9c92"></a><!-- doxytag: member="chainBundle::mStepSize" ref="a782871e84e99870987af7679aa0e9c92" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a782871e84e99870987af7679aa0e9c92">mStepSize</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nominal leapfrog stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a716ca526d35611d9d09fa095bc7f8879"></a><!-- doxytag: member="chainBundle::mStepSizeJitter" ref="a716ca526d35611d9d09fa095bc7f8879" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a716ca526d35611d9d09fa095bc7f8879">mStepSizeJitter</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6e1c61a18c46c7b1b007bdd451e4156"></a><!-- doxytag: member="chainBundle::mStepSizeJitter" ref="aa6e1c61a18c46c7b1b007bdd451e4156" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa6e1c61a18c46c7b1b007bdd451e4156">mStepSizeJitter</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize jitter, as fraction of current stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66a411fcad158ff2973cf6063482f32d"></a><!-- doxytag: member="chainBundle::mStepSizeJerk" ref="a66a411fcad158ff2973cf6063482f32d" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a66a411fcad158ff2973cf6063482f32d">mStepSizeJerk</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04e0eff08b822e9c176a3bd41f936aab"></a><!-- doxytag: member="chainBundle::mStepSizeJerk" ref="a04e0eff08b822e9c176a3bd41f936aab" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a04e0eff08b822e9c176a3bd41f936aab">mStepSizeJerk</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize jerk, as fraction of current stepsize. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f7de38e7c1d24af2a8205a204f4cd42"></a><!-- doxytag: member="chainBundle::mProbStepSizeJerk" ref="a3f7de38e7c1d24af2a8205a204f4cd42" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a3f7de38e7c1d24af2a8205a204f4cd42">mProbStepSizeJerk</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acdd2a13c5364a9ed569dc70f92f66c68"></a><!-- doxytag: member="chainBundle::mProbStepSizeJerk" ref="acdd2a13c5364a9ed569dc70f92f66c68" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acdd2a13c5364a9ed569dc70f92f66c68">mProbStepSizeJerk</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Probability of a stepsize jerk instead of the usual jitter. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3556ba7d9752d0eee3048d44f66eab57"></a><!-- doxytag: member="chainBundle::mNumFixedPoint" ref="a3556ba7d9752d0eee3048d44f66eab57" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a3556ba7d9752d0eee3048d44f66eab57">mNumFixedPoint</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a169795aa7e7949f45e520c6f35b095be"></a><!-- doxytag: member="chainBundle::mNumFixedPoint" ref="a169795aa7e7949f45e520c6f35b095be" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a169795aa7e7949f45e520c6f35b095be">mNumFixedPoint</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of fixed point iterations for implicit leapfrog updates. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af6db2dfbdedeaebac59063a9f7c92878"></a><!-- doxytag: member="chainBundle::mTemperAlpha" ref="af6db2dfbdedeaebac59063a9f7c92878" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#af6db2dfbdedeaebac59063a9f7c92878">mTemperAlpha</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a468efecc4a161773be9cf94553d3a1d7"></a><!-- doxytag: member="chainBundle::mTemperAlpha" ref="a468efecc4a161773be9cf94553d3a1d7" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a468efecc4a161773be9cf94553d3a1d7">mTemperAlpha</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tempering parameter. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa99447da8e473e1d5bd953cf0f3ac60d"></a><!-- doxytag: member="chainBundle::mNumSamples" ref="aa99447da8e473e1d5bd953cf0f3ac60d" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa99447da8e473e1d5bd953cf0f3ac60d">mNumSamples</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb0f27fc96f24afdbcdf7fa9bc717b36"></a><!-- doxytag: member="chainBundle::mAdaptTargetAccept" ref="acb0f27fc96f24afdbcdf7fa9bc717b36" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#acb0f27fc96f24afdbcdf7fa9bc717b36">mAdaptTargetAccept</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation target accept probability. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42b2ce83fb957eadfcb9444dd36ab3f2"></a><!-- doxytag: member="chainBundle::mAdaptIntTime" ref="a42b2ce83fb957eadfcb9444dd36ab3f2" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a42b2ce83fb957eadfcb9444dd36ab3f2">mAdaptIntTime</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation target integration time. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd144bea258e5a2c292a5d7424de0716"></a><!-- doxytag: member="chainBundle::mAdaptMaxLeapfrog" ref="abd144bea258e5a2c292a5d7424de0716" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#abd144bea258e5a2c292a5d7424de0716">mAdaptMaxLeapfrog</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation maximum number of leapfrog steps. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec052181ed2e1cb642bc166476f21dcb"></a><!-- doxytag: member="chainBundle::mAdaptMu" ref="aec052181ed2e1cb642bc166476f21dcb" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aec052181ed2e1cb642bc166476f21dcb">mAdaptMu</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation mu. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88f6b989737211a35d90c9767acf1d05"></a><!-- doxytag: member="chainBundle::mAdaptLogEpsBar" ref="a88f6b989737211a35d90c9767acf1d05" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a88f6b989737211a35d90c9767acf1d05">mAdaptLogEpsBar</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation epsilon average. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06623f14ec6d49defac4e9e32b7406d5"></a><!-- doxytag: member="chainBundle::mAdaptHBar" ref="a06623f14ec6d49defac4e9e32b7406d5" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a06623f14ec6d49defac4e9e32b7406d5">mAdaptHBar</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation H average. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a762fc1a16d4edd2d989d2cfc045a5ee2"></a><!-- doxytag: member="chainBundle::mAdaptCounter" ref="a762fc1a16d4edd2d989d2cfc045a5ee2" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a762fc1a16d4edd2d989d2cfc045a5ee2">mAdaptCounter</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation counter. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0e9e9e0c7ba6bbd7875a2581b6bef68"></a><!-- doxytag: member="chainBundle::mAdaptGamma" ref="ad0e9e9e0c7ba6bbd7875a2581b6bef68" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ad0e9e9e0c7ba6bbd7875a2581b6bef68">mAdaptGamma</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation shrinkage parameter. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27cc1585e6532cd5fa611558a377bc01"></a><!-- doxytag: member="chainBundle::mAdaptKappa" ref="a27cc1585e6532cd5fa611558a377bc01" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a27cc1585e6532cd5fa611558a377bc01">mAdaptKappa</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation decay parameter. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37725ba7d4df3d4ef86ff0e15a12b9dc"></a><!-- doxytag: member="chainBundle::mAdaptT0" ref="a37725ba7d4df3d4ef86ff0e15a12b9dc" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a37725ba7d4df3d4ef86ff0e15a12b9dc">mAdaptT0</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stepsize adaptation initialization parameter. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a656a26c734de589dd93370c4d5dde831"></a><!-- doxytag: member="chainBundle::mNumSamples" ref="a656a26c734de589dd93370c4d5dde831" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a656a26c734de589dd93370c4d5dde831">mNumSamples</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of computed samples. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a969a7bb390d8f42151ebae2738521061"></a><!-- doxytag: member="chainBundle::mSamples" ref="a969a7bb390d8f42151ebae2738521061" args="" -->
-vector&lt; VectorXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a969a7bb390d8f42151ebae2738521061">mSamples</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a775b77e1cf03c2900fa856ca257055c3"></a><!-- doxytag: member="chainBundle::mSamples" ref="a775b77e1cf03c2900fa856ca257055c3" args="" -->
+vector&lt; VectorXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a775b77e1cf03c2900fa856ca257055c3">mSamples</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stored samples. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b1bc6396e223b8993f131da33800ba6"></a><!-- doxytag: member="chainBundle::mSampleE" ref="a5b1bc6396e223b8993f131da33800ba6" args="" -->
-vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a5b1bc6396e223b8993f131da33800ba6">mSampleE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71a7c89388ff27eb826cb6719eda0c88"></a><!-- doxytag: member="chainBundle::mSampleE" ref="a71a7c89388ff27eb826cb6719eda0c88" args="" -->
+vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a71a7c89388ff27eb826cb6719eda0c88">mSampleE</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stored sample potential energies. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e8933748bb8875f3982601b77c8c10b"></a><!-- doxytag: member="chainBundle::mMinESS" ref="a0e8933748bb8875f3982601b77c8c10b" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a0e8933748bb8875f3982601b77c8c10b">mMinESS</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Smallest effective sample size, computed in <a class="el" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats()</a> <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6107a1d97e950a41592017168405cc87"></a><!-- doxytag: member="chainBundle::mChains" ref="a6107a1d97e950a41592017168405cc87" args="" -->
-vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a6107a1d97e950a41592017168405cc87">mChains</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2966cc137f72016a1b2cdbf4c792038"></a><!-- doxytag: member="chainBundle::mMaxLagDisplay" ref="ac2966cc137f72016a1b2cdbf4c792038" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ac2966cc137f72016a1b2cdbf4c792038">mMaxLagDisplay</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum lag to display/save. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab87a1ffe22e295310571aa23d4331a08"></a><!-- doxytag: member="chainBundle::mMaxLagCalc" ref="ab87a1ffe22e295310571aa23d4331a08" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#ab87a1ffe22e295310571aa23d4331a08">mMaxLagCalc</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum lag used in calculation of autocorrelations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cfa22e52e2ce10b6722a07f0819dc2a"></a><!-- doxytag: member="chainBundle::mESS" ref="a1cfa22e52e2ce10b6722a07f0819dc2a" args="" -->
+VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a1cfa22e52e2ce10b6722a07f0819dc2a">mESS</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of effective sample sizes, computed in <a class="el" href="classchain_bundle.html#aa828a38cc56f0cc47f6fbd177be5ee2a">computeSummaryStats()</a> <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a148efaee4cf2943f9d4bf69a5d75d499"></a><!-- doxytag: member="chainBundle::mExternalMean" ref="a148efaee4cf2943f9d4bf69a5d75d499" args="" -->
+VectorXd *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a148efaee4cf2943f9d4bf69a5d75d499">mExternalMean</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">External mean for calculating the autocorrelations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a09010e3b299b54a235f1ab0409362e"></a><!-- doxytag: member="chainBundle::mExternalVar" ref="a1a09010e3b299b54a235f1ab0409362e" args="" -->
+VectorXd *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a1a09010e3b299b54a235f1ab0409362e">mExternalVar</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">External variance for calculating the autocorrelations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57e746ed69d8e164b495cb0e7344cf99"></a><!-- doxytag: member="chainBundle::mChains" ref="a57e746ed69d8e164b495cb0e7344cf99" args="" -->
+vector&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a57e746ed69d8e164b495cb0e7344cf99">mChains</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of baseChain pointers. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d712884004ea0c11c7c1738f1475c22"></a><!-- doxytag: member="chainBundle::mIt" ref="a9d712884004ea0c11c7c1738f1475c22" args="" -->
-vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> * &gt;<br class="typebreak"/>
-::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#a9d712884004ea0c11c7c1738f1475c22">mIt</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2cf6605684a5b7d97a98984a4d0bdf2"></a><!-- doxytag: member="chainBundle::mIt" ref="aa2cf6605684a5b7d97a98984a4d0bdf2" args="" -->
+vector&lt; T * &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classchain_bundle.html#aa2cf6605684a5b7d97a98984a4d0bdf2">mIt</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector iterator. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><dl class="author"><dt><b>Author:</b></dt><dd>Michael Betancourt</dd></dl>
+<div class="textblock"><h3>template&lt;typename T&gt;<br/>
+class chainBundle&lt; T &gt;</h3>
+
+<dl class="author"><dt><b>Author:</b></dt><dd>Michael Betancourt</dd></dl>
 <p>Container for an ensemble of Markov chains, including functionality for constrainted Hamiltonian Monte Carlo transitions, convergence diagnostics, and sample analysis.</p>
-<p>See <a class="el" href="classchain_bundle.html#a2d00006b48b864341439ab67b8ae4d02">chainBundle::evolve()</a> for details on the symplectic integrator used for the Hamiltonian evolution. </p>
+<p>See <a class="el" href="classchain_bundle.html#ac6d4baeeaec0bb754987a4443547b40b">chainBundle::evolve()</a> for details on the symplectic integrator used for the Hamiltonian evolution. </p>
 <dl><dt><b>Examples: </b></dt><dd>
-<p><a class="el" href="examples_2funnel_2main_8cpp-example.html#_a0">examples/funnel/main.cpp</a>, and <a class="el" href="examples_2multi_var_gauss_2main_8cpp-example.html#_a0">examples/multiVarGauss/main.cpp</a>.</p>
+<p><a class="el" href="examples_2main_8cpp-example.html#_a0">examples/main.cpp</a>.</p>
 </dd>
 </dl></div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa839ce230091cc02a71482b7e70db3a7"></a><!-- doxytag: member="chainBundle::chainBundle" ref="aa839ce230091cc02a71482b7e70db3a7" args="(Random &amp;random)" -->
+<a class="anchor" id="ab78764cae843f7b88742144f4a434375"></a><!-- doxytag: member="chainBundle::chainBundle" ref="ab78764cae843f7b88742144f4a434375" args="(Random &amp;random)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">chainBundle::chainBundle </td>
+          <td class="memname"><a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::<a class="el" href="classchain_bundle.html">chainBundle</a> </td>
           <td>(</td>
           <td class="paramtype">Random &amp;&#160;</td>
           <td class="paramname"><em>random</em></td><td>)</td>
@@ -234,16 +324,18 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
   </table>
   </dd>
 </dl>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#a068ff6f9d1960790aeee9e4413435c36">~chainBundle()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#af2c90de7ea0d560503d7a2f917a87c57">~chainBundle()</a> </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a068ff6f9d1960790aeee9e4413435c36"></a><!-- doxytag: member="chainBundle::~chainBundle" ref="a068ff6f9d1960790aeee9e4413435c36" args="()" -->
+<a class="anchor" id="af2c90de7ea0d560503d7a2f917a87c57"></a><!-- doxytag: member="chainBundle::~chainBundle" ref="af2c90de7ea0d560503d7a2f917a87c57" args="()" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">chainBundle::~chainBundle </td>
+          <td class="memname"><a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::~<a class="el" href="classchain_bundle.html">chainBundle</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -252,37 +344,39 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 </div>
 <div class="memdoc">
 <p>Destructor </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#aa839ce230091cc02a71482b7e70db3a7">chainBundle()</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#ab78764cae843f7b88742144f4a434375">chainBundle()</a> </dd></dl>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2aeb676e5e9db8347d6713a8ddb270ff"></a><!-- doxytag: member="chainBundle::burn" ref="a2aeb676e5e9db8347d6713a8ddb270ff" args="(int nBurn=100, int nCheck=100, double minR=1.1, bool verbose=true)" -->
+<a class="anchor" id="a5acfa284dd5b026b00f8d28716e7874b"></a><!-- doxytag: member="chainBundle::burn" ref="a5acfa284dd5b026b00f8d28716e7874b" args="(const int nBurn=100, const int nCheck=100, const double minR=1.1, const bool verbose=true)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::burn </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::burn </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>nBurn</em> = <code>100</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>nCheck</em> = <code>100</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>minR</em> = <code>1.1</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>verbose</em> = <code>true</code>&#160;</td>
         </tr>
         <tr>
@@ -307,26 +401,28 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="a65fad6f26bc27feede045c5a0270c034"></a><!-- doxytag: member="chainBundle::checkIntError" ref="a65fad6f26bc27feede045c5a0270c034" args="(int i, int N, int f=1)" -->
+<a class="anchor" id="aa017a53e6ddfee646b1a3d7cba24d45e"></a><!-- doxytag: member="chainBundle::checkIntError" ref="aa017a53e6ddfee646b1a3d7cba24d45e" args="(const int i, const int N, const int f=1)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::checkIntError </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::checkIntError </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>N</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>f</em> = <code>1</code>&#160;</td>
         </tr>
         <tr>
@@ -349,20 +445,22 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="a7a748a3e5fb6646cfab5e4c53b9b3c45"></a><!-- doxytag: member="chainBundle::computeSummaryStats" ref="a7a748a3e5fb6646cfab5e4c53b9b3c45" args="(int b, bool verbose=true, std::ofstream *outputFile=NULL)" -->
+<a class="anchor" id="aa828a38cc56f0cc47f6fbd177be5ee2a"></a><!-- doxytag: member="chainBundle::computeSummaryStats" ref="aa828a38cc56f0cc47f6fbd177be5ee2a" args="(const int b, const bool verbose=true, std::ofstream *outputFile=NULL)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::computeSummaryStats </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::computeSummaryStats </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">const bool&#160;</td>
           <td class="paramname"><em>verbose</em> = <code>true</code>, </td>
         </tr>
         <tr>
@@ -380,25 +478,27 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 </div>
 <div class="memdoc">
 <p>Compute summary statistics for the accumulated samples, averaged into batches of size b. If a pointer to an output file is passed then the file is filled with batch and autocorrelation information ready for parsing with the included gnuplot script, plotTrace.</p>
-<p>Note that the Monte Carlo Standard Error assumes independent batches. /param b Number of samples to be averaged into a single batch /param verbose Flag for verbose diagnostic output /param outputFile Pointer to an external ofstream instance for optional text output </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2funnel_2main_8cpp-example.html#a13">examples/funnel/main.cpp</a>, and <a class="el" href="examples_2multi_var_gauss_2main_8cpp-example.html#a12">examples/multiVarGauss/main.cpp</a>.</dd>
-</dl>
+<p>Note that the Monte Carlo Standard Error assumes independent batches.</p>
+<p>/param ref Index of chain whose mean and variance will be used in computing the autocorrelations /param b Number of samples to be averaged into a single batch /param verbose Flag for verbose diagnostic output /param outputFile Pointer to an external ofstream instance for optional text output </p>
+
 </div>
 </div>
-<a class="anchor" id="a2d00006b48b864341439ab67b8ae4d02"></a><!-- doxytag: member="chainBundle::evolve" ref="a2d00006b48b864341439ab67b8ae4d02" args="(baseHamiltonian *chain, double epsilon)" -->
+<a class="anchor" id="ac6d4baeeaec0bb754987a4443547b40b"></a><!-- doxytag: member="chainBundle::evolve" ref="ac6d4baeeaec0bb754987a4443547b40b" args="(T *chain, const double epsilon)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::evolve </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::evolve </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *&#160;</td>
+          <td class="paramtype">T *&#160;</td>
           <td class="paramname"><em>chain</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>
@@ -432,12 +532,14 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="a8f3637d85f96478cb79cf14e76f00b67"></a><!-- doxytag: member="chainBundle::fLogSumExp" ref="a8f3637d85f96478cb79cf14e76f00b67" args="(double a, double b)" -->
+<a class="anchor" id="a4af7263206071c9dbfd41325ff3d7d23"></a><!-- doxytag: member="chainBundle::fLogSumExp" ref="a4af7263206071c9dbfd41325ff3d7d23" args="(double a, double b)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">double chainBundle::fLogSumExp </td>
+          <td class="memname">double <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::fLogSumExp </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -460,21 +562,42 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="a7a55b70341a7af52d4c40f422db89504"></a><!-- doxytag: member="chainBundle::seed" ref="a7a55b70341a7af52d4c40f422db89504" args="(double min, double max)" -->
+<a class="anchor" id="a905a02bac8c26e688448feadd1e5eda2"></a><!-- doxytag: member="chainBundle::initAdaptation" ref="a905a02bac8c26e688448feadd1e5eda2" args="()" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::seed </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::initAdaptation </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>min</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Initialize the dual averaging stepsize adaptation parameters, and the number of leapfrog steps to ensure a proper integrationt time initialization </p>
+
+</div>
+</div>
+<a class="anchor" id="a53025b5e33718f2fcadbcb2e25c468da"></a><!-- doxytag: member="chainBundle::saveTrajectory" ref="a53025b5e33718f2fcadbcb2e25c468da" args="(std::ofstream &amp;outputFile, const int i=0)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::saveTrajectory </td>
+          <td>(</td>
+          <td class="paramtype">std::ofstream &amp;&#160;</td>
+          <td class="paramname"><em>outputFile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>max</em>&#160;</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>i</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -484,38 +607,39 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
       </table>
 </div>
 <div class="memdoc">
-<p>Seed all chains, using the same bounds for all components </p>
+<p>Compute a trajectory for the ith chain, using the current step size and number of steps, saving the results to outputFile </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">min</td><td>Minimum bound for all components </td></tr>
-    <tr><td class="paramname">max</td><td>Maximum bound for all components </td></tr>
+    <tr><td class="paramname">outputFile</td><td>File to which the output is written </td></tr>
+    <tr><td class="paramname">i</td><td>Index of the chain </td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2funnel_2main_8cpp-example.html#a4">examples/funnel/main.cpp</a>, and <a class="el" href="examples_2multi_var_gauss_2main_8cpp-example.html#a4">examples/multiVarGauss/main.cpp</a>.</dd>
-</dl>
+
 </div>
 </div>
-<a class="anchor" id="a87791ae455d700f4aff76911347672ba"></a><!-- doxytag: member="chainBundle::seed" ref="a87791ae455d700f4aff76911347672ba" args="(int i, double min, double max)" -->
+<a class="anchor" id="af59e8fbc4021c7310fdf58f202c417e7"></a><!-- doxytag: member="chainBundle::seed" ref="af59e8fbc4021c7310fdf58f202c417e7" args="(const int i, const double min, const double max)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::seed </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::seed </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>i</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>min</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>max</em>&#160;</td>
         </tr>
         <tr>
@@ -538,14 +662,53 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="a55f86b061cbaefa11484216c52b96ab4"></a><!-- doxytag: member="chainBundle::setVerbosity" ref="a55f86b061cbaefa11484216c52b96ab4" args="(unsigned int v)" -->
+<a class="anchor" id="a40569fdaeb7d7a9d085690d23d8ea2c7"></a><!-- doxytag: member="chainBundle::seed" ref="a40569fdaeb7d7a9d085690d23d8ea2c7" args="(const double min, const double max)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::setVerbosity </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::seed </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Seed all chains, using the same bounds for all components </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>Minimum bound for all components </td></tr>
+    <tr><td class="paramname">max</td><td>Maximum bound for all components </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1d2f4a25b4b1a86659e39c3cdf166682"></a><!-- doxytag: member="chainBundle::setVerbosity" ref="a1d2f4a25b4b1a86659e39c3cdf166682" args="(const unsigned int v)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::setVerbosity </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -556,37 +719,14 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="aae420e26e0385d72f0a9b96674f22ce6"></a><!-- doxytag: member="chainBundle::transition" ref="aae420e26e0385d72f0a9b96674f22ce6" args="(baseHamiltonian *chain)" -->
+<a class="anchor" id="a94a87fc2624ab41a9c8b024fb446480f"></a><!-- doxytag: member="chainBundle::transition" ref="a94a87fc2624ab41a9c8b024fb446480f" args="(int i)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool chainBundle::transition </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *&#160;</td>
-          <td class="paramname"><em>chain</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Generate nNumSubsample consecutive transitions from the input chain using constrained Hamiltonian Monte Carlo, storing the final state as a sample if desired.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">chain</td><td>Input Markov chain </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>Was the final proposal accepted? </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a5edaf3c0654fc1288d4f118886d2a877"></a><!-- doxytag: member="chainBundle::transition" ref="a5edaf3c0654fc1288d4f118886d2a877" args="(int i)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void chainBundle::transition </td>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::transition </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -605,20 +745,75 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<a class="anchor" id="aa561c8c6c8059bb79189c3a1ac9935ac"></a><!-- doxytag: member="chainBundle::verboseEvolve" ref="aa561c8c6c8059bb79189c3a1ac9935ac" args="(baseHamiltonian *chain, double epsilon)" -->
+<a class="anchor" id="ad515114b205813ec7c5146e544160733"></a><!-- doxytag: member="chainBundle::transition" ref="ad515114b205813ec7c5146e544160733" args="(T *chain)" -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void chainBundle::verboseEvolve </td>
+          <td class="memname">bool <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::transition </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *&#160;</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>chain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Generate nNumSubsample consecutive transitions from the input chain using constrained Hamiltonian Monte Carlo, storing the final state as a sample if desired. Note that any state with a NaN is immediately rejected as the probability of transitions to and from such states are defined to be zero.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chain</td><td>Input Markov chain </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Was the final proposal accepted? </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2f07e05153a7d33c86899c9eb3d4b2b6"></a><!-- doxytag: member="chainBundle::updateAdaptation" ref="a2f07e05153a7d33c86899c9eb3d4b2b6" args="(double metropolisProb)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::updateAdaptation </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>metropolisProb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Update the dual averaging stepsize adaptation </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">metropolisProb</td><td>Acceptance probability current proposal </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a6b229e598543f33ba49d4312bb99d947"></a><!-- doxytag: member="chainBundle::verboseEvolve" ref="a6b229e598543f33ba49d4312bb99d947" args="(T *chain, const double epsilon)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classchain_bundle.html">chainBundle</a>&lt; T &gt;::verboseEvolve </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
           <td class="paramname"><em>chain</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>epsilon</em>&#160;</td>
         </tr>
         <tr>
@@ -630,7 +825,7 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 </div>
 <div class="memdoc">
 <p>Evolve the input Hamiltonian through a time epsilon, displaying the variation of the Hamiltonian after each update. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#a2d00006b48b864341439ab67b8ae4d02">evolve</a> </dd></dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="classchain_bundle.html#ac6d4baeeaec0bb754987a4443547b40b">evolve</a> </dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">chain</td><td>Input Hamiltonian chain </td></tr>
@@ -641,9 +836,8 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>base/<a class="el" href="chain_bundle_8h_source.html">chainBundle.h</a></li>
-<li>base/chainBundle.cpp</li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>base/<a class="el" href="chain_bundle_8hpp_source.html">chainBundle.hpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -660,7 +854,7 @@ vector&lt; <a class="el" href="classbase_hamiltonian.html">baseHamiltonian</a> *
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

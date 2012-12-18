@@ -54,87 +54,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <p>Sample from a Neal's "funnel" distribution.</p>
-<div class="fragment"><pre class="fragment"><span class="preprocessor">#include &lt;iostream&gt;</span>
-<span class="preprocessor">#include &lt;fstream&gt;</span>
-
-<span class="preprocessor">#include &lt;Eigen/Core&gt;</span>
-
-<span class="preprocessor">#include &lt;RandomLib/Random.hpp&gt;</span>
-<span class="preprocessor">#include &lt;RandomLib/NormalDistribution.hpp&gt;</span>
-
-<span class="preprocessor">#include &quot;chainBundle.h&quot;</span>
-<span class="preprocessor">#include &quot;bsFunnel.h&quot;</span>
-
-<span class="keyword">using namespace </span>Eigen;
-<span class="keyword">using namespace </span>std;
-
-<span class="keywordtype">int</span> main (<span class="keywordtype">int</span> argc, <span class="keyword">const</span> <span class="keywordtype">char</span> * argv[])
-{
-    
-    <span class="comment">//            Build Chains and Sample           //</span>
-<span class="comment"></span>    
-    RandomLib::Random random;
-    random.Reseed();
-    
-    <span class="keywordtype">int</span> n = 10;
-    
-    <a name="_a0"></a><a class="code" href="classchain_bundle.html">chainBundle</a> bundle(random);
-    bundle.<a name="a1"></a><a class="code" href="classchain_bundle.html#acf4b753be07423051c4f069c280cb6cc" title="Set valid step size jitter, as a fraction of the stepsize.">setProbStepSizeJerk</a>(0);
-    
-    bundle.<a name="a2"></a><a class="code" href="classchain_bundle.html#a06800385c504ac94b7718635a424cd20" title="Add a new chain to the bundle.">addChain</a>(<span class="keyword">new</span> <a name="_a3"></a><a class="code" href="classbs_funnel.html">bsFunnel</a>(n));
-    
-    bundle.<a name="a4"></a><a class="code" href="classchain_bundle.html#a7a55b70341a7af52d4c40f422db89504">seed</a>(-3, 3);
-    bundle.<a name="a5"></a><a class="code" href="classchain_bundle.html#a12abcf5bbf597e8bda283213aa56a76b" title="Set stepsize.">setStepSize</a>(1e-2);
-    bundle.<a name="a6"></a><a class="code" href="classchain_bundle.html#a352340fb9277d248c99c43d702c9360b" title="Set number of leapfrog steps.">setNumLeapfrog</a>(200);
-    bundle.<a name="a7"></a><a class="code" href="classchain_bundle.html#a47255fea90bedcde07971541f29e14ae" title="Set reject/accept window size.">setWindowSize</a>(25);
-    bundle.<a name="a8"></a><a class="code" href="classchain_bundle.html#a828d967b9681119cf356e14cd56a5c10" title="Set number of HMC transitions per sample.">setNumSubsample</a>(10);
-    
-    <span class="comment">// Check implemenation</span>
-    bundle.<a name="a9"></a><a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a name="a10"></a><a class="code" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">prepareEvolution</a>();
-    bundle.<a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a name="a11"></a><a class="code" href="classbase_hamiltonian.html#a97c5518eab863579bebce29856958999">sampleP</a>(random);
-    <span class="comment">//bundle.chain(0)-&gt;checkEvolution();</span>
-    
-    bundle.<a class="code" href="classchain_bundle.html#a49ff1a653914ecf378b61a4f47b6c697" title="Return pointer to ith chain.">chain</a>(0)-&gt;<a class="code" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">prepareEvolution</a>();
-    <span class="comment">//bundle.verboseEvolve(bundle.chain(0), 1e-2);</span>
-    
-    <span class="comment">//bundle.checkIntError(0, 50);</span>
-
-    <span class="comment">// Warm-Up</span>
-    cout &lt;&lt; <span class="stringliteral">&quot;Warm Up:&quot;</span> &lt;&lt; endl;
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 100; ++i) 
-    {
-        <span class="keywordflow">if</span>(i % 10 == 0) cout &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; flush;
-        bundle.<a name="a12"></a><a class="code" href="classchain_bundle.html#a0572c3125739ae4850b9934478d70525" title="Transition all chains currently in the bundle.">transition</a>(0);
-    }
-    cout &lt;&lt; endl;
-    
-    std::ofstream warmOut; warmOut.open(<span class="stringliteral">&quot;/Users/betan/Desktop/bsFunnelWarm.txt&quot;</span>);
-    
-    bundle.<a name="a13"></a><a class="code" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats</a>(1, <span class="keyword">true</span>, &amp;warmOut);
-    
-    warmOut.close();
-    
-    <span class="comment">// Posterior sampling</span>
-    bundle.<a name="a14"></a><a class="code" href="classchain_bundle.html#a0b58c46d9a17d2f44d7736046974d522" title="Clear all stored samples.">clearSamples</a>();
-    
-    cout &lt;&lt; <span class="stringliteral">&quot;Posterior Sampling:&quot;</span> &lt;&lt; endl;
-    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 500; ++i) 
-    {
-        <span class="keywordflow">if</span>(i % 10 == 0) cout &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; flush;
-        bundle.<a class="code" href="classchain_bundle.html#a0572c3125739ae4850b9934478d70525" title="Transition all chains currently in the bundle.">transition</a>(0);
-    }
-    cout &lt;&lt; endl;
-    
-    std::ofstream out; out.open(<span class="stringliteral">&quot;/Users/betan/Desktop/bsFunnel.txt&quot;</span>);
-    
-    bundle.<a class="code" href="classchain_bundle.html#a7a748a3e5fb6646cfab5e4c53b9b3c45">computeSummaryStats</a>(1, <span class="keyword">true</span>, &amp;out);
-    
-    out.close();
-    
-    <span class="keywordflow">return</span> 0;
-}
-
-</pre></div> </div>
+<div class="fragment"><pre class="fragment"></pre></div> </div>
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -150,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun Nov 25 2012 23:35:35 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

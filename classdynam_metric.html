@@ -73,13 +73,15 @@ Inheritance diagram for dynamMetric:</div>
  <div class="center">
   <img src="classdynam_metric.png" usemap="#dynamMetric_map" alt=""/>
   <map id="dynamMetric_map" name="dynamMetric_map">
-<area href="classbase_hamiltonian.html" alt="baseHamiltonian" shape="rect" coords="134,0,258,24"/>
-<area href="classdense_dynam_metric.html" alt="denseDynamMetric" shape="rect" coords="134,112,258,136"/>
-<area href="classdense_bkgd_bs_metric.html" alt="denseBkgdBsMetric" shape="rect" coords="0,168,124,192"/>
-<area href="classdense_fisher_metric.html" alt="denseFisherMetric" shape="rect" coords="134,168,258,192"/>
-<area href="classdiag_bkgd_bs_metric.html" alt="diagBkgdBsMetric" shape="rect" coords="268,168,392,192"/>
-<area href="classbs_funnel.html" alt="bsFunnel" shape="rect" coords="201,224,325,248"/>
-<area href="classbs_multi_var_gauss.html" alt="bsMultiVarGauss" shape="rect" coords="335,224,459,248"/>
+<area href="classbase_hamiltonian.html" alt="baseHamiltonian" shape="rect" coords="316,0,464,24"/>
+<area href="classdense_fisher_metric.html" alt="denseFisherMetric" shape="rect" coords="0,112,148,136"/>
+<area href="classdiag_outer_soft_abs_metric.html" alt="diagOuterSoftAbsMetric" shape="rect" coords="158,112,306,136"/>
+<area href="classdiag_soft_abs_metric.html" alt="diagSoftAbsMetric" shape="rect" coords="316,112,464,136"/>
+<area href="classouter_soft_abs_metric.html" alt="outerSoftAbsMetric" shape="rect" coords="474,112,622,136"/>
+<area href="classsoft_abs_metric.html" alt="softAbsMetric" shape="rect" coords="632,112,780,136"/>
+<area href="classfisher_bayes_log_reg.html" alt="fisherBayesLogReg" shape="rect" coords="0,168,148,192"/>
+<area href="classsoft_abs_bayes_log_reg.html" alt="softAbsBayesLogReg" shape="rect" coords="553,168,701,192"/>
+<area href="classsoft_abs_funnel.html" alt="softAbsFunnel" shape="rect" coords="711,168,859,192"/>
 </map>
  </div></div>
 
@@ -88,36 +90,100 @@ Inheritance diagram for dynamMetric:</div>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#acb576711498c09d8dab07a4ed33638a1">dynamMetric</a> (int dim)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#aaaf5ce1b0fd46b197a9ce9cc32459c55">prepareEvolution</a> ()=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa372754e2940aafab592ec71c534180a"></a><!-- doxytag: member="dynamMetric::setNumFixedPoint" ref="aa372754e2940aafab592ec71c534180a" args="(int n)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#aa372754e2940aafab592ec71c534180a">setNumFixedPoint</a> (int n)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of fixed point iterations for spatial updates. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af42c5cb948fc2b13b67055a9856742a3"></a><!-- doxytag: member="dynamMetric::tau" ref="af42c5cb948fc2b13b67055a9856742a3" args="()=0" -->
+virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#af42c5cb948fc2b13b67055a9856742a3">tau</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the quadratic form of the kinetic energy. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5497bb07c40671193ce0494db94f04c9"></a><!-- doxytag: member="dynamMetric::phi" ref="a5497bb07c40671193ce0494db94f04c9" args="()" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a5497bb07c40671193ce0494db94f04c9">phi</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the pseudo-potential. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5757e23cb89ea14d86e879ab08bb28dd"></a><!-- doxytag: member="dynamMetric::setMaxNumFixedPoint" ref="a5757e23cb89ea14d86e879ab08bb28dd" args="(int n)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a5757e23cb89ea14d86e879ab08bb28dd">setMaxNumFixedPoint</a> (int n)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the maximum number of fixed-point iterations for implicit updates. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa92ec4c42c4e6ffc97666ea31649497"></a><!-- doxytag: member="dynamMetric::setFixedPointThreshold" ref="afa92ec4c42c4e6ffc97666ea31649497" args="(double t)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#afa92ec4c42c4e6ffc97666ea31649497">setFixedPointThreshold</a> (double t)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the difference threshold for terminating fixed-point iterations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fc977c1b8e25ced497632dcd7eba780"></a><!-- doxytag: member="dynamMetric::evolveQ" ref="a3fc977c1b8e25ced497632dcd7eba780" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a3fc977c1b8e25ced497632dcd7eba780">evolveQ</a> (const double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the position through some time epsilon. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a647019d7d6763c7a0e324de735f9ae50"></a><!-- doxytag: member="dynamMetric::beginEvolveP" ref="a647019d7d6763c7a0e324de735f9ae50" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a647019d7d6763c7a0e324de735f9ae50">beginEvolveP</a> (const double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through an initial half step of time epsilon. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a953d09f0e46e32fa262bc3105575edf0"></a><!-- doxytag: member="dynamMetric::finishEvolveP" ref="a953d09f0e46e32fa262bc3105575edf0" args="(const double epsilon)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a953d09f0e46e32fa262bc3105575edf0">finishEvolveP</a> (const double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through a final half step of time epsilon. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a3f60a5d4db2b1c1cf0a9f69d503c3e02">prepareEvolution</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#ad85ec21dd93feade188748989edf8071">fHatA</a> (double epsilon)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a35570971a3b115b5b5f7189a86ae2b19">fHatF</a> (double epsilon)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb8e11ea888d46c6f0fd4cc07d3e3de4"></a><!-- doxytag: member="dynamMetric::fComputeMetric" ref="aeb8e11ea888d46c6f0fd4cc07d3e3de4" args="()=0" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#aeb8e11ea888d46c6f0fd4cc07d3e3de4">fComputeMetric</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the metric at the current position. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e131bd8b9f7bca21a03a8feab5fc1ab"></a><!-- doxytag: member="dynamMetric::fUpdateP" ref="a8e131bd8b9f7bca21a03a8feab5fc1ab" args="()" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a8e131bd8b9f7bca21a03a8feab5fc1ab">fUpdateP</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Update any momenta-dependent auxiliary terms. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a0c30aa0f32b8822d359cd3b67592e0c4">fPrepareSpatialGradients</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a336bac28ef3cc46be4b089f68cc802"></a><!-- doxytag: member="dynamMetric::fHatT" ref="a1a336bac28ef3cc46be4b089f68cc802" args="(const double epsilon)" -->
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a1a336bac28ef3cc46be4b089f68cc802">fHatT</a> (const double epsilon)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \Lambda^{ij} \frac{ \partial }{ \partial q_{j} }\]" src="form_33.png"/>
+</p>
+<p>. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a381eeb5c1f4c95630d68430c5ed018ad">fHatTau</a> (const double epsilon, const int numFixedPoint)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#ab3bbc68536f477fcdeb855907fbfb113">fHatPhi</a> (const double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1450f0e0ac859d5b55f79e56d533e1ab"></a><!-- doxytag: member="dynamMetric::dTaudp" ref="a1450f0e0ac859d5b55f79e56d533e1ab" args="()=0" -->
+virtual VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a1450f0e0ac859d5b55f79e56d533e1ab">dTaudp</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the quadrtic form with respect to the momenta. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26afb2340334dd7d428230fe7ffd09ba"></a><!-- doxytag: member="dynamMetric::dTaudq" ref="a26afb2340334dd7d428230fe7ffd09ba" args="()=0" -->
+virtual VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a26afb2340334dd7d428230fe7ffd09ba">dTaudq</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the quadratic form with respect to the position. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4985b116d59f7680413a7ae18d5a18ae"></a><!-- doxytag: member="dynamMetric::dPhidq" ref="a4985b116d59f7680413a7ae18d5a18ae" args="()=0" -->
+virtual VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a4985b116d59f7680413a7ae18d5a18ae">dPhidq</a> ()=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the psuedo-potential with respect to the momenta. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d9fa7374238eb3dd105c2b340cb0d33"></a><!-- doxytag: member="dynamMetric::mNumFixedPoint" ref="a2d9fa7374238eb3dd105c2b340cb0d33" args="" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a2d9fa7374238eb3dd105c2b340cb0d33">mNumFixedPoint</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of fixed point iterations for spatial updates. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac475c9894dc8fb2d3aff0c1a3aaf946b"></a><!-- doxytag: member="dynamMetric::mAux" ref="ac475c9894dc8fb2d3aff0c1a3aaf946b" args="" -->
-VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#ac475c9894dc8fb2d3aff0c1a3aaf946b">mAux</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary vector for efficient matrix computations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49eb32e6b1260a447a241b46fde56247"></a><!-- doxytag: member="dynamMetric::mMaxNumFixedPoint" ref="a49eb32e6b1260a447a241b46fde56247" args="" -->
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a49eb32e6b1260a447a241b46fde56247">mMaxNumFixedPoint</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of fixed-point iterations for implicit updates. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8aff588d73acf11bd505d99bef409ca3"></a><!-- doxytag: member="dynamMetric::mFixedPointThreshold" ref="a8aff588d73acf11bd505d99bef409ca3" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a8aff588d73acf11bd505d99bef409ca3">mFixedPointThreshold</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Difference threshold for terminating fixed-point iterations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af01ef6dc3bc6677262fab5b38eba701c"></a><!-- doxytag: member="dynamMetric::mAuxVector" ref="af01ef6dc3bc6677262fab5b38eba701c" args="" -->
+VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#af01ef6dc3bc6677262fab5b38eba701c">mAuxVector</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary vector for storing various gradients. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0a4692e82ed63f32d546d4d7a35ac2e"></a><!-- doxytag: member="dynamMetric::mInit" ref="af0a4692e82ed63f32d546d4d7a35ac2e" args="" -->
+VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#af0a4692e82ed63f32d546d4d7a35ac2e">mInit</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary vector for fixed-point iterations. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a541a03c401b35690e56c71e1d9e4ea93"></a><!-- doxytag: member="dynamMetric::mDelta" ref="a541a03c401b35690e56c71e1d9e4ea93" args="" -->
+VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a541a03c401b35690e56c71e1d9e4ea93">mDelta</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Auxiliary vector for fixed-point iteration termination criteria. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a367004e3c29d78601fbc7fbc95f87c37"></a><!-- doxytag: member="dynamMetric::mLogDetMetric" ref="a367004e3c29d78601fbc7fbc95f87c37" args="" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdynam_metric.html#a367004e3c29d78601fbc7fbc95f87c37">mLogDetMetric</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Log determinant of the metric. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="author"><dt><b>Author:</b></dt><dd>Michael Betancourt</dd></dl>
-<p>Abstract base class defining the interface for a Hamiltonian defined on a Riemannian manifold, </p>
+<p>Abstract base class defining the interface for a Hamiltonian defined on a Riemannian manifold, <img class="formulaInl" alt="$ H = \tau + \phi $" src="form_26.png"/>, where </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ H = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right) \]" src="form_16.png"/>
-</p>
-<p>The Poisson operators are defined as </p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} } \]" src="form_17.png"/>
+<img class="formulaDsp" alt="\[ \tau = \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \! \left( \mathbf{q} \right) \]" src="form_27.png"/>
 </p>
 <p> and </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{V} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }. \]" src="form_18.png"/>
+<img class="formulaDsp" alt="\[ \frac{1}{2} \log \! \left| \mathbf{\Sigma} \! \left( \mathbf{q} \right) \right| + V ! \left( \mathbf{q} \right). \]" src="form_28.png"/>
+</p>
+<p>The Poisson operators are defined as </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{H} = \frac{1}{2} \hat{\phi} + \frac{1}{2} \hat{\tau} + \hat{T} + \frac{1}{2} \hat{\tau} + \frac{1}{2} \hat{\phi}, \]" src="form_29.png"/>
+</p>
+<p> where </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }, \]" src="form_30.png"/>
+</p>
+ <p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} },\]" src="form_31.png"/>
+</p>
+<p> and </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{T} = p_{i} \left(\Lambda \right)^{ij} \frac{ \partial }{ \partial q_{j} }. \]" src="form_32.png"/>
 </p>
  </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acb576711498c09d8dab07a4ed33638a1"></a><!-- doxytag: member="dynamMetric::dynamMetric" ref="acb576711498c09d8dab07a4ed33638a1" args="(int dim)" -->
@@ -145,54 +211,78 @@ VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ad85ec21dd93feade188748989edf8071"></a><!-- doxytag: member="dynamMetric::fHatA" ref="ad85ec21dd93feade188748989edf8071" args="(double epsilon)=0" -->
+<a class="anchor" id="ab3bbc68536f477fcdeb855907fbfb113"></a><!-- doxytag: member="dynamMetric::fHatPhi" ref="ab3bbc68536f477fcdeb855907fbfb113" args="(const double epsilon)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void dynamMetric::fHatA </td>
+          <td class="memname">void dynamMetric::fHatPhi </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>epsilon</em></td><td>)</td>
-          <td><code> [protected, pure virtual]</code></td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <p>Evolve </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\mathcal{A}} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{i} }.\]" src="form_19.png"/>
-</p>
-<p> The completely time reversible implementation improves the total error by about an order of magnitude. </p>
-
-<p>Implemented in <a class="el" href="classdense_bkgd_bs_metric.html#a552f1fcdeb36fadafca204d431366d01">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a4175e9d461c5ec0a744624845b297785">denseFisherMetric</a>, and <a class="el" href="classdiag_bkgd_bs_metric.html#abfe3f1e79e5835875f06b19e47961e17">diagBkgdBsMetric</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a35570971a3b115b5b5f7189a86ae2b19"></a><!-- doxytag: member="dynamMetric::fHatF" ref="a35570971a3b115b5b5f7189a86ae2b19" args="(double epsilon)=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void dynamMetric::fHatF </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>epsilon</em></td><td>)</td>
-          <td><code> [protected, pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Evolve </p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{F} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]" src="form_20.png"/>
+<img class="formulaDsp" alt="\[ \hat{\phi} = \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} \log \! \left| \mathbf{\Sigma} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]" src="form_35.png"/>
 </p>
  
-<p>Implemented in <a class="el" href="classdense_bkgd_bs_metric.html#a8b24827256190407c02b2a2b98dc6ba6">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a9db27462d36b540b4d6a464532646188">denseFisherMetric</a>, and <a class="el" href="classdiag_bkgd_bs_metric.html#a08e87ea49e5dbcff47db66fa9b938722">diagBkgdBsMetric</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a381eeb5c1f4c95630d68430c5ed018ad"></a><!-- doxytag: member="dynamMetric::fHatTau" ref="a381eeb5c1f4c95630d68430c5ed018ad" args="(const double epsilon, const int numFixedPoint)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void dynamMetric::fHatTau </td>
+          <td>(</td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>epsilon</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>numFixedPoint</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Evolve </p>
+<p class="formulaDsp">
+<img class="formulaDsp" alt="\[ \hat{\tau} = - \frac{\partial}{\partial q_{k}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{k} }.\]" src="form_34.png"/>
+</p>
+ 
+</div>
+</div>
+<a class="anchor" id="a0c30aa0f32b8822d359cd3b67592e0c4"></a><!-- doxytag: member="dynamMetric::fPrepareSpatialGradients" ref="a0c30aa0f32b8822d359cd3b67592e0c4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void dynamMetric::fPrepareSpatialGradients </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Update any position-dependent auxiliary terms in preparation for spatial gradients </p>
+
+<p>Reimplemented in <a class="el" href="classdiag_outer_soft_abs_metric.html#a8a9c48426877f55c4d3df9ca201bc8c6">diagOuterSoftAbsMetric</a>, <a class="el" href="classdiag_soft_abs_metric.html#a2ec3d153ba3da714d997ff382db8da8b">diagSoftAbsMetric</a>, <a class="el" href="classouter_soft_abs_metric.html#a7f344b0a46c82dbda680552746d79a84">outerSoftAbsMetric</a>, and <a class="el" href="classsoft_abs_metric.html#acb3b8090cd680c8bef3c2b15ee15009b">softAbsMetric</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aaaf5ce1b0fd46b197a9ce9cc32459c55"></a><!-- doxytag: member="dynamMetric::prepareEvolution" ref="aaaf5ce1b0fd46b197a9ce9cc32459c55" args="()=0" -->
+<a class="anchor" id="a3f60a5d4db2b1c1cf0a9f69d503c3e02"></a><!-- doxytag: member="dynamMetric::prepareEvolution" ref="a3f60a5d4db2b1c1cf0a9f69d503c3e02" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -200,7 +290,7 @@ VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
           <td class="memname">virtual void dynamMetric::prepareEvolution </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
+          <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -209,8 +299,9 @@ VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 
 <p>Reimplemented from <a class="el" href="classbase_hamiltonian.html#aa84e4d0258627ab9069395d8ba48fd96">baseHamiltonian</a>.</p>
 
-<p>Implemented in <a class="el" href="classdense_bkgd_bs_metric.html#a72a48ac25ac3d17fd8b5cfa28256a6e1">denseBkgdBsMetric</a>, <a class="el" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">denseFisherMetric</a>, and <a class="el" href="classdiag_bkgd_bs_metric.html#ae55cecd22e40f85c1316932c6fbc6da9">diagBkgdBsMetric</a>.</p>
-
+<p>Reimplemented in <a class="el" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">denseFisherMetric</a>, and <a class="el" href="classouter_soft_abs_metric.html#a00ebaf515cfe854deb81e499816d4ad8">outerSoftAbsMetric</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2main_8cpp-example.html#a30">examples/main.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -232,7 +323,7 @@ VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

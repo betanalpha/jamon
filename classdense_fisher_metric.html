@@ -65,7 +65,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">denseFisherMetric Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="denseFisherMetric" --><!-- doxytag: inherits="denseDynamMetric" -->
+<!-- doxytag: class="denseFisherMetric" --><!-- doxytag: inherits="dynamMetric" -->
 <p><code>#include &lt;<a class="el" href="dense_fisher_metric_8h_source.html">denseFisherMetric.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for denseFisherMetric:</div>
@@ -73,9 +73,9 @@ Inheritance diagram for denseFisherMetric:</div>
  <div class="center">
   <img src="classdense_fisher_metric.png" usemap="#denseFisherMetric_map" alt=""/>
   <map id="denseFisherMetric_map" name="denseFisherMetric_map">
-<area href="classdense_dynam_metric.html" alt="denseDynamMetric" shape="rect" coords="0,112,121,136"/>
-<area href="classdynam_metric.html" alt="dynamMetric" shape="rect" coords="0,56,121,80"/>
-<area href="classbase_hamiltonian.html" alt="baseHamiltonian" shape="rect" coords="0,0,121,24"/>
+<area href="classdynam_metric.html" alt="dynamMetric" shape="rect" coords="0,56,122,80"/>
+<area href="classbase_hamiltonian.html" alt="baseHamiltonian" shape="rect" coords="0,0,122,24"/>
+<area href="classfisher_bayes_log_reg.html" alt="fisherBayesLogReg" shape="rect" coords="0,168,122,192"/>
 </map>
  </div></div>
 
@@ -87,15 +87,9 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52d1a3ef52d4b71f84fad7313f2448ee"></a><!-- doxytag: member="denseFisherMetric::T" ref="a52d1a3ef52d4b71f84fad7313f2448ee" args="()" -->
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a52d1a3ef52d4b71f84fad7313f2448ee">T</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the kinetic energy. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa20bffd4c8df3753131289189a87c234"></a><!-- doxytag: member="denseFisherMetric::evolveQ" ref="aa20bffd4c8df3753131289189a87c234" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#aa20bffd4c8df3753131289189a87c234">evolveQ</a> (double epsilon)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the position through some time epsilon. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab015360e3cef5ac28b64e33908531e6"></a><!-- doxytag: member="denseFisherMetric::beginEvolveP" ref="aab015360e3cef5ac28b64e33908531e6" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#aab015360e3cef5ac28b64e33908531e6">beginEvolveP</a> (double epsilon)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through an initial half step of time epsilon. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0dffc748e1c6fe00c5fc91ead738ad1"></a><!-- doxytag: member="denseFisherMetric::finishEvolveP" ref="ab0dffc748e1c6fe00c5fc91ead738ad1" args="(double epsilon)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#ab0dffc748e1c6fe00c5fc91ead738ad1">finishEvolveP</a> (double epsilon)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Evolve the momenta through a final half step of time epsilon. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32d6a080c8ab1302f632ffedbe100827"></a><!-- doxytag: member="denseFisherMetric::tau" ref="a32d6a080c8ab1302f632ffedbe100827" args="()" -->
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a32d6a080c8ab1302f632ffedbe100827">tau</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the quadratic form of the kinetic energy. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a211ae2303ce5cd6514cbda55a23ffc19">bounceP</a> (const VectorXd &amp;normal)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab188d3ce5c3da23960983cdfb271222c"></a><!-- doxytag: member="denseFisherMetric::G" ref="ab188d3ce5c3da23960983cdfb271222c" args="()" -->
 MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#ab188d3ce5c3da23960983cdfb271222c">G</a> ()</td></tr>
@@ -104,22 +98,33 @@ MatrixXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" 
 LLT&lt; MatrixXd &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#aac65decdd8befae1297b9f4527304c31">GL</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the Cholesky decompositio of the Fisher-Rao metric. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a0c4e917fe90a9d601a74fdcbe76ff63b">sampleP</a> (Random &amp;random)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a825e0fda4cf512e5186abfc54be03dc8">checkEvolution</a> (double epsilon=1e-6)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparing the evolution implementations with finite differences.  <a href="#a825e0fda4cf512e5186abfc54be03dc8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a6e96b40a1bf96661995a1a8fec39e0f4">displayState</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display current state.  <a href="#a6e96b40a1bf96661995a1a8fec39e0f4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#adc5acd61ed94a60fc55e3d53457c2094">checkEvolution</a> (const double epsilon=1e-6)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Comparing the evolution implementations with finite differences.  <a href="#adc5acd61ed94a60fc55e3d53457c2094"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e96b40a1bf96661995a1a8fec39e0f4"></a><!-- doxytag: member="denseFisherMetric::displayState" ref="a6e96b40a1bf96661995a1a8fec39e0f4" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a6e96b40a1bf96661995a1a8fec39e0f4">displayState</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Display current state. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a0ddc8c750c29c808f4bd613c00c11a2b">prepareEvolution</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="accafabf0847cd582b62cf701104fd8a3"></a><!-- doxytag: member="denseFisherMetric::fComputeMetric" ref="accafabf0847cd582b62cf701104fd8a3" args="()" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#accafabf0847cd582b62cf701104fd8a3">fComputeMetric</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the metric at the current position. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0943299c463eb6b88b97f95291cda523"></a><!-- doxytag: member="denseFisherMetric::fComputeG" ref="a0943299c463eb6b88b97f95291cda523" args="()=0" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a0943299c463eb6b88b97f95291cda523">fComputeG</a> ()=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the denseFisher-Rao metric at the current position. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the Fisher-Rao metric. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaae9bb8e62cbbdea5b45c32b66aaa9ae"></a><!-- doxytag: member="denseFisherMetric::fComputeGradG" ref="aaae9bb8e62cbbdea5b45c32b66aaa9ae" args="(int i)=0" -->
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#aaae9bb8e62cbbdea5b45c32b66aaa9ae">fComputeGradG</a> (int i)=0</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the ith component of the gradient of the denseFisher-Rao metric. <br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the ith component of the gradient of the Fisher-Rao metric. <br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a1bfec2fe099747f56953632c128fa43c">fComputeCholeskyG</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a4175e9d461c5ec0a744624845b297785">fHatA</a> (double epsilon)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a9db27462d36b540b4d6a464532646188">fHatF</a> (double epsilon)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a24eb87475c95ee4b88a9dbeb441717ca"></a><!-- doxytag: member="denseFisherMetric::dTaudp" ref="a24eb87475c95ee4b88a9dbeb441717ca" args="()" -->
+VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a24eb87475c95ee4b88a9dbeb441717ca">dTaudp</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the quadrtic form with respect to the momenta. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4efb5c036d42966a8edb6fb24d652fa"></a><!-- doxytag: member="denseFisherMetric::dTaudq" ref="ab4efb5c036d42966a8edb6fb24d652fa" args="()" -->
+VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#ab4efb5c036d42966a8edb6fb24d652fa">dTaudq</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the quadratic form with respect to the position. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2477cc0dc7b6f3f5ef603f5cf9bdae9"></a><!-- doxytag: member="denseFisherMetric::dPhidq" ref="aa2477cc0dc7b6f3f5ef603f5cf9bdae9" args="()" -->
+VectorXd &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#aa2477cc0dc7b6f3f5ef603f5cf9bdae9">dPhidq</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gradient of the psuedo-potential with respect to the momenta. <br/></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8016a0c0c46d014c812634a4306db24a"></a><!-- doxytag: member="denseFisherMetric::mG" ref="a8016a0c0c46d014c812634a4306db24a" args="" -->
@@ -134,9 +139,6 @@ LLT&lt; MatrixXd &gt;&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7af4f66d83228caff454fdba303488ce"></a><!-- doxytag: member="denseFisherMetric::mC" ref="a7af4f66d83228caff454fdba303488ce" args="" -->
 VectorXd&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a7af4f66d83228caff454fdba303488ce">mC</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional auxiliary vector for efficient matrix computations. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a093a0a637a7410ca214814a5e1978868"></a><!-- doxytag: member="denseFisherMetric::mLogDetG" ref="a093a0a637a7410ca214814a5e1978868" args="" -->
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdense_fisher_metric.html#a093a0a637a7410ca214814a5e1978868">mLogDetG</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Log determinant of the denseFisher-Rao metric. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="author"><dt><b>Author:</b></dt><dd>Michael Betancourt</dd></dl>
@@ -193,14 +195,14 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
-<a class="anchor" id="a825e0fda4cf512e5186abfc54be03dc8"></a><!-- doxytag: member="denseFisherMetric::checkEvolution" ref="a825e0fda4cf512e5186abfc54be03dc8" args="(double epsilon=1e&#45;6)" -->
+<a class="anchor" id="adc5acd61ed94a60fc55e3d53457c2094"></a><!-- doxytag: member="denseFisherMetric::checkEvolution" ref="adc5acd61ed94a60fc55e3d53457c2094" args="(const double epsilon=1e&#45;6)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void denseFisherMetric::checkEvolution </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>epsilon</em> = <code>1e-6</code></td><td>)</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -217,28 +219,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
   </dd>
 </dl>
 
-<p>Reimplemented from <a class="el" href="classbase_hamiltonian.html#a5488a439ad5b55e245b9023fc633d752">baseHamiltonian</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6e96b40a1bf96661995a1a8fec39e0f4"></a><!-- doxytag: member="denseFisherMetric::displayState" ref="a6e96b40a1bf96661995a1a8fec39e0f4" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void denseFisherMetric::displayState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Display current state. </p>
-<p>Display the current state of the chain. </p>
-
-<p>Reimplemented from <a class="el" href="classbase_hamiltonian.html#a67fbb40853af9edefdc4a4fc75f23a76">baseHamiltonian</a>.</p>
+<p>Reimplemented from <a class="el" href="classbase_hamiltonian.html#a0981e5dd5fb245721a5b1b46f61610b0">baseHamiltonian</a>.</p>
 
 </div>
 </div>
@@ -259,53 +240,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 
 </div>
 </div>
-<a class="anchor" id="a4175e9d461c5ec0a744624845b297785"></a><!-- doxytag: member="denseFisherMetric::fHatA" ref="a4175e9d461c5ec0a744624845b297785" args="(double epsilon)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void denseFisherMetric::fHatA </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>epsilon</em></td><td>)</td>
-          <td><code> [protected, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Evolve </p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{\mathcal{A}} = - \frac{\partial}{\partial q_{i}} \left( \frac{1}{2} p_{i} p_{j} \Lambda^{ij} \right) \frac{ \partial }{ \partial p_{i} }.\]" src="form_19.png"/>
-</p>
-<p> The completely time reversible implementation improves the total error by about an order of magnitude. </p>
-
-<p>Implements <a class="el" href="classdynam_metric.html#ad85ec21dd93feade188748989edf8071">dynamMetric</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9db27462d36b540b4d6a464532646188"></a><!-- doxytag: member="denseFisherMetric::fHatF" ref="a9db27462d36b540b4d6a464532646188" args="(double epsilon)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void denseFisherMetric::fHatF </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>epsilon</em></td><td>)</td>
-          <td><code> [protected, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<p>Evolve </p>
-<p class="formulaDsp">
-<img class="formulaDsp" alt="\[ \hat{F} = - \frac{\partial}{\partial q_{i}} \left( - \frac{1}{2} \log \! \left| \mathbf{\Lambda} \right| + V \right) \frac{ \partial }{ \partial p_{i} }\]" src="form_20.png"/>
-</p>
- 
-<p>Implements <a class="el" href="classdynam_metric.html#a35570971a3b115b5b5f7189a86ae2b19">dynamMetric</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a0ddc8c750c29c808f4bd613c00c11a2b"></a><!-- doxytag: member="denseFisherMetric::prepareEvolution" ref="a0ddc8c750c29c808f4bd613c00c11a2b" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -321,8 +255,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <div class="memdoc">
 <p>Perform any necessary calculations before simulation Hamiltonian dynamics </p>
 
-<p>Implements <a class="el" href="classdynam_metric.html#aaaf5ce1b0fd46b197a9ce9cc32459c55">dynamMetric</a>.</p>
-
+<p>Reimplemented from <a class="el" href="classdynam_metric.html#a3f60a5d4db2b1c1cf0a9f69d503c3e02">dynamMetric</a>.</p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2main_8cpp-example.html#a51">examples/main.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="a0c4e917fe90a9d601a74fdcbe76ff63b"></a><!-- doxytag: member="denseFisherMetric::sampleP" ref="a0c4e917fe90a9d601a74fdcbe76ff63b" args="(Random &amp;random)" -->
@@ -348,7 +283,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </dl>
 
 <p>Implements <a class="el" href="classbase_hamiltonian.html#a97c5518eab863579bebce29856958999">baseHamiltonian</a>.</p>
-
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="examples_2main_8cpp-example.html#a50">examples/main.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -370,7 +306,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Mar 13 2012 23:31:05 by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Tue Dec 18 2012 11:55:12 by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>
