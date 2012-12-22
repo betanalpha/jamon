@@ -1,0 +1,18 @@
+First, make sure you've downloaded 
+and installed the randomlib library
+    http://randomlib.sourceforge.net/
+
+and the Eigen headers,
+    http://eigen.tuxfamily.org/
+
+Optional plotting requires gnuplot
+    http://www.gnuplot.info/
+
+Assuming that randomlib and Eigen have 
+been installed in /usr/local, running 
+the examples is as simple as
+    make all
+
+Note that all of the examples can take
+a few hours to run -- reduce the number
+of the SoftAbs samples to speed things up.
