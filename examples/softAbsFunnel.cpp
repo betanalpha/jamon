@@ -48,19 +48,19 @@ void softAbsFunnel::fComputeGradH(int i)
     
     if(i == 0)
     {
-        mGradH = - mH;
-        mGradH(0, 0) += 1.0 / 9.0;
+        mGradH.block(0, i * mDim, mDim, mDim) = - mH;
+        mGradH.block(0, i * mDim, mDim, mDim)(0, 0) += 1.0 / 9.0;
         
         return;
     }
     
-    mGradH.setZero();
+    mGradH.block(0, i * mDim, mDim, mDim).setZero();
     
-    mGradH(0, 0) = mQ(i);
-    mGradH(i, 0) = -1.0;
-    mGradH(0, i) = -1.0;
+    mGradH.block(0, i * mDim, mDim, mDim)(0, 0) = mQ(i);
+    mGradH.block(0, i * mDim, mDim, mDim)(i, 0) = -1.0;
+    mGradH.block(0, i * mDim, mDim, mDim)(0, i) = -1.0;
     
-    mGradH *= exp( - mQ(0) );
+    mGradH.block(0, i * mDim, mDim, mDim) *= exp( - mQ(0) );
     
 }
 

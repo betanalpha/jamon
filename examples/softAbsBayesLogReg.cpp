@@ -117,7 +117,7 @@ void softAbsBayesLogReg::fComputeGradH(int i)
         
     }
     
-    mGradH.noalias() = mData.transpose() * mS.asDiagonal() * mData;
+    mGradH.block(0, i * mDim, mDim, mDim) = mData.transpose() * mS.asDiagonal() * mData;
     
 }
 
